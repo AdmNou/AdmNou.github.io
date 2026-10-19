@@ -1,207 +1,414 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>竞品分析 · 京东AI购 v2（含第一手实测）· 2026-10-12</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-background:#f7f8fa;color:#1a1d21;line-height:1.8;-webkit-font-smoothing:antialiased}
-.wrap{max-width:980px;margin:0 auto;padding:32px 20px 70px}
-header{background:#fff;border:1px solid #e6e9ee;border-radius:14px;padding:26px 30px;margin-bottom:20px}
-h1{font-size:23px;font-weight:700;letter-spacing:-.2px}
-.meta{color:#5b6470;font-size:13.5px;margin-top:8px}
-.tags{margin-top:10px}
-.tag{display:inline-block;background:#f1f4f9;color:#5b6470;font-size:12px;padding:3px 11px;border-radius:20px;margin:0 6px 6px 0}
-section{background:#fff;border:1px solid #e6e9ee;border-radius:14px;padding:24px 28px;margin-bottom:18px}
-h2{font-size:17.5px;font-weight:700;margin:0 0 8px;display:flex;align-items:center;gap:9px}
-h2::before{content:"";width:4px;height:17px;background:#2563eb;border-radius:2px}
-h3{font-size:15px;font-weight:700;margin:18px 0 6px;color:#111}
-p{color:#374151;font-size:14px;margin:8px 0}
-ul{margin:8px 0 10px 20px}
-li{color:#374151;font-size:14px;margin:5px 0}
-b{color:#111}
-table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
-th{background:#f1f4f9;font-weight:600;color:#5b6470;font-size:12.5px;text-align:left}
-th,td{padding:8px 10px;border:1px solid #eef1f5;vertical-align:top;text-align:left}
-.small{font-size:12.5px;color:#8b95a1}
-.grade{display:inline-block;font-size:11px;font-weight:700;border-radius:5px;padding:1px 7px}
-.gB{background:#dbeafe;color:#1d4ed8}.gC{background:#fef3c7;color:#b45309}.gD{background:#e5e7eb;color:#4b5563}
-.first{background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #2563eb;border-radius:8px;
-padding:13px 17px;font-size:13.5px;color:#1e3a5f;margin:12px 0}
-.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;border-radius:8px;
-padding:12px 16px;font-size:13.5px;color:#065f46;margin:12px 0}
-.shot{margin:14px 0}
-.shot img{width:min(300px,42vw);border:1px solid #e2e8f0;border-radius:10px;display:block}
-.shot .cap{font-size:12.5px;color:#5b6470;margin-top:5px}
-.shotrow{display:flex;gap:14px;flex-wrap:wrap}
-.shotrow .shot img{width:min(232px,30vw)}
-a{color:#2563eb;text-decoration:none;font-weight:600}
-a:hover{text-decoration:underline}
-footer{text-align:center;color:#8b95a1;font-size:12.5px;padding:8px}
-</style>
-<link rel="stylesheet" href="../assets/apple-fx.css"></head><body>
-<nav id="nav">
-  <span class="brand">钟京松 · 作品集</span>
-  <a href="/">首页</a>
-  <a href="/mvp/index.html">选一本 MVP</a>
-  <a href="/evaluation/index.html">质量验证</a>
-  <a href="/analysis/index.html" class="on">竞品调研</a>
-  <a href="/aigc/index.html">运营笔记</a>
-  <a href="/reviews/index.html">评价运营</a>
-  <a href="/prompts/index.html">Prompt 模板</a>
-</nav>
-<div class="wrap">
-
-<header>
-  <h1>竞品调研 · 京东AI购运营打法拆解 <span style="font-size:14px;color:#5b6470;font-weight:500">v2（含第一手实测）</span></h1>
-  <div class="meta">调研视角：「选一本」运营负责人（产品运营）｜ 成稿 2026-10-12 ｜ 事实截至 2026-10-12（公开来源检索日 + 本人当日实测）</div>
-  <div class="tags">
-    <span class="tag">选品理由</span><span class="tag">产品事实层</span><span class="tag">公开实测证据链</span>
-    <span class="tag">第一手实测 12 图</span><span class="tag">运营模型拆解</span><span class="tag">3 个改进建议</span><span class="tag">面试 5 问</span>
-  </div>
-  <p class="small" style="margin-top:10px">v2 变更：新增 §6 第一手实测（12 张截图，2026-10-12 本人实际操作），两条发现超出公开实测覆盖范围。边界声明：产品事实与公开实测标注来源等级；第一手记录为本人实测，未虚构。来源等级：A官方 / B可核验 / C具名二手 / D自媒体。</p>
-</header>
-
-<section>
-  <h2>0 · 为什么调研京东AI购（运营视角的选题逻辑）</h2>
-  <ul>
-    <li><b>直接竞品</b>：大厂 AI 原生购物入口，与「选一本」（AI 导购/选购决策）同赛道，调研有对位价值。</li>
-    <li><b>真实可获得</b>：已上线 App Store / 安卓，任何人都能下载验证——本报告的 §6 就是我自己下载走完的。</li>
-    <li><b>公开事实可核验</b>：上线时间、功能结构、规模数据、媒体实测均有具名来源。</li>
-    <li><b>更重要的是</b>：它把 AI 导购的运营玩法做得最全——任务系统、京豆货币化、邀请裂变、定期复购。这些正是产品运营要研究的东西：一个工具型产品怎么让用户天天回来。</li>
-  </ul>
-</section>
-
-<section>
-  <h2>1 · 产品事实层（每个数带来源）</h2>
-  <table>
-    <tr><th style="width:16%">维度</th><th style="width:52%">事实</th><th>来源（等级）</th></tr>
-    <tr><td>上线时间</td><td>2025-12-26 上线独立 App「京东AI购」，初期内测（邀请码），登陆 App Store</td><td><span class="grade gC">C</span> <a href="https://baike.baidu.com/item/%E4%BA%AC%E4%B8%9CAI%E8%B4%AD/67966173">百度百科</a>；<a href="https://www.toutiao.com/article/7589226883091284532/">智东西 2025-12-29 实测</a></td></tr>
-    <tr><td>定位</td><td>「电商+生活服务」AI 原生入口，对标美团 AI「小美」（2025-09 推出）</td><td><span class="grade gC">C</span> 百度百科；智东西</td></tr>
-    <tr><td>技术底座</td><td>京东自研言犀大模型</td><td><span class="grade gC">C</span> 百度百科；智东西</td></tr>
-    <tr><td>产品结构</td><td>双一级 Tab：「陪伴」（生活场景管家：打理小家/带娃日记/养宠生活/省钱助手/美妆护肤/运动健身/上班搭子/户外生活/爱车一族）+「爱购」（省钱 Go + 预设话题卡片 + 底部快捷标签：特价茶饮/省钱/AI任务/赚京豆）</td><td><span class="grade gB">B</span> 本人实测（§6 图 1/9）+ <span class="grade gC">C</span> 智东西</td></tr>
-    <tr><td>核心功能</td><td>对话导购、AI 试穿（男女分tab + 6 类场景 + 商品瀑布流）、AI 省钱助手（购物车商品 / 上传任意平台截图 / 持续盯价）、任务系统（定期复购/价格监控/优惠搜寻/日常提醒）、赚京豆（签到/邀请/任务导流/京豆抵现）</td><td><span class="grade gB">B</span> 本人实测（§6 图 2/4/5/6/8）</td></tr>
-    <tr><td>生态整合</td><td>打通京东零售、京东外卖、七鲜、京东健康；交易在京东体系内闭环</td><td><span class="grade gC">C</span> 百度百科</td></tr>
-    <tr><td>规模数据</td><td>截至 2026Q1：京东 App 内「京言」辅助购物用户近 8,000 万（同比 +200%）；AI 导购年活突破 1.5 亿；渗透率超 20%</td><td><span class="grade gC">C</span> 百度百科引京东数据（<b>平台自报，非审计数</b>）</td></tr>
-  </table>
-</section>
-
-<section>
-  <h2>1.5 · 竞品全景：京东AI购 在四层竞争格局里的位置</h2>
-  <p>判断竞品的标准不是「功能像不像」，而是用户在「选笔记本」这个决策时刻还握着哪些替代选项（JTBD：用户雇佣产品来完成的任务；科特勒竞争四层次）。按这个标准分四层：</p>
-  <table>
-    <tr><th style="width:16%">层级</th><th style="width:40%">竞品</th><th>为什么算</th></tr>
-    <tr><td><b>直接竞品</b>（AI 原生导购）</td><td><b>京东AI购</b>（本报告主角）、豆包帮你选 / 千问 App、淘宝 AI 购物助手、美团问小团、元宝 / 文心；<b>国际：Amazon Rufus（累计用户超 2.5 亿）、Google AI Mode 一站式购物（UCP 协议）、ChatGPT Instant Checkout（ACP 协议）、Perplexity × PayPal</b></td><td>同一 JTBD（帮用户选对商品）、AI 原生交互、可下载实测</td></tr>
-    <tr><td><b>最被低估的一层</b></td><td><b>通用大模型本身</b>（ChatGPT / Claude / Gemini / Kimi / DeepSeek / 豆包）</td><td>用户直接把需求丢给通用 AI：「帮我选一台笔记本」。麦肯锡：购物建议已是美国生成式 AI 第二大用途 <span class="grade gB">B</span></td></tr>
-    <tr><td><b>间接竞品</b>（信息源）</td><td>ZOL 在线（参数库+榜单）、京东/天猫筛选器、什么值得买 / 慢慢买（比价）</td><td>同一需求、非 AI 形态：解决「查得到」，不解决「看得懂」</td></tr>
-    <tr><td><b>形式竞品</b>（经验层）</td><td>小红书 / 知乎 / B站测评、学长建议、电脑城、品牌官网配置器</td><td>同一需求的非产品方案；小红书同时是选一本的内容冷启动渠道</td></tr>
-  </table>
-  <div class="first"><b>对「选一本」最有利的公开数据</b>：上海消保委 4,308 份问卷——<b>84.56% 的消费者用过 AI 购物功能，仅 16.06% 认为 AI 能准确匹配商品</b>（超八成认为不可靠）<span class="grade gB">B</span>。<b>「AI 导购很多、被信任的很少」——这就是「可解释推荐 + 中立无 CPS + 预算硬过滤」的实证论据。</b></div>
-  <p class="small">格局结论（面试可讲）：大厂全部在争「对话框即购物入口」，但全部是横向通用导购 + 绑定自家交易；垂直场景（新生笔记本 × 专业软件负载）+ 中立 + 可解释，仍是空位。</p>
-</section>
-
-<section>
-  <h2>2 · 公开实测证据链（转载已归并）</h2>
-  <p>主体证据为<a href="https://m.thepaper.cn/newsDetail_forward_33183295">澎湃新闻 2026-05 深度实测</a>（与网界网等转载为同一实测，归并为一条证据链）；补充<a href="https://www.toutiao.com/article/7589226883091284532/">智东西 2025-12 首测</a>与 <a href="https://www.neican.ai/insights/aiaiai-20260526101003198-1">AI内参 2026-05 三方横评</a>。均为 C 级具名来源。</p>
-  <table>
-    <tr><th style="width:14%">场景</th><th style="width:44%">实测表现（澎湃，2026-05）</th><th>暴露的问题</th></tr>
-    <tr><td>AI 试穿</td><td>设计细：可选手动身高/体重/体型+上传照片生成 AI 形象，也支持跨店搭配</td><td>执行没到位：选梨形身材仍出标准身材效果；还原度低；<b>只能试系统推荐范围内的款</b>；连续换衣发型发色跟着变；男装页推女装</td></tr>
-    <tr><td>点外卖</td><td>一句话可推荐商家并快捷下单；有「定期复购」自动回购</td><td>推荐品类单一；门店距离普遍超 5 公里（<b>不理解「附近」</b>）；定期复购多次失败</td></tr>
-    <tr><td>商品推荐</td><td>一轮对话给多品牌清单，适合「尝鲜」</td><td>品牌集中（第一轮多为同品牌）；「爱购」瀑布流与浏览记录强相关</td></tr>
-    <tr><td>比价/找优惠</td><td><b>实测最强项</b>：同款比价推荐指向明确、价格更低</td><td>依赖京东站内生态，不做全网比价</td></tr>
-  </table>
-  <div class="first"><b>与第一手实测的交叉验证：</b>澎湃的「不理解附近」「只能试推荐款」两条，在本人的 2026-10-12 实测中被独立复现（见 §6 发现 3、6）——公开报道的问题在我手里依然存在，这不是一篇过时报道，是产品的稳定性问题。</div>
-</section>
-
-<section>
-  <h2>3 · 运营模型拆解（事实 + 推断已分标）</h2>
-  <table>
-    <tr><th style="width:14%">环节</th><th style="width:56%">分析</th><th>性质</th></tr>
-    <tr><td>获客</td><td>独立 App 冷启动：内测邀请码制造稀缺 + 京东主站导流（8,000 万京言用户池）；侧边菜单可见用户账号体系（jd_dlw39y0hozn6h·东凤镇）</td><td>事实+推断</td></tr>
-    <tr><td>激活</td><td>「爱购」预设话题卡片把「第一句说什么」替用户写好，降低输入门槛——好设计；但对话逻辑仍接近货架电商（对话≈搜索框）</td><td>事实（实测）+推断</td></tr>
-    <tr><td>留存</td><td>双层留存：①「陪伴」tab 用生活场景管家（带娃/养宠/爱车…）占住非购物心智，我的「打理小家」显示陪伴 124 天；②京豆货币化（签到/邀请/任务/抵现，560 京豆 = 5.6 元）</td><td>事实（实测）+推断</td></tr>
-    <tr><td>复购</td><td>任务系统（定期复购/价格监控）锁定日用品消耗场景；公开实测其完成率不稳</td><td>事实+推断</td></tr>
-    <tr><td>变现</td><td>绑定自家交易闭环（零售/外卖/七鲜/健康）+ 京豆抵现形成站内货币；无 CPS 中立性问题，也无全网比价——生态即天花板</td><td>事实+推断</td></tr>
-  </table>
-  <p class="small">竞争格局（澎湃 2026-05）：淘宝=千问嵌入主站（2026-05-11 全面打通），京东=独立 App，豆包帮你选=抖音电商闭环，Gemini 也支持对话内购物——大厂全部在争「对话框即入口」。</p>
-</section>
-
-<section>
-  <h2>4 · 对「选一本」的启示（只写有证据支撑的）</h2>
-  <table>
-    <tr><th style="width:26%">京东暴露的问题（有实测证据）</th><th>对选一本意味着什么</th></tr>
-    <tr><td>设计层到位、执行层没跟上（试穿/附近/复购三处，公开实测+我的一手复现）</td><td>选一本的核心是<b>可解释匹配</b>：五维权重用户可调、推荐理由可见——把「能解释」做成对「不能解释」的差异</td></tr>
-    <tr><td><b>预算约束失效</b>：问「4000 元预算跑 PS 的笔记本」，推荐列表 5 款里 3 款 ¥5,799（超预算 43%）——§6 发现 8</td><td><b>预算是选购工具的第一性约束，不是偏好标签</b>。选一本的筛选器必须把预算当硬闸门（超预算项默认折叠或明确标注「超预算 X 元」），这条直接来自我对京东AI购的一手测试</td></tr>
-    <tr><td>推荐被历史记录绑架（爱购=浏览相关）</td><td>选一本<b>无 CPS、不接厂家买路</b>的中立定位正打这个惯性；「贴链接给真话」要比「猜你喜欢」更敢说</td></tr>
-    <tr><td>专业场景匹配准确度低（AI内参横评）</td><td>「新生笔记本 × 专业软件负载」是通用导购不做的微观场景——垂直数据深度就是钉子点</td></tr>
-    <tr><td>比价是其实测最强项；AI 省钱助手支持上传任意平台截图</td><td>选一本的「贴链接避坑会诊」对比价场景，但必须回答「价格/参数数据从哪来、多久更新」——可信度是生死线</td></tr>
-  </table>
-  <h3>对「选一本」的运营启发（打法层，可落地）</h3>
-  <table>
-    <tr><th style="width:26%">运营打法</th><th>怎么用到「选一本」上</th></tr>
-    <tr><td><b>留存可以「轻」</b></td><td>京东用 9 个场景管家 + 签到 + 京豆把留存做进日常动线。选一本是工具型产品，用户买完机器就走——留存动作是「机型更新 / 价格波动 / 以旧换新节点」提醒，把一次性工具变成决策期伴随</td></tr>
-    <tr><td><b>促活靠「任务」不靠「推送」</b></td><td>任务系统的本质是给用户一个回访理由。选一本可设计「比价任务」「配置清单任务」——用户有事做，才会打开</td></tr>
-    <tr><td><b>裂变要双向给甜头</b></td><td>邀请好友新客+50/老客+2，双方都有获得感，比单边奖励的转发率高</td></tr>
-    <tr><td><b>复购自动化要先过「确认关」</b></td><td>定期复购失败一次就烧信任——加一张确认卡片再生成订单，成本极低，保住的是信任</td></tr>
-    <tr><td><b>转化的前提是「别推买不起的」</b></td><td>预算约束失效是共性硬伤（本人 24 场景实测实锤，见质量验证页），预算内优先是转化底线，不是加分项</td></tr>
-  </table>
-</section>
-
-<section>
-  <h2>5 · 给京东AI购 的三个可落地改进建议</h2>
-  <table>
-    <tr><th style="width:6%">#</th><th style="width:30%">建议</th><th style="width:38%">理由（对应实测证据）</th><th>验证指标</th></tr>
-    <tr><td>1</td><td>试穿生成后加「真实体型校准」三步流程（用户标出 3 个与实物不符的部位并回流）</td><td>实测最大槽点是「选了什么体型都出标准身材」——校准流程把一次生成变成可迭代的人机协同（澎湃实测 + 我的一手复现）</td><td>试穿结果采纳率、相关品类退货率变化</td></tr>
-    <tr><td>2</td><td>外卖推荐接入 LBS 置信度：门店超 5 公里时必须说明原因或主动给近距离替换</td><td>我实测推荐的「邻里手打柠檬茶」距 5.1km、约 37 分钟——超出日常外卖合理半径，「不理解附近」直接击穿使用场景</td><td>推荐门店点击率、下单转化率</td></tr>
-    <tr><td>3</td><td>「定期复购」改为「加购后推送待确认卡片」，用户一键确认再生成订单</td><td>公开实测多次出现不触发/加购错误——自动下单失败一次就烧掉信任；任务中心入口我已实测存在，缺的是确认闭环</td><td>复购任务完成率、功能留存</td></tr>
-  </table>
-</section>
-
-<section>
-  <h2>6 · 第一手实测记录（2026-10-12 · 本人 12 图）</h2>
-  <p>按「首页结构 → 核心功能 → 增长体系 → 深度场景」顺序走完，全部截图存档。关键发现 8 条，其中 3 条超出公开实测覆盖：</p>
-  <table>
-    <tr><th style="width:5%">#</th><th style="width:44%">发现</th><th>性质</th></tr>
-    <tr><td>1</td><td>双 Tab 结构：「陪伴」（9 个生活场景管家）+「爱购」（省钱 Go + 4 个餐食预设话题 + 底部 4 快捷标签）——「陪伴」是公开实测未覆盖的留存层</td><td class="small">图1/图9</td></tr>
-    <tr><td>2</td><td>AI 省钱助手：支持「从购物车选商品」+「上传任意平台的商品截图」+ 持续盯价——跨平台截图比价是真实入口</td><td class="small">图2</td></tr>
-    <tr><td>3</td><td>外卖推荐带评分/距离/时长/预估价；我实测推荐门店 <b>5.1km、约 37 分钟</b>——一手复现「不理解附近」</td><td class="small">图3</td></tr>
-    <tr><td>4</td><td>任务系统：定期复购/价格监控/优惠搜寻/日常提醒 + 独立任务中心，结构完整</td><td class="small">图4/图5</td></tr>
-    <tr><td>5</td><td>京豆增长体系：7 天签到（+3/+3/+6）、邀请好友（新客+50/老客+2）、任务导流（+2×3）、京豆抵现（560 京豆 = 5.6 元）——公开实测未覆盖的完整积分货币化留存设计</td><td class="small">图6/图7</td></tr>
-    <tr><td>6</td><td>AI 试穿：男女 Tab + 6 类场景 + 商品瀑布流，<b>无搜索框、只能逛系统推荐款</b>——一手复现澎湃「只能试推荐范围内的款」</td><td class="small">图8</td></tr>
-    <tr><td>7</td><td>历史记录按「今天/近半年」组织；我的历史里有一条「笔记本电脑需求」——历史即个性化数据源，也说明我真用过它问选机</td><td class="small">图10</td></tr>
-    <tr><td>8</td><td><b>笔记本场景实测</b>：「4000 元预算，能跑 PS 的笔记本」→ 思考链 5 步 → 给出两点专业建议（内存 ≥16G + 高色域屏）→ 但推荐 5 款中 <b>3 款 ¥5,799（超预算 43%）</b>；底部追问出现推荐列表之外的商品名「VisionBook 16Pro」（<b>疑似商品名幻觉</b>，列表内为荣耀 MagicBook X16 Pro）</td><td class="small">图11/图12</td></tr>
-  </table>
-
-  <h3>关键截图（全部 12 张存档于 analysis/shots/）</h3>
-  <div class="shotrow">
-    <div class="shot"><img src="shots/shot_01.jpg" alt="爱购首页"><div class="cap">图1 · 爱购首页：省钱 Go + 预设话题卡片</div></div>
-    <div class="shot"><img src="shots/shot_02.jpg" alt="AI省钱助手"><div class="cap">图2 · AI 省钱助手：购物车商品 / 上传截图</div></div>
-    <div class="shot"><img src="shots/shot_03.jpg" alt="外卖推荐5.1km"><div class="cap">图3 · 外卖推荐：5.1km、约 37 分钟（「不理解附近」一手复现）</div></div>
-  </div>
-  <div class="shotrow">
-    <div class="shot"><img src="shots/shot_05.jpg" alt="任务中心"><div class="cap">图5 · 任务中心：定期复购/价格监控/优惠搜寻/日常提醒</div></div>
-    <div class="shot"><img src="shots/shot_06.jpg" alt="赚京豆"><div class="cap">图6 · 赚京豆：签到/邀请/任务导流/抵现</div></div>
-    <div class="shot"><img src="shots/shot_11.jpg" alt="4000元预算推荐超预算"><div class="cap">图11 · 4000 元预算跑 PS：5 款推荐中 3 款 ¥5,799（预算约束失效）</div></div>
-  </div>
-</section>
-
-<section>
-  <h2>7 · 面试 5 问预演（答案只用本报告已写内容）</h2>
-  <table>
-    <tr><th style="width:34%">问题</th><th>答法要点</th></tr>
-    <tr><td>为什么选京东AI购 做竞品？</td><td>直接竞品 + 可下载验证 + 我完整实测过（12 张截图）；我不分析够不到的产品</td></tr>
-    <tr><td>它和豆包帮你选、淘宝千问的区别？</td><td>路径不同：淘宝把 AI 嵌进主站、京东做独立 App、豆包绑抖音闭环；生态决定行为——京东强在 3C 自营物流所以比价强，淘宝强在服装所以试穿强</td></tr>
-    <tr><td>数据哪来的，可信吗？</td><td>三块：澎湃/智东西实测（具名媒体）+ 京东自报规模数（已标明是自报）+ 我本人 2026-10-12 的实测截图；没拿到一手的我不装</td></tr>
-    <tr><td>让你改京东AI购，改哪三件事？</td><td>试穿体型校准、外卖 LBS 置信度、复购确认闭环——每条对应一个实测硬伤，各带验证指标</td></tr>
-    <tr><td>你实测中最意外的发现？</td><td>两个：① 4000 元预算它推 3 款 5799——预算约束失效，这让我更确认选一本要把预算当硬闸门；② 追问里出现列表外的商品名（VisionBook），疑似幻觉——AI 导购的可信度问题比我预期的大</td></tr>
-    <tr><td>这对你的「选一本」意味着什么？</td><td>大厂争通用横向入口；垂直场景（新生笔记本×专业软件负载）+ 中立无 CPS + 可解释推荐 + 预算硬过滤是空位；我不拼流量，拼这一个场景的数据深度</td></tr>
-  </table>
-</section>
-
-<footer>
-  来源：<a href="https://baike.baidu.com/item/%E4%BA%AC%E4%B8%9CAI%E8%B4%AD/67966173">百度百科（C）</a> ｜ <a href="https://www.toutiao.com/article/7589226883091284532/">智东西 2025-12-29（C）</a> ｜ <a href="https://m.thepaper.cn/newsDetail_forward_33183295">澎湃新闻 2026-05（C，主体证据）</a> ｜ <a href="https://www.neican.ai/insights/aiaiai-20260526101003198-1">AI内参 2026-05（C）</a> ｜ 第一手实测：本人 2026-10-12，12 张截图存 analysis/shots/ ｜ 网界网等为澎湃实测同源转载，已归并 ｜ 全部检索于 2026-10-12
-</footer>
-</div><script src="../assets/apple-fx.js" defer></script>
-</body></html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>竞品分析 · 京东AI购 v2（含第一手实测）· 2026-10-12</title>
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+
+background:#f7f8fa;color:#1a1d21;line-height:1.8;-webkit-font-smoothing:antialiased}
+
+.wrap{max-width:980px;margin:0 auto;padding:32px 20px 70px}
+
+header{background:#fff;border:1px solid #e6e9ee;border-radius:14px;padding:26px 30px;margin-bottom:20px}
+
+h1{font-size:23px;font-weight:700;letter-spacing:-.2px}
+
+.meta{color:#5b6470;font-size:13.5px;margin-top:8px}
+
+.tags{margin-top:10px}
+
+.tag{display:inline-block;background:#f1f4f9;color:#5b6470;font-size:12px;padding:3px 11px;border-radius:20px;margin:0 6px 6px 0}
+
+section{background:#fff;border:1px solid #e6e9ee;border-radius:14px;padding:24px 28px;margin-bottom:18px}
+
+h2{font-size:17.5px;font-weight:700;margin:0 0 8px;display:flex;align-items:center;gap:9px}
+
+h2::before{content:"";width:4px;height:17px;background:#2563eb;border-radius:2px}
+
+h3{font-size:15px;font-weight:700;margin:18px 0 6px;color:#111}
+
+p{color:#374151;font-size:14px;margin:8px 0}
+
+ul{margin:8px 0 10px 20px}
+
+li{color:#374151;font-size:14px;margin:5px 0}
+
+b{color:#111}
+
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+
+th{background:#f1f4f9;font-weight:600;color:#5b6470;font-size:12.5px;text-align:left}
+
+th,td{padding:8px 10px;border:1px solid #eef1f5;vertical-align:top;text-align:left}
+
+.small{font-size:12.5px;color:#8b95a1}
+
+.grade{display:inline-block;font-size:11px;font-weight:700;border-radius:5px;padding:1px 7px}
+
+.gB{background:#dbeafe;color:#1d4ed8}.gC{background:#fef3c7;color:#b45309}.gD{background:#e5e7eb;color:#4b5563}
+
+.first{background:#eff6ff;border:1px solid #bfdbfe;border-left:4px solid #2563eb;border-radius:8px;
+
+padding:13px 17px;font-size:13.5px;color:#1e3a5f;margin:12px 0}
+
+.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;border-radius:8px;
+
+padding:12px 16px;font-size:13.5px;color:#065f46;margin:12px 0}
+
+.shot{margin:14px 0}
+
+.shot img{width:min(300px,42vw);border:1px solid #e2e8f0;border-radius:10px;display:block}
+
+.shot .cap{font-size:12.5px;color:#5b6470;margin-top:5px}
+
+.shotrow{display:flex;gap:14px;flex-wrap:wrap}
+
+.shotrow .shot img{width:min(232px,30vw)}
+
+a{color:#2563eb;text-decoration:none;font-weight:600}
+
+a:hover{text-decoration:underline}
+
+footer{text-align:center;color:#8b95a1;font-size:12.5px;padding:8px}
+
+</style>
+
+<link rel="stylesheet" href="../assets/apple-fx.css"></head><body>
+
+<nav id="nav">
+
+  <span class="brand">佚名 · 作品集</span>
+
+  <a href="/">首页</a>
+
+  <a href="/mvp/index.html">选一本 MVP</a>
+
+  <a href="/evaluation/index.html">质量验证</a>
+
+  <a href="/analysis/index.html" class="on">竞品调研</a>
+
+  <a href="/aigc/index.html">运营笔记</a>
+
+  <a href="/reviews/index.html">评价运营</a>
+
+  <a href="/prompts/index.html">Prompt 模板</a>
+
+</nav>
+
+<div class="wrap">
+
+
+
+<header>
+
+  <h1>竞品调研 · 京东AI购运营打法拆解 <span style="font-size:14px;color:#5b6470;font-weight:500">v2（含第一手实测）</span></h1>
+
+  <div class="meta">调研视角：「选一本」运营负责人（产品运营）｜ 成稿 2026-10-12 ｜ 事实截至 2026-10-12（公开来源检索日 + 本人当日实测）</div>
+
+  <div class="tags">
+
+    <span class="tag">选品理由</span><span class="tag">产品事实层</span><span class="tag">公开实测证据链</span>
+
+    <span class="tag">第一手实测 12 图</span><span class="tag">运营模型拆解</span><span class="tag">3 个改进建议</span><span class="tag">面试 5 问</span>
+
+  </div>
+
+  <p class="small" style="margin-top:10px">v2 变更：新增 §6 第一手实测（12 张截图，2026-10-12 本人实际操作），两条发现超出公开实测覆盖范围。边界声明：产品事实与公开实测标注来源等级；第一手记录为本人实测，未虚构。来源等级：A官方 / B可核验 / C具名二手 / D自媒体。</p>
+
+</header>
+
+
+
+<section>
+
+  <h2>0 · 为什么调研京东AI购（运营视角的选题逻辑）</h2>
+
+  <ul>
+
+    <li><b>直接竞品</b>：大厂 AI 原生购物入口，与「选一本」（AI 导购/选购决策）同赛道，调研有对位价值。</li>
+
+    <li><b>真实可获得</b>：已上线 App Store / 安卓，任何人都能下载验证——本报告的 §6 就是我自己下载走完的。</li>
+
+    <li><b>公开事实可核验</b>：上线时间、功能结构、规模数据、媒体实测均有具名来源。</li>
+
+    <li><b>更重要的是</b>：它把 AI 导购的运营玩法做得最全——任务系统、京豆货币化、邀请裂变、定期复购。这些正是产品运营要研究的东西：一个工具型产品怎么让用户天天回来。</li>
+
+  </ul>
+
+</section>
+
+
+
+<section>
+
+  <h2>1 · 产品事实层（每个数带来源）</h2>
+
+  <table>
+
+    <tr><th style="width:16%">维度</th><th style="width:52%">事实</th><th>来源（等级）</th></tr>
+
+    <tr><td>上线时间</td><td>2025-12-26 上线独立 App「京东AI购」，初期内测（邀请码），登陆 App Store</td><td><span class="grade gC">C</span> <a href="https://baike.baidu.com/item/%E4%BA%AC%E4%B8%9CAI%E8%B4%AD/67966173">百度百科</a>；<a href="https://www.toutiao.com/article/7589226883091284532/">智东西 2025-12-29 实测</a></td></tr>
+
+    <tr><td>定位</td><td>「电商+生活服务」AI 原生入口，对标美团 AI「小美」（2025-09 推出）</td><td><span class="grade gC">C</span> 百度百科；智东西</td></tr>
+
+    <tr><td>技术底座</td><td>京东自研言犀大模型</td><td><span class="grade gC">C</span> 百度百科；智东西</td></tr>
+
+    <tr><td>产品结构</td><td>双一级 Tab：「陪伴」（生活场景管家：打理小家/带娃日记/养宠生活/省钱助手/美妆护肤/运动健身/上班搭子/户外生活/爱车一族）+「爱购」（省钱 Go + 预设话题卡片 + 底部快捷标签：特价茶饮/省钱/AI任务/赚京豆）</td><td><span class="grade gB">B</span> 本人实测（§6 图 1/9）+ <span class="grade gC">C</span> 智东西</td></tr>
+
+    <tr><td>核心功能</td><td>对话导购、AI 试穿（男女分tab + 6 类场景 + 商品瀑布流）、AI 省钱助手（购物车商品 / 上传任意平台截图 / 持续盯价）、任务系统（定期复购/价格监控/优惠搜寻/日常提醒）、赚京豆（签到/邀请/任务导流/京豆抵现）</td><td><span class="grade gB">B</span> 本人实测（§6 图 2/4/5/6/8）</td></tr>
+
+    <tr><td>生态整合</td><td>打通京东零售、京东外卖、七鲜、京东健康；交易在京东体系内闭环</td><td><span class="grade gC">C</span> 百度百科</td></tr>
+
+    <tr><td>规模数据</td><td>截至 2026Q1：京东 App 内「京言」辅助购物用户近 8,000 万（同比 +200%）；AI 导购年活突破 1.5 亿；渗透率超 20%</td><td><span class="grade gC">C</span> 百度百科引京东数据（<b>平台自报，非审计数</b>）</td></tr>
+
+  </table>
+
+</section>
+
+
+
+<section>
+
+  <h2>1.5 · 竞品全景：京东AI购 在四层竞争格局里的位置</h2>
+
+  <p>判断竞品的标准不是「功能像不像」，而是用户在「选笔记本」这个决策时刻还握着哪些替代选项（JTBD：用户雇佣产品来完成的任务；科特勒竞争四层次）。按这个标准分四层：</p>
+
+  <table>
+
+    <tr><th style="width:16%">层级</th><th style="width:40%">竞品</th><th>为什么算</th></tr>
+
+    <tr><td><b>直接竞品</b>（AI 原生导购）</td><td><b>京东AI购</b>（本报告主角）、豆包帮你选 / 千问 App、淘宝 AI 购物助手、美团问小团、元宝 / 文心；<b>国际：Amazon Rufus（累计用户超 2.5 亿）、Google AI Mode 一站式购物（UCP 协议）、ChatGPT Instant Checkout（ACP 协议）、Perplexity × PayPal</b></td><td>同一 JTBD（帮用户选对商品）、AI 原生交互、可下载实测</td></tr>
+
+    <tr><td><b>最被低估的一层</b></td><td><b>通用大模型本身</b>（ChatGPT / Claude / Gemini / Kimi / DeepSeek / 豆包）</td><td>用户直接把需求丢给通用 AI：「帮我选一台笔记本」。麦肯锡：购物建议已是美国生成式 AI 第二大用途 <span class="grade gB">B</span></td></tr>
+
+    <tr><td><b>间接竞品</b>（信息源）</td><td>ZOL 在线（参数库+榜单）、京东/天猫筛选器、什么值得买 / 慢慢买（比价）</td><td>同一需求、非 AI 形态：解决「查得到」，不解决「看得懂」</td></tr>
+
+    <tr><td><b>形式竞品</b>（经验层）</td><td>小红书 / 知乎 / B站测评、学长建议、电脑城、品牌官网配置器</td><td>同一需求的非产品方案；小红书同时是选一本的内容冷启动渠道</td></tr>
+
+  </table>
+
+  <div class="first"><b>对「选一本」最有利的公开数据</b>：上海消保委 4,308 份问卷——<b>84.56% 的消费者用过 AI 购物功能，仅 16.06% 认为 AI 能准确匹配商品</b>（超八成认为不可靠）<span class="grade gB">B</span>。<b>「AI 导购很多、被信任的很少」——这就是「可解释推荐 + 中立无 CPS + 预算硬过滤」的实证论据。</b></div>
+
+  <p class="small">格局结论（面试可讲）：大厂全部在争「对话框即购物入口」，但全部是横向通用导购 + 绑定自家交易；垂直场景（新生笔记本 × 专业软件负载）+ 中立 + 可解释，仍是空位。</p>
+
+</section>
+
+
+
+<section>
+
+  <h2>2 · 公开实测证据链（转载已归并）</h2>
+
+  <p>主体证据为<a href="https://m.thepaper.cn/newsDetail_forward_33183295">澎湃新闻 2026-05 深度实测</a>（与网界网等转载为同一实测，归并为一条证据链）；补充<a href="https://www.toutiao.com/article/7589226883091284532/">智东西 2025-12 首测</a>与 <a href="https://www.neican.ai/insights/aiaiai-20260526101003198-1">AI内参 2026-05 三方横评</a>。均为 C 级具名来源。</p>
+
+  <table>
+
+    <tr><th style="width:14%">场景</th><th style="width:44%">实测表现（澎湃，2026-05）</th><th>暴露的问题</th></tr>
+
+    <tr><td>AI 试穿</td><td>设计细：可选手动身高/体重/体型+上传照片生成 AI 形象，也支持跨店搭配</td><td>执行没到位：选梨形身材仍出标准身材效果；还原度低；<b>只能试系统推荐范围内的款</b>；连续换衣发型发色跟着变；男装页推女装</td></tr>
+
+    <tr><td>点外卖</td><td>一句话可推荐商家并快捷下单；有「定期复购」自动回购</td><td>推荐品类单一；门店距离普遍超 5 公里（<b>不理解「附近」</b>）；定期复购多次失败</td></tr>
+
+    <tr><td>商品推荐</td><td>一轮对话给多品牌清单，适合「尝鲜」</td><td>品牌集中（第一轮多为同品牌）；「爱购」瀑布流与浏览记录强相关</td></tr>
+
+    <tr><td>比价/找优惠</td><td><b>实测最强项</b>：同款比价推荐指向明确、价格更低</td><td>依赖京东站内生态，不做全网比价</td></tr>
+
+  </table>
+
+  <div class="first"><b>与第一手实测的交叉验证：</b>澎湃的「不理解附近」「只能试推荐款」两条，在本人的 2026-10-12 实测中被独立复现（见 §6 发现 3、6）——公开报道的问题在我手里依然存在，这不是一篇过时报道，是产品的稳定性问题。</div>
+
+</section>
+
+
+
+<section>
+
+  <h2>3 · 运营模型拆解（事实 + 推断已分标）</h2>
+
+  <table>
+
+    <tr><th style="width:14%">环节</th><th style="width:56%">分析</th><th>性质</th></tr>
+
+    <tr><td>获客</td><td>独立 App 冷启动：内测邀请码制造稀缺 + 京东主站导流（8,000 万京言用户池）；侧边菜单可见用户账号体系（jd_dlw39y0hozn6h·东凤镇）</td><td>事实+推断</td></tr>
+
+    <tr><td>激活</td><td>「爱购」预设话题卡片把「第一句说什么」替用户写好，降低输入门槛——好设计；但对话逻辑仍接近货架电商（对话≈搜索框）</td><td>事实（实测）+推断</td></tr>
+
+    <tr><td>留存</td><td>双层留存：①「陪伴」tab 用生活场景管家（带娃/养宠/爱车…）占住非购物心智，我的「打理小家」显示陪伴 124 天；②京豆货币化（签到/邀请/任务/抵现，560 京豆 = 5.6 元）</td><td>事实（实测）+推断</td></tr>
+
+    <tr><td>复购</td><td>任务系统（定期复购/价格监控）锁定日用品消耗场景；公开实测其完成率不稳</td><td>事实+推断</td></tr>
+
+    <tr><td>变现</td><td>绑定自家交易闭环（零售/外卖/七鲜/健康）+ 京豆抵现形成站内货币；无 CPS 中立性问题，也无全网比价——生态即天花板</td><td>事实+推断</td></tr>
+
+  </table>
+
+  <p class="small">竞争格局（澎湃 2026-05）：淘宝=千问嵌入主站（2026-05-11 全面打通），京东=独立 App，豆包帮你选=抖音电商闭环，Gemini 也支持对话内购物——大厂全部在争「对话框即入口」。</p>
+
+</section>
+
+
+
+<section>
+
+  <h2>4 · 对「选一本」的启示（只写有证据支撑的）</h2>
+
+  <table>
+
+    <tr><th style="width:26%">京东暴露的问题（有实测证据）</th><th>对选一本意味着什么</th></tr>
+
+    <tr><td>设计层到位、执行层没跟上（试穿/附近/复购三处，公开实测+我的一手复现）</td><td>选一本的核心是<b>可解释匹配</b>：五维权重用户可调、推荐理由可见——把「能解释」做成对「不能解释」的差异</td></tr>
+
+    <tr><td><b>预算约束失效</b>：问「4000 元预算跑 PS 的笔记本」，推荐列表 5 款里 3 款 ¥5,799（超预算 43%）——§6 发现 8</td><td><b>预算是选购工具的第一性约束，不是偏好标签</b>。选一本的筛选器必须把预算当硬闸门（超预算项默认折叠或明确标注「超预算 X 元」），这条直接来自我对京东AI购的一手测试</td></tr>
+
+    <tr><td>推荐被历史记录绑架（爱购=浏览相关）</td><td>选一本<b>无 CPS、不接厂家买路</b>的中立定位正打这个惯性；「贴链接给真话」要比「猜你喜欢」更敢说</td></tr>
+
+    <tr><td>专业场景匹配准确度低（AI内参横评）</td><td>「新生笔记本 × 专业软件负载」是通用导购不做的微观场景——垂直数据深度就是钉子点</td></tr>
+
+    <tr><td>比价是其实测最强项；AI 省钱助手支持上传任意平台截图</td><td>选一本的「贴链接避坑会诊」对比价场景，但必须回答「价格/参数数据从哪来、多久更新」——可信度是生死线</td></tr>
+
+  </table>
+
+  <h3>对「选一本」的运营启发（打法层，可落地）</h3>
+
+  <table>
+
+    <tr><th style="width:26%">运营打法</th><th>怎么用到「选一本」上</th></tr>
+
+    <tr><td><b>留存可以「轻」</b></td><td>京东用 9 个场景管家 + 签到 + 京豆把留存做进日常动线。选一本是工具型产品，用户买完机器就走——留存动作是「机型更新 / 价格波动 / 以旧换新节点」提醒，把一次性工具变成决策期伴随</td></tr>
+
+    <tr><td><b>促活靠「任务」不靠「推送」</b></td><td>任务系统的本质是给用户一个回访理由。选一本可设计「比价任务」「配置清单任务」——用户有事做，才会打开</td></tr>
+
+    <tr><td><b>裂变要双向给甜头</b></td><td>邀请好友新客+50/老客+2，双方都有获得感，比单边奖励的转发率高</td></tr>
+
+    <tr><td><b>复购自动化要先过「确认关」</b></td><td>定期复购失败一次就烧信任——加一张确认卡片再生成订单，成本极低，保住的是信任</td></tr>
+
+    <tr><td><b>转化的前提是「别推买不起的」</b></td><td>预算约束失效是共性硬伤（本人 24 场景实测实锤，见质量验证页），预算内优先是转化底线，不是加分项</td></tr>
+
+  </table>
+
+</section>
+
+
+
+<section>
+
+  <h2>5 · 给京东AI购 的三个可落地改进建议</h2>
+
+  <table>
+
+    <tr><th style="width:6%">#</th><th style="width:30%">建议</th><th style="width:38%">理由（对应实测证据）</th><th>验证指标</th></tr>
+
+    <tr><td>1</td><td>试穿生成后加「真实体型校准」三步流程（用户标出 3 个与实物不符的部位并回流）</td><td>实测最大槽点是「选了什么体型都出标准身材」——校准流程把一次生成变成可迭代的人机协同（澎湃实测 + 我的一手复现）</td><td>试穿结果采纳率、相关品类退货率变化</td></tr>
+
+    <tr><td>2</td><td>外卖推荐接入 LBS 置信度：门店超 5 公里时必须说明原因或主动给近距离替换</td><td>我实测推荐的「邻里手打柠檬茶」距 5.1km、约 37 分钟——超出日常外卖合理半径，「不理解附近」直接击穿使用场景</td><td>推荐门店点击率、下单转化率</td></tr>
+
+    <tr><td>3</td><td>「定期复购」改为「加购后推送待确认卡片」，用户一键确认再生成订单</td><td>公开实测多次出现不触发/加购错误——自动下单失败一次就烧掉信任；任务中心入口我已实测存在，缺的是确认闭环</td><td>复购任务完成率、功能留存</td></tr>
+
+  </table>
+
+</section>
+
+
+
+<section>
+
+  <h2>6 · 第一手实测记录（2026-10-12 · 本人 12 图）</h2>
+
+  <p>按「首页结构 → 核心功能 → 增长体系 → 深度场景」顺序走完，全部截图存档。关键发现 8 条，其中 3 条超出公开实测覆盖：</p>
+
+  <table>
+
+    <tr><th style="width:5%">#</th><th style="width:44%">发现</th><th>性质</th></tr>
+
+    <tr><td>1</td><td>双 Tab 结构：「陪伴」（9 个生活场景管家）+「爱购」（省钱 Go + 4 个餐食预设话题 + 底部 4 快捷标签）——「陪伴」是公开实测未覆盖的留存层</td><td class="small">图1/图9</td></tr>
+
+    <tr><td>2</td><td>AI 省钱助手：支持「从购物车选商品」+「上传任意平台的商品截图」+ 持续盯价——跨平台截图比价是真实入口</td><td class="small">图2</td></tr>
+
+    <tr><td>3</td><td>外卖推荐带评分/距离/时长/预估价；我实测推荐门店 <b>5.1km、约 37 分钟</b>——一手复现「不理解附近」</td><td class="small">图3</td></tr>
+
+    <tr><td>4</td><td>任务系统：定期复购/价格监控/优惠搜寻/日常提醒 + 独立任务中心，结构完整</td><td class="small">图4/图5</td></tr>
+
+    <tr><td>5</td><td>京豆增长体系：7 天签到（+3/+3/+6）、邀请好友（新客+50/老客+2）、任务导流（+2×3）、京豆抵现（560 京豆 = 5.6 元）——公开实测未覆盖的完整积分货币化留存设计</td><td class="small">图6/图7</td></tr>
+
+    <tr><td>6</td><td>AI 试穿：男女 Tab + 6 类场景 + 商品瀑布流，<b>无搜索框、只能逛系统推荐款</b>——一手复现澎湃「只能试推荐范围内的款」</td><td class="small">图8</td></tr>
+
+    <tr><td>7</td><td>历史记录按「今天/近半年」组织；我的历史里有一条「笔记本电脑需求」——历史即个性化数据源，也说明我真用过它问选机</td><td class="small">图10</td></tr>
+
+    <tr><td>8</td><td><b>笔记本场景实测</b>：「4000 元预算，能跑 PS 的笔记本」→ 思考链 5 步 → 给出两点专业建议（内存 ≥16G + 高色域屏）→ 但推荐 5 款中 <b>3 款 ¥5,799（超预算 43%）</b>；底部追问出现推荐列表之外的商品名「VisionBook 16Pro」（<b>疑似商品名幻觉</b>，列表内为荣耀 MagicBook X16 Pro）</td><td class="small">图11/图12</td></tr>
+
+  </table>
+
+
+
+  <h3>关键截图（全部 12 张存档于 analysis/shots/）</h3>
+
+  <div class="shotrow">
+
+    <div class="shot"><img src="shots/shot_01.jpg" alt="爱购首页"><div class="cap">图1 · 爱购首页：省钱 Go + 预设话题卡片</div></div>
+
+    <div class="shot"><img src="shots/shot_02.jpg" alt="AI省钱助手"><div class="cap">图2 · AI 省钱助手：购物车商品 / 上传截图</div></div>
+
+    <div class="shot"><img src="shots/shot_03.jpg" alt="外卖推荐5.1km"><div class="cap">图3 · 外卖推荐：5.1km、约 37 分钟（「不理解附近」一手复现）</div></div>
+
+  </div>
+
+  <div class="shotrow">
+
+    <div class="shot"><img src="shots/shot_05.jpg" alt="任务中心"><div class="cap">图5 · 任务中心：定期复购/价格监控/优惠搜寻/日常提醒</div></div>
+
+    <div class="shot"><img src="shots/shot_06.jpg" alt="赚京豆"><div class="cap">图6 · 赚京豆：签到/邀请/任务导流/抵现</div></div>
+
+    <div class="shot"><img src="shots/shot_11.jpg" alt="4000元预算推荐超预算"><div class="cap">图11 · 4000 元预算跑 PS：5 款推荐中 3 款 ¥5,799（预算约束失效）</div></div>
+
+  </div>
+
+</section>
+
+
+
+<section>
+
+  <h2>7 · 面试 5 问预演（答案只用本报告已写内容）</h2>
+
+  <table>
+
+    <tr><th style="width:34%">问题</th><th>答法要点</th></tr>
+
+    <tr><td>为什么选京东AI购 做竞品？</td><td>直接竞品 + 可下载验证 + 我完整实测过（12 张截图）；我不分析够不到的产品</td></tr>
+
+    <tr><td>它和豆包帮你选、淘宝千问的区别？</td><td>路径不同：淘宝把 AI 嵌进主站、京东做独立 App、豆包绑抖音闭环；生态决定行为——京东强在 3C 自营物流所以比价强，淘宝强在服装所以试穿强</td></tr>
+
+    <tr><td>数据哪来的，可信吗？</td><td>三块：澎湃/智东西实测（具名媒体）+ 京东自报规模数（已标明是自报）+ 我本人 2026-10-12 的实测截图；没拿到一手的我不装</td></tr>
+
+    <tr><td>让你改京东AI购，改哪三件事？</td><td>试穿体型校准、外卖 LBS 置信度、复购确认闭环——每条对应一个实测硬伤，各带验证指标</td></tr>
+
+    <tr><td>你实测中最意外的发现？</td><td>两个：① 4000 元预算它推 3 款 5799——预算约束失效，这让我更确认选一本要把预算当硬闸门；② 追问里出现列表外的商品名（VisionBook），疑似幻觉——AI 导购的可信度问题比我预期的大</td></tr>
+
+    <tr><td>这对你的「选一本」意味着什么？</td><td>大厂争通用横向入口；垂直场景（新生笔记本×专业软件负载）+ 中立无 CPS + 可解释推荐 + 预算硬过滤是空位；我不拼流量，拼这一个场景的数据深度</td></tr>
+
+  </table>
+
+</section>
+
+
+
+<footer>
+
+  来源：<a href="https://baike.baidu.com/item/%E4%BA%AC%E4%B8%9CAI%E8%B4%AD/67966173">百度百科（C）</a> ｜ <a href="https://www.toutiao.com/article/7589226883091284532/">智东西 2025-12-29（C）</a> ｜ <a href="https://m.thepaper.cn/newsDetail_forward_33183295">澎湃新闻 2026-05（C，主体证据）</a> ｜ <a href="https://www.neican.ai/insights/aiaiai-20260526101003198-1">AI内参 2026-05（C）</a> ｜ 第一手实测：本人 2026-10-12，12 张截图存 analysis/shots/ ｜ 网界网等为澎湃实测同源转载，已归并 ｜ 全部检索于 2026-10-12
+
+</footer>
+
+</div><script src="../assets/apple-fx.js" defer></script>
+
+</body></html>
+

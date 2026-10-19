@@ -1,87 +1,174 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AIGC 作品 ① · 三平台数据复盘：我把家里外卖店 6 个月的数据算明白了</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-background:#fff;color:#1f2933;line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:760px;margin:0 auto;padding:44px 22px 80px}
-.kicker{font-size:13px;font-weight:700;color:#2563eb;letter-spacing:.5px}
-h1{font-size:26px;font-weight:800;letter-spacing:-.4px;line-height:1.35;margin:10px 0 14px}
-.byline{color:#6b7280;font-size:13.5px;border-bottom:1px solid #e5e7eb;padding-bottom:16px;margin-bottom:24px}
-h2{font-size:19px;font-weight:700;margin:36px 0 10px;color:#111}
-p{color:#374151;margin:12px 0}
-strong{color:#111}
-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:16px 0}
-th,td{padding:9px 10px;border:1px solid #e5e7eb;text-align:left;vertical-align:top}
-th{background:#f3f4f6;font-weight:600;color:#4b5563;font-size:12.5px}
-.hl{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 18px;font-size:14px;color:#78350f;margin:16px 0}
-.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px 18px;font-size:14px;color:#065f46;margin:16px 0}
-.disclosure{border:1px dashed #cbd5e1;border-radius:10px;padding:14px 18px;font-size:13.5px;color:#475569;margin:28px 0;background:#f8fafc}
-ul{margin:10px 0 14px 22px;color:#374151}
-li{margin:6px 0}
-.back{display:inline-block;margin-top:30px;font-size:13.5px;color:#2563eb;text-decoration:none;font-weight:600}
-</style>
-<link rel="stylesheet" href="../assets/apple-fx.css"></head><body>
-<nav id="nav">
-  <span class="brand">钟京松 · 作品集</span>
-  <a href="/">首页</a>
-  <a href="/mvp/index.html">选一本 MVP</a>
-  <a href="/evaluation/index.html">质量验证</a>
-  <a href="/analysis/index.html">竞品调研</a>
-  <a href="/aigc/index.html" class="on">运营笔记</a>
-  <a href="/reviews/index.html">评价运营</a>
-  <a href="/prompts/index.html">Prompt 模板</a>
-</nav>
-<div class="wrap">
-
-<div style="font-size:12.5px;color:#6b7280;border-bottom:1px solid #e5e7eb;padding-bottom:12px;margin-bottom:22px">运营工作笔记系列 ｜ <b style="color:#1f2933">① 三平台数据复盘</b> ｜ <a href="2/index.html" style="color:#2563eb;font-weight:600;text-decoration:none">② 京东AI购调研笔记</a> ｜ <a href="3/index.html" style="color:#2563eb;font-weight:600;text-decoration:none">③ 我把自家 App 跑了 24 遍</a></div>
-<div class="kicker">运营工作笔记 ① · 数据运营复盘</div>
-<h1>我把家里外卖店 6 个月的三平台数据，用 AI 整理成了一页能复算的复盘</h1>
-<div class="byline">钟京松 ｜ 2026-10-12 ｜ 数据区间 2026-04-14 → 2026-09-29 ｜ 数据来源：美团 / 淘宝闪购 / 京东秒送官方后台导出（51 份）</div>
-
-<p>今年 4 月到 9 月，我在管家里这家外卖店（香他她鲜炖排骨饭，中山）。三平台各自导数据，格式不一样、字段名不一样、还有重复文件——运营到 9 月底时，我其实说不清「哪个平台值得留、9 月为什么崩」。这篇文章就是我用手里的真实数据回答这两个问题的过程，<strong>每个数字都能回溯到后台源文件，欢迎复算</strong>。</p>
-
-<h2>一、先对口径，再看数：我踩过的三个坑</h2>
-<p>动手统计前我先做了三件事，因为不先做这些，后面全错：</p>
-<ul>
-  <li><strong>恒等式验证字段含义</strong>：美团「营业收入」= 优惠前总额 − 佣金 − 商家活动支出 − 其它支出 − 公益捐款。我用这个等式逐日反算，154 天误差全部是 0.00 元——确认这个字段能直接当商家实收用，不用猜。</li>
-  <li><strong>断档识别</strong>：逐日区分「有曝光无订单」和「无曝光」，把休息日和真实零单日分开，否则月均会被稀释。</li>
-  <li><strong>去重</strong>：京东有两个订单文件，7 月重叠——直接加总会把 7 月算两遍。我最早的版本就犯了这个错（多算了 583 单），是按订单号去重才发现。<strong>这篇文章写的就是纠错后的版本。</strong></li>
-</ul>
-
-<h2>二、6 个月的真实成绩单</h2>
-<table>
-  <tr><th>指标</th><th>数值</th><th>口径</th></tr>
-  <tr><td>累计有效订单</td><td><strong>2,031 单</strong></td><td>三平台官方「有效订单」字段（美团 1,245 + 京东 442 + 淘宝 344）</td></tr>
-  <tr><td>峰值月 → 谷值月</td><td><strong>8 月 644 单 → 9 月 253 单（−61%）</strong></td><td>三平台同步下滑：京东 −67% / 美团 −57% / 淘宝 −59%</td></tr>
-  <tr><td>累计结算净额</td><td><strong>≈ 3.67 万元</strong></td><td>各平台「收入」字段加总（月均 ≈ 6,100 元，按 6 个运营月摊）</td></tr>
-  <tr><td>店铺评分</td><td><strong>京东 4.37 / 美团 4.5 / 淘宝 4.56</strong></td><td>后台真实</td></tr>
-  <tr><td>老客下单占比</td><td><strong>京东 32.3% / 淘宝 33.5% / 美团 39.6%</strong></td><td>各平台顾客分层官方字段</td></tr>
-</table>
-<p>必须说清的边界：运营期至 2026-09-29（末单日）；京东 5–6 月没有官方汇总字段，所以京东只算 7–9 月；<strong>食材、人工、房租不在平台数据里，所以我不写「利润」两个字</strong>——月均到手约 6,100 元（按 6 个运营月摊），扣完成本还剩多少，我不知道，也不装知道。</p>
-
-<h2>三、三个用数据验证出来的结论</h2>
-<p><strong>结论 1：买量能拉爆曝光，但买不来转化。</strong>5 月参加平台活动，美团曝光从 4 月的 7,139 冲到 55,951（环比 +683%），订单 368 单；但入店转化率从平月的 6.5–7.6% 被稀释到 5.5%——来的是泛流量。停投后 6 月订单回落到 138。<em>启示：活动是放大器，不是发动机；承接和复购才是。</em></p>
-<p><strong>结论 2：9 月塌方是系统性的，不是某个平台的故障。</strong>三平台同步 −61%，不是单点问题，是平台整体流量分配收缩 + 季节性。<em>启示：自救方向是私域和老客复购，不是等自然流量回来。</em></p>
-<p><strong>结论 3（最反直觉）：淘宝把 96.5% 的曝光给了新客，但转化靠老客。</strong>淘宝新客曝光 49,593 人 vs 老客 1,812 人；可老客下单转化率 42.7%，是新客（13.7%）的三倍多，老客进店转化 14.7% vs 新客 3.3%。<em>启示：曝光结构和转化结构是错配的——把老客从平台导到私域，是这家店最大的增量空间，比继续买新客曝光便宜。</em></p>
-
-<h2>四、一个被我自己证伪的假设</h2>
-<p>我原本假设「建私域粉丝群能带来复购」。实测：美团粉丝群 25 人，<strong>群订单占比 0%</strong>。群建了，动作做了，转化没发生——我把这个失败照实写在这里，不删。<em>它换来的认知是：25 人的群没有运营杠杆，先把「老客识别 → 定向触达」做扎实，再谈群。</em></p>
-
-<h2>五、这套方法你能直接抄走</h2>
-<ul>
-  <li>① 拉后台原始数据，先别急着求和——先确认每个字段是什么意思（能验证的验证，比如恒等式）；</li>
-  <li>② 区分「实测字段」和「推算值」，推算值单独标注，绝不混列；</li>
-  <li>③ 对每个运营动作提一个假设，用真数验证，证伪的照实写；</li>
-  <li>④ 输出一句话结论 + 三个下一步动作，每个动作配一个可验证指标。</li>
-</ul>
-
-<div class="disclosure"><strong>AI 使用声明（这是本文的一部分，不是免责套话）：</strong>本文的数据核对框架与文字表述由 AI 协助完成；<strong>所有数字来自三平台官方后台导出，由本人逐项核对，可复算、可截图自证</strong>；文中每一个结论都对应后台里的真实字段。我用 AI 提速，但对每个数字负责——如果面试时您问我任何一个数怎么来的，我能当场讲清计算路径。</div>
-
-<a class="back" href="index.html">← 返回作品集首页</a>
-</div><script src="../assets/apple-fx.js" defer></script>
-</body></html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>AIGC 作品 ① · 三平台数据复盘：我把家里外卖店 6 个月的数据算明白了</title>
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+
+background:#fff;color:#1f2933;line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+
+.wrap{max-width:760px;margin:0 auto;padding:44px 22px 80px}
+
+.kicker{font-size:13px;font-weight:700;color:#2563eb;letter-spacing:.5px}
+
+h1{font-size:26px;font-weight:800;letter-spacing:-.4px;line-height:1.35;margin:10px 0 14px}
+
+.byline{color:#6b7280;font-size:13.5px;border-bottom:1px solid #e5e7eb;padding-bottom:16px;margin-bottom:24px}
+
+h2{font-size:19px;font-weight:700;margin:36px 0 10px;color:#111}
+
+p{color:#374151;margin:12px 0}
+
+strong{color:#111}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:16px 0}
+
+th,td{padding:9px 10px;border:1px solid #e5e7eb;text-align:left;vertical-align:top}
+
+th{background:#f3f4f6;font-weight:600;color:#4b5563;font-size:12.5px}
+
+.hl{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px 18px;font-size:14px;color:#78350f;margin:16px 0}
+
+.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px 18px;font-size:14px;color:#065f46;margin:16px 0}
+
+.disclosure{border:1px dashed #cbd5e1;border-radius:10px;padding:14px 18px;font-size:13.5px;color:#475569;margin:28px 0;background:#f8fafc}
+
+ul{margin:10px 0 14px 22px;color:#374151}
+
+li{margin:6px 0}
+
+.back{display:inline-block;margin-top:30px;font-size:13.5px;color:#2563eb;text-decoration:none;font-weight:600}
+
+</style>
+
+<link rel="stylesheet" href="../assets/apple-fx.css"></head><body>
+
+<nav id="nav">
+
+  <span class="brand">佚名 · 作品集</span>
+
+  <a href="/">首页</a>
+
+  <a href="/mvp/index.html">选一本 MVP</a>
+
+  <a href="/evaluation/index.html">质量验证</a>
+
+  <a href="/analysis/index.html">竞品调研</a>
+
+  <a href="/aigc/index.html" class="on">运营笔记</a>
+
+  <a href="/reviews/index.html">评价运营</a>
+
+  <a href="/prompts/index.html">Prompt 模板</a>
+
+</nav>
+
+<div class="wrap">
+
+
+
+<div style="font-size:12.5px;color:#6b7280;border-bottom:1px solid #e5e7eb;padding-bottom:12px;margin-bottom:22px">运营工作笔记系列 ｜ <b style="color:#1f2933">① 三平台数据复盘</b> ｜ <a href="2/index.html" style="color:#2563eb;font-weight:600;text-decoration:none">② 京东AI购调研笔记</a> ｜ <a href="3/index.html" style="color:#2563eb;font-weight:600;text-decoration:none">③ 我把自家 App 跑了 24 遍</a></div>
+
+<div class="kicker">运营工作笔记 ① · 数据运营复盘</div>
+
+<h1>我把家里外卖店 6 个月的三平台数据，用 AI 整理成了一页能复算的复盘</h1>
+
+<div class="byline">佚名 ｜ 2026-10-12 ｜ 数据区间 2026-04-14 → 2026-09-29 ｜ 数据来源：美团 / 淘宝闪购 / 京东秒送官方后台导出（51 份）</div>
+
+
+
+<p>今年 4 月到 9 月，我在管家里这家外卖店（香他她鲜炖排骨饭，中山）。三平台各自导数据，格式不一样、字段名不一样、还有重复文件——运营到 9 月底时，我其实说不清「哪个平台值得留、9 月为什么崩」。这篇文章就是我用手里的真实数据回答这两个问题的过程，<strong>每个数字都能回溯到后台源文件，欢迎复算</strong>。</p>
+
+
+
+<h2>一、先对口径，再看数：我踩过的三个坑</h2>
+
+<p>动手统计前我先做了三件事，因为不先做这些，后面全错：</p>
+
+<ul>
+
+  <li><strong>恒等式验证字段含义</strong>：美团「营业收入」= 优惠前总额 − 佣金 − 商家活动支出 − 其它支出 − 公益捐款。我用这个等式逐日反算，154 天误差全部是 0.00 元——确认这个字段能直接当商家实收用，不用猜。</li>
+
+  <li><strong>断档识别</strong>：逐日区分「有曝光无订单」和「无曝光」，把休息日和真实零单日分开，否则月均会被稀释。</li>
+
+  <li><strong>去重</strong>：京东有两个订单文件，7 月重叠——直接加总会把 7 月算两遍。我最早的版本就犯了这个错（多算了 583 单），是按订单号去重才发现。<strong>这篇文章写的就是纠错后的版本。</strong></li>
+
+</ul>
+
+
+
+<h2>二、6 个月的真实成绩单</h2>
+
+<table>
+
+  <tr><th>指标</th><th>数值</th><th>口径</th></tr>
+
+  <tr><td>累计有效订单</td><td><strong>2,031 单</strong></td><td>三平台官方「有效订单」字段（美团 1,245 + 京东 442 + 淘宝 344）</td></tr>
+
+  <tr><td>峰值月 → 谷值月</td><td><strong>8 月 644 单 → 9 月 253 单（−61%）</strong></td><td>三平台同步下滑：京东 −67% / 美团 −57% / 淘宝 −59%</td></tr>
+
+  <tr><td>累计结算净额</td><td><strong>≈ 3.67 万元</strong></td><td>各平台「收入」字段加总（月均 ≈ 6,100 元，按 6 个运营月摊）</td></tr>
+
+  <tr><td>店铺评分</td><td><strong>京东 4.37 / 美团 4.5 / 淘宝 4.56</strong></td><td>后台真实</td></tr>
+
+  <tr><td>老客下单占比</td><td><strong>京东 32.3% / 淘宝 33.5% / 美团 39.6%</strong></td><td>各平台顾客分层官方字段</td></tr>
+
+</table>
+
+<p>必须说清的边界：运营期至 2026-09-29（末单日）；京东 5–6 月没有官方汇总字段，所以京东只算 7–9 月；<strong>食材、人工、房租不在平台数据里，所以我不写「利润」两个字</strong>——月均到手约 6,100 元（按 6 个运营月摊），扣完成本还剩多少，我不知道，也不装知道。</p>
+
+
+
+<h2>三、三个用数据验证出来的结论</h2>
+
+<p><strong>结论 1：买量能拉爆曝光，但买不来转化。</strong>5 月参加平台活动，美团曝光从 4 月的 7,139 冲到 55,951（环比 +683%），订单 368 单；但入店转化率从平月的 6.5–7.6% 被稀释到 5.5%——来的是泛流量。停投后 6 月订单回落到 138。<em>启示：活动是放大器，不是发动机；承接和复购才是。</em></p>
+
+<p><strong>结论 2：9 月塌方是系统性的，不是某个平台的故障。</strong>三平台同步 −61%，不是单点问题，是平台整体流量分配收缩 + 季节性。<em>启示：自救方向是私域和老客复购，不是等自然流量回来。</em></p>
+
+<p><strong>结论 3（最反直觉）：淘宝把 96.5% 的曝光给了新客，但转化靠老客。</strong>淘宝新客曝光 49,593 人 vs 老客 1,812 人；可老客下单转化率 42.7%，是新客（13.7%）的三倍多，老客进店转化 14.7% vs 新客 3.3%。<em>启示：曝光结构和转化结构是错配的——把老客从平台导到私域，是这家店最大的增量空间，比继续买新客曝光便宜。</em></p>
+
+
+
+<h2>四、一个被我自己证伪的假设</h2>
+
+<p>我原本假设「建私域粉丝群能带来复购」。实测：美团粉丝群 25 人，<strong>群订单占比 0%</strong>。群建了，动作做了，转化没发生——我把这个失败照实写在这里，不删。<em>它换来的认知是：25 人的群没有运营杠杆，先把「老客识别 → 定向触达」做扎实，再谈群。</em></p>
+
+
+
+<h2>五、这套方法你能直接抄走</h2>
+
+<ul>
+
+  <li>① 拉后台原始数据，先别急着求和——先确认每个字段是什么意思（能验证的验证，比如恒等式）；</li>
+
+  <li>② 区分「实测字段」和「推算值」，推算值单独标注，绝不混列；</li>
+
+  <li>③ 对每个运营动作提一个假设，用真数验证，证伪的照实写；</li>
+
+  <li>④ 输出一句话结论 + 三个下一步动作，每个动作配一个可验证指标。</li>
+
+</ul>
+
+
+
+<div class="disclosure"><strong>AI 使用声明（这是本文的一部分，不是免责套话）：</strong>本文的数据核对框架与文字表述由 AI 协助完成；<strong>所有数字来自三平台官方后台导出，由本人逐项核对，可复算、可截图自证</strong>；文中每一个结论都对应后台里的真实字段。我用 AI 提速，但对每个数字负责——如果面试时您问我任何一个数怎么来的，我能当场讲清计算路径。</div>
+
+
+
+<a class="back" href="index.html">← 返回作品集首页</a>
+
+</div><script src="../assets/apple-fx.js" defer></script>
+
+</body></html>
+

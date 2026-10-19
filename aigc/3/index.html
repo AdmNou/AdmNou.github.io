@@ -1,83 +1,166 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>运营工作笔记 ③ · 我把自家 App 跑了 24 遍 · 钟京松</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#fff;color:#1f2933;line-height:1.85;font-size:15.5px}
-.wrap{max-width:780px;margin:0 auto;padding:42px 22px 80px}
-.series{font-size:12.5px;color:#6b7280;border-bottom:1px solid #e5e7eb;padding-bottom:12px;margin-bottom:22px}
-.series a{color:#2563eb;text-decoration:none;font-weight:600}
-.series b{color:#1f2933}
-.kicker{font-size:13px;font-weight:700;color:#2563eb;letter-spacing:.5px}
-h1{font-size:25px;font-weight:800;letter-spacing:-.4px;line-height:1.35;margin:10px 0 14px}
-.byline{color:#6b7280;font-size:13.5px;border-bottom:1px solid #e5e7eb;padding-bottom:16px;margin-bottom:24px}
-h2{font-size:19px;font-weight:700;margin:34px 0 10px;color:#111}
-p{color:#374151;margin:12px 0}
-ol,ul{margin:10px 0 14px 24px;color:#374151}
-li{margin:7px 0}
-.finding{border:1px solid #e5e7eb;border-left:4px solid #2563eb;border-radius:10px;padding:13px 17px;margin:12px 0;background:#f8fafc}
-.finding b{font-size:15px}
-.finding .d{font-size:13.5px;color:#475569;margin-top:4px}
-.warn{border-left-color:#d97706;background:#fffbeb}.warn .d{color:#78350f}
-.bad{border-left-color:#b91c1c;background:#fef2f2}.bad .d{color:#7f1d1d}
-.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px 18px;font-size:14px;color:#065f46;margin:16px 0}
-.disclosure{border:1px dashed #cbd5e1;border-radius:10px;padding:14px 18px;font-size:13.5px;color:#475569;margin:28px 0;background:#f8fafc}
-.back{display:inline-block;margin-top:26px;font-size:13.5px;color:#2563eb;text-decoration:none;font-weight:600}
-</style>
-<link rel="stylesheet" href="../../assets/apple-fx.css"></head><body>
-<nav id="nav">
-  <span class="brand">钟京松 · 作品集</span>
-  <a href="/">首页</a>
-  <a href="/mvp/index.html">选一本 MVP</a>
-  <a href="/evaluation/index.html">质量验证</a>
-  <a href="/analysis/index.html">竞品调研</a>
-  <a href="/aigc/index.html" class="on">运营笔记</a>
-  <a href="/reviews/index.html">评价运营</a>
-  <a href="/prompts/index.html">Prompt 模板</a>
-</nav>
-<div class="wrap">
-<div class="series">运营工作笔记系列 ｜ ① 三平台数据复盘 ｜ ② 京东AI购调研笔记 ｜ <b>③ 我把自家 App 跑了 24 遍</b></div>
-<div class="kicker">运营工作笔记 ③ · 产品质量实测</div>
-<h1>我把自家 App 跑了 24 遍：运营怎么验证产品质量</h1>
-<div class="byline">钟京松 ｜ 2026-10-12 ｜ 对象：「选一本」MVP 演示版 ｜ 方式：先定口径，再逐条实测 24 个真实场景 ｜ 原始数据与截图全部存档，可复现</div>
-
-<p>AI 产品的运营有一个绕不开的功课：<strong>你得能验证自己的产品好不好</strong>。功能是技术做的，但「推得准不准、用户信不信」直接决定用不用、买不买——这是运营要背的指标。几乎所有人都在聊功能，很少有人说清楚「我怎么验证它做得好不好」。我给自己的「选一本」补上这一课：把线上产品当 24 个不同的用户，完整跑了 24 遍。</p>
-<div class="ok"><b>口径说明（主动声明）：</b>「选一本」为演示版 MVP，<b>暂无真实注册用户</b>；本文 24 场景数据均为本人自测口径，不是线上真实用户数据——真人试用是下一迭代项（实验设计见<a href="/evaluation/index.html">《推荐质量验证》</a>页）。</div>
-
-<h2>怎么跑的（运营版）</h2>
-<ol>
-<li><b>先定口径</b>——把「推荐得好」拆成能打分的项：预算内率（首要）、无编造、无违规承诺；口径没定之前，不开始测；</li>
-<li><b>再抽检</b>——24 条需求覆盖 7 类场景（文商科轻办公 / 工科重载 / 设计创作 / 游戏 / 预算极限 / 家长代购 / 对抗案例，含「4000 元想跑 3A 最高画质」这种不合理需求），逐条走完真实问诊流程（身份 → 预算滑杆 → 方向选择 → 生成清单），记录推荐结果并截图；</li>
-<li><b>排除干扰</b>——发现产品有「剪贴板识别」功能会干预输入，清空剪贴板做对照实验；</li>
-<li><b>交叉验证</b>——两个极端画像对照（预算 15000 游戏档 vs 4000 家长档），排除测试假象。</li>
-</ol>
-
-<h2>跑出来的发现（分级：已确认 vs 待复核）</h2>
-<div class="finding bad"><b>【已确认】预算滑杆上下限倒挂</b><div class="d">预算下限固定 5000，设定 4000 预算时界面显示「¥5000 - ¥4000」——低于 5000 的预算全部落入矛盾区间。</div></div>
-<div class="finding bad"><b>【已确认】首页推荐首位与预算无关</b><div class="d">预算 3000 和 10000 的用户看到的首位是同一台 ¥8,999 的机器——首卡预算内率只有 2/24。用户抱着预算来，第一眼看到买不起的机器，信任就没了。</div></div>
-<div class="finding warn"><b>【待复核】推荐序列可能对所有用户都一样</b><div class="d">24 组推荐序列完全一致。但我没有把它写成结论——因为还存在另一种可能（首页是未过滤展示位、个性化在其他入口）。疑似就是疑似，验证之前不进结论。</div></div>
-
-<h2>我的收获</h2>
-<ul>
-<li><b>口径比工具重要</b>：先想清楚「什么叫好」，再谈怎么测——写 24 条测试集的两小时，比闷头做两周功能的收获更直接；</li>
-<li><b>遇到异常先怀疑自己的测量方法</b>：剪贴板污染、流程未完成，都用对照实验排除了，才敢把问题写进结论；</li>
-<li><b>分不清的标「待复核」</b>，不拿疑似当结论——这是运营出数据结论该有的纪律。</li>
-</ul>
-
-<h2>当晚闭环（2026-10-12 更新）</h2>
-<p>评测的价值在于「改」。当天晚上我把问题全修了并重新上线：</p>
-<ul>
-<li><b>预算滑杆修复</b> → 现在显示「¥3000-¥4000」不再倒挂；</li>
-<li><b>推荐流增加「预算内优先」</b> → 预算 4000 的用户首页第一位从 ¥8,999 变成 ¥3,199 的预算内机型；游戏用户的第一位变成游戏本——<b>首卡「预算内率」从 2/24 提升到复测全通过</b>；</li>
-<li><b>分类入口崩溃修复</b> → 根因是部分机型缺字段、搜索路径空值调用，加防护后入口恢复正常。</li>
-</ul>
-<p>完整过程见<a href="/evaluation/index.html">《推荐质量验证 · 24 场景实跑》</a>。下次迭代（身份/方向维度的个性化），我会用同一套 24 条场景验证。</p>
-
-<div class="disclosure"><strong>AI 使用声明：</strong>本文由 AI 协助整理与撰写；<strong>评测的场景集设计、评分口径、结论确认与修复验收由本人完成，执行环节使用自动化脚本 + AI 辅助，24 组原始数据与截图均为本人真实执行产出，全部存档可复现</strong>；文中「待复核」事项在验证通过前不作为结论对外。</div>
-
-<a class="back" href="../index.html">← 返回运营工作笔记页</a>
-</div><script src="../../assets/apple-fx.js" defer></script>
-</body></html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>运营工作笔记 ③ · 我把自家 App 跑了 24 遍 · 佚名</title>
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#fff;color:#1f2933;line-height:1.85;font-size:15.5px}
+
+.wrap{max-width:780px;margin:0 auto;padding:42px 22px 80px}
+
+.series{font-size:12.5px;color:#6b7280;border-bottom:1px solid #e5e7eb;padding-bottom:12px;margin-bottom:22px}
+
+.series a{color:#2563eb;text-decoration:none;font-weight:600}
+
+.series b{color:#1f2933}
+
+.kicker{font-size:13px;font-weight:700;color:#2563eb;letter-spacing:.5px}
+
+h1{font-size:25px;font-weight:800;letter-spacing:-.4px;line-height:1.35;margin:10px 0 14px}
+
+.byline{color:#6b7280;font-size:13.5px;border-bottom:1px solid #e5e7eb;padding-bottom:16px;margin-bottom:24px}
+
+h2{font-size:19px;font-weight:700;margin:34px 0 10px;color:#111}
+
+p{color:#374151;margin:12px 0}
+
+ol,ul{margin:10px 0 14px 24px;color:#374151}
+
+li{margin:7px 0}
+
+.finding{border:1px solid #e5e7eb;border-left:4px solid #2563eb;border-radius:10px;padding:13px 17px;margin:12px 0;background:#f8fafc}
+
+.finding b{font-size:15px}
+
+.finding .d{font-size:13.5px;color:#475569;margin-top:4px}
+
+.warn{border-left-color:#d97706;background:#fffbeb}.warn .d{color:#78350f}
+
+.bad{border-left-color:#b91c1c;background:#fef2f2}.bad .d{color:#7f1d1d}
+
+.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px 18px;font-size:14px;color:#065f46;margin:16px 0}
+
+.disclosure{border:1px dashed #cbd5e1;border-radius:10px;padding:14px 18px;font-size:13.5px;color:#475569;margin:28px 0;background:#f8fafc}
+
+.back{display:inline-block;margin-top:26px;font-size:13.5px;color:#2563eb;text-decoration:none;font-weight:600}
+
+</style>
+
+<link rel="stylesheet" href="../../assets/apple-fx.css"></head><body>
+
+<nav id="nav">
+
+  <span class="brand">佚名 · 作品集</span>
+
+  <a href="/">首页</a>
+
+  <a href="/mvp/index.html">选一本 MVP</a>
+
+  <a href="/evaluation/index.html">质量验证</a>
+
+  <a href="/analysis/index.html">竞品调研</a>
+
+  <a href="/aigc/index.html" class="on">运营笔记</a>
+
+  <a href="/reviews/index.html">评价运营</a>
+
+  <a href="/prompts/index.html">Prompt 模板</a>
+
+</nav>
+
+<div class="wrap">
+
+<div class="series">运营工作笔记系列 ｜ ① 三平台数据复盘 ｜ ② 京东AI购调研笔记 ｜ <b>③ 我把自家 App 跑了 24 遍</b></div>
+
+<div class="kicker">运营工作笔记 ③ · 产品质量实测</div>
+
+<h1>我把自家 App 跑了 24 遍：运营怎么验证产品质量</h1>
+
+<div class="byline">佚名 ｜ 2026-10-12 ｜ 对象：「选一本」MVP 演示版 ｜ 方式：先定口径，再逐条实测 24 个真实场景 ｜ 原始数据与截图全部存档，可复现</div>
+
+
+
+<p>AI 产品的运营有一个绕不开的功课：<strong>你得能验证自己的产品好不好</strong>。功能是技术做的，但「推得准不准、用户信不信」直接决定用不用、买不买——这是运营要背的指标。几乎所有人都在聊功能，很少有人说清楚「我怎么验证它做得好不好」。我给自己的「选一本」补上这一课：把线上产品当 24 个不同的用户，完整跑了 24 遍。</p>
+
+<div class="ok"><b>口径说明（主动声明）：</b>「选一本」为演示版 MVP，<b>暂无真实注册用户</b>；本文 24 场景数据均为本人自测口径，不是线上真实用户数据——真人试用是下一迭代项（实验设计见<a href="/evaluation/index.html">《推荐质量验证》</a>页）。</div>
+
+
+
+<h2>怎么跑的（运营版）</h2>
+
+<ol>
+
+<li><b>先定口径</b>——把「推荐得好」拆成能打分的项：预算内率（首要）、无编造、无违规承诺；口径没定之前，不开始测；</li>
+
+<li><b>再抽检</b>——24 条需求覆盖 7 类场景（文商科轻办公 / 工科重载 / 设计创作 / 游戏 / 预算极限 / 家长代购 / 对抗案例，含「4000 元想跑 3A 最高画质」这种不合理需求），逐条走完真实问诊流程（身份 → 预算滑杆 → 方向选择 → 生成清单），记录推荐结果并截图；</li>
+
+<li><b>排除干扰</b>——发现产品有「剪贴板识别」功能会干预输入，清空剪贴板做对照实验；</li>
+
+<li><b>交叉验证</b>——两个极端画像对照（预算 15000 游戏档 vs 4000 家长档），排除测试假象。</li>
+
+</ol>
+
+
+
+<h2>跑出来的发现（分级：已确认 vs 待复核）</h2>
+
+<div class="finding bad"><b>【已确认】预算滑杆上下限倒挂</b><div class="d">预算下限固定 5000，设定 4000 预算时界面显示「¥5000 - ¥4000」——低于 5000 的预算全部落入矛盾区间。</div></div>
+
+<div class="finding bad"><b>【已确认】首页推荐首位与预算无关</b><div class="d">预算 3000 和 10000 的用户看到的首位是同一台 ¥8,999 的机器——首卡预算内率只有 2/24。用户抱着预算来，第一眼看到买不起的机器，信任就没了。</div></div>
+
+<div class="finding warn"><b>【待复核】推荐序列可能对所有用户都一样</b><div class="d">24 组推荐序列完全一致。但我没有把它写成结论——因为还存在另一种可能（首页是未过滤展示位、个性化在其他入口）。疑似就是疑似，验证之前不进结论。</div></div>
+
+
+
+<h2>我的收获</h2>
+
+<ul>
+
+<li><b>口径比工具重要</b>：先想清楚「什么叫好」，再谈怎么测——写 24 条测试集的两小时，比闷头做两周功能的收获更直接；</li>
+
+<li><b>遇到异常先怀疑自己的测量方法</b>：剪贴板污染、流程未完成，都用对照实验排除了，才敢把问题写进结论；</li>
+
+<li><b>分不清的标「待复核」</b>，不拿疑似当结论——这是运营出数据结论该有的纪律。</li>
+
+</ul>
+
+
+
+<h2>当晚闭环（2026-10-12 更新）</h2>
+
+<p>评测的价值在于「改」。当天晚上我把问题全修了并重新上线：</p>
+
+<ul>
+
+<li><b>预算滑杆修复</b> → 现在显示「¥3000-¥4000」不再倒挂；</li>
+
+<li><b>推荐流增加「预算内优先」</b> → 预算 4000 的用户首页第一位从 ¥8,999 变成 ¥3,199 的预算内机型；游戏用户的第一位变成游戏本——<b>首卡「预算内率」从 2/24 提升到复测全通过</b>；</li>
+
+<li><b>分类入口崩溃修复</b> → 根因是部分机型缺字段、搜索路径空值调用，加防护后入口恢复正常。</li>
+
+</ul>
+
+<p>完整过程见<a href="/evaluation/index.html">《推荐质量验证 · 24 场景实跑》</a>。下次迭代（身份/方向维度的个性化），我会用同一套 24 条场景验证。</p>
+
+
+
+<div class="disclosure"><strong>AI 使用声明：</strong>本文由 AI 协助整理与撰写；<strong>评测的场景集设计、评分口径、结论确认与修复验收由本人完成，执行环节使用自动化脚本 + AI 辅助，24 组原始数据与截图均为本人真实执行产出，全部存档可复现</strong>；文中「待复核」事项在验证通过前不作为结论对外。</div>
+
+
+
+<a class="back" href="../index.html">← 返回运营工作笔记页</a>
+
+</div><script src="../../assets/apple-fx.js" defer></script>
+
+</body></html>
+

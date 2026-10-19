@@ -1,310 +1,620 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>钟京松 · 产品运营求职作品集</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#f5f7fa; --surface:#ffffff; --surface-2:#fbfcfe;
-  --ink:#15202e; --muted:#5d6878; --faint:#8a96a6;
-  --line:#e8edf3; --line-2:#eff3f8;
-  --primary:#2563eb; --primary-600:#1d4ed8; --primary-soft:#eef4ff;
-  --emerald:#0e9d6b; --emerald-soft:#e8f7f0;
-  --amber:#d97706; --amber-soft:#fdf3e3;
-  --radius:16px; --radius-sm:12px;
-  --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
-  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-}
-body{font-family:var(--font);background:var(--bg);color:var(--ink);
-line-height:1.75;-webkit-font-smoothing:antialiased;font-size:15px}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px}
-header{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-padding:30px 32px;margin-bottom:24px;box-shadow:var(--shadow)}
-h1{font-size:26px;font-weight:800;letter-spacing:-.3px;line-height:1.2}
-.sub{color:var(--muted);font-size:14px;margin-top:9px;line-height:1.6}
-.tag{display:inline-block;background:var(--surface-2);color:var(--muted);font-size:12px;
-font-weight:500;padding:5px 12px;border-radius:20px;margin:12px 7px 0 0;border:1px solid var(--line)}
-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-padding:30px 32px;margin-bottom:24px;box-shadow:var(--shadow)}
-h2{font-size:19px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:12px;letter-spacing:-.2px}
-h2::before{content:"";width:4px;height:18px;background:var(--primary);border-radius:2px}
-h3{font-size:15.5px;font-weight:700;margin:24px 0 10px;color:var(--ink)}
-p{color:var(--muted);font-size:14.5px;margin:9px 0;line-height:1.8}
-ul{margin:10px 0 10px 22px;color:var(--muted);font-size:14.5px}
-li{margin:6px 0;line-height:1.8}
-b{color:var(--ink)}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0}
-.kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px}
-.kpi .v{font-size:24px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
-.kpi .l{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
-table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
-th,td{padding:10px 11px;text-align:right;border-bottom:1px solid var(--line-2)}
-th:first-child,td:first-child{text-align:left}
-th{background:var(--surface-2);font-weight:700;color:var(--muted);font-size:12px}
-tbody tr:last-child td{border-bottom:none}
-tfoot td{background:var(--surface-2);font-weight:700}
-.note{background:var(--amber-soft);border:1px solid #fde3b0;border-left:4px solid var(--amber);
-border-radius:10px;padding:14px 18px;font-size:13.5px;color:#8a5a08;margin:16px 0;line-height:1.8}
-.ok{background:var(--emerald-soft);border:1px solid #b6ebd2;border-left:4px solid var(--emerald);
-border-radius:10px;padding:14px 18px;font-size:13.5px;color:#067a52;margin:16px 0;line-height:1.8}
-a{color:var(--primary);text-decoration:none;font-weight:600}
-a:hover{text-decoration:underline}
-.copy{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:10px 13px;
-font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;word-break:break-all;
-margin:10px 0;color:#334155;cursor:pointer}
-.copy:hover{border-color:#c7d7f5;background:var(--primary-soft)}
-.card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px 20px;margin:14px 0;background:var(--surface-2)}
-.card b{font-size:15px}
-.bar-row{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:12.5px}
-.bar-row .lb{width:52px;color:var(--muted);flex-shrink:0}
-.bar-row .tr{flex:1;background:var(--line-2);border-radius:6px;height:20px;position:relative;overflow:hidden}
-.bar-row .fl{height:100%;border-radius:6px}
-.bar-row .vl{width:96px;text-align:right;font-variant-numeric:tabular-nums;flex-shrink:0;color:var(--ink);font-weight:600}
-#nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);
-border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;flex-wrap:wrap;
-padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
-#nav .brand{font-weight:800;font-size:14.5px;color:var(--ink);margin-right:auto;padding:14px 4px;letter-spacing:-.3px;white-space:nowrap}
-#nav a{padding:14px 14px;font-size:13.5px;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap}
-#nav a:hover{color:var(--primary);text-decoration:none}
-#nav a.on{color:var(--primary);border-bottom:2px solid var(--primary)}
-@media (max-width:640px){
- .wrap{padding:0 14px 70px} header,section{padding:22px 18px}
- h1{font-size:22px}h2{font-size:17px}
-}
-</style>
-<link rel="stylesheet" href="assets/apple-fx.css">
-</head>
-<body>
-<nav id="nav">
-  <span class="brand">钟京松 · 作品集</span>
-  <a href="/" class="on">首页</a>
-  <a href="/mvp/index.html">选一本 MVP</a>
-  <a href="/evaluation/index.html">质量验证</a>
-  <a href="/analysis/index.html">竞品调研</a>
-  <a href="/aigc/index.html">运营笔记</a>
-  <a href="/reviews/index.html">评价运营</a>
-  <a href="/prompts/index.html">Prompt 模板</a>
-</nav>
-<div class="wrap">
-
-<header id="hero">
-  <h1>钟京松 · 产品运营求职作品集</h1>
-  <div class="sub"><b>产品运营的客户就是产品的用户；这个岗位要解决的核心问题是：让用户在产品全生命周期里持续获得价值——从来、到留下、到反复用、到最终转化，从而对用户指标和生意结果负责。我认这个口径，作品集里所有动作都挂在这一个问题上。</b><br>产品运营 = 围绕产品全生命周期做用户侧的经营：拉新、激活、留存、转化、复购、召回，用数据定口径、找问题、推迭代、验结果。本作品集用两条真实主线证明这件事我能干：①「选一本」AI 产品从 0 到 1 的定位、上线与实测迭代；② 家庭外卖店三平台 6 个月经营数据复盘。<b>目标岗位：产品运营（用户运营 / 本地生活运营为其中细分）</b></div>
-  <div>
-    <span class="tag">数据周期 2026-04-14 – 2026-09-29</span>
-    <span class="tag">数据来源：三平台官方后台导出（51 份）</span>
-    <span class="tag">全部数字可回溯 · 无估算冒充实测</span>
-    <span class="tag">口径基准 v1 · 2026-10-12</span>
-    <span class="tag">v2 · 2026-10-14 按产品运营视角修订</span>
-    <span class="tag">v3 · 2026-10-15 岗位认知 / 语境迁移 / 召回锁客修订</span>
-  </div>
-</header>
-
-<section>
-  <h2>这套作品集怎么读（产品运营能力地图）</h2>
-  <table>
-    <thead><tr><th style="width:26%">模块</th><th style="width:34%">对应的产品运营能力</th><th>一句话证据</th></tr></thead>
-    <tbody>
-      <tr><td><a href="/mvp/index.html">选一本 MVP</a></td><td>产品定位与迭代运营</td><td>从 0 到 1：定位 → 需求 → 上线 → 按 24 场景实测迭代</td></tr>
-      <tr><td><a href="/analysis/index.html">竞品调研 · 京东AI购</a></td><td>竞品运营打法调研</td><td>拆解它的留存/促活/裂变设计，3 条带验证指标的改进建议</td></tr>
-      <tr><td><a href="/aigc/index.html">运营工作笔记 3 篇</a></td><td>经营数据复盘</td><td>三平台 6 个月口径先行的复盘；24 遍实测的纪律</td></tr>
-      <tr><td><a href="/evaluation/index.html">推荐质量验证</a></td><td>运营侧质量口径与闭环</td><td>先定口径再实跑，5 项发现当晚修复复测</td></tr>
-      <tr><td><a href="/prompts/index.html">Prompt 模板 12 条</a></td><td>运营提效工具</td><td>六类真实运营场景，反幻觉设计</td></tr>
-      <tr><td><a href="/reviews/index.html">评价运营实录</a></td><td>用户运营（细分方向）</td><td>四模块评价运营体系 + 用户运营评估口径</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- ========== 作品一：AI 产品 ========== -->
-<section>
-  <h2>作品一 · AI 产品落地：「选一本」智能笔记本电脑选购助手</h2>
-  <p>面向大学新生与数码小白的「选购决策助手」。核心主张：把晦涩参数翻译成生活语言，一次给出【最优解 + 一个备选】；不接厂家 CPS、不做软文。时间线：2026.05 启动定位与调研，6 月曾计划寻找创业合伙人共同上线（未果），随后独立完成开发部署，并用 24 场景实测完成首轮迭代。<b>口径说明（主动声明）：本产品为演示版 MVP，暂无真实注册用户；页面中的数据均为本人 24 场景自测口径，不是线上真实用户数据——真人试用是下一迭代项（实验设计见「推荐质量验证」页）。</b></p>
-  <div class="card">
-    <b>在线体验（谁点都能开，无需登录）</b>
-    <div class="copy" data-copy="mvp/index.html">点击复制：mvp/index.html</div>
-    <p style="margin-top:8px;font-size:13px">一个面向大学新生与数码小白的笔记本选购决策助手：把晦涩参数翻译成生活语言，一次给出【最优解 + 一个备选】并说清理由。技术细节（本地加权匹配、纯静态部署、AI 会诊为预留接口）见文末边界说明——这一页讲的是运营判断。</p>
-  </div>
-  <h3>产品能力（均为已实现功能，非规划）</h3>
-  <ul>
-    <li><b>大学专业选本引擎</b>：按专业大类（计算机/建筑/环工/美术等）匹配核心软件负载，输出兼容星级</li>
-    <li><b>链接避坑会诊</b>：贴入电商链接，生成大白话避坑提示（散热、屏幕、是否买贵）</li>
-    <li><b>参数白话化</b>：把 GB/Hz/Wh 转译为「风扇吵不吵」「背一天累不累」「能撑几节课」</li>
-    <li><b>对比与收藏</b>：多机参数横向对比、收藏夹、历史诊断记录回溯</li>
-    <li><b>本地可解释推荐引擎</b>：加权打分（身份/场景/预算多因子 + 避坑规则），输出首选 + 备选 + 匹配度，全程本地计算、不依赖外部服务</li>
-    <li><b>AI 会诊（预留接口）</b>：前端已预留服务端 AI 诊断调用；接入模型部署后启用，输出侧按「禁止编造」约束设计</li>
-  </ul>
-  <div class="card">
-    <b>同站材料</b>
-    <ul style="margin-top:8px">
-      <li><a href="/analysis/index.html">《竞品调研 · 京东AI购运营打法拆解》</a>——回答运营问题：别人怎么拉新、怎么留人、怎么让用户反复来、怎么把流量变成交易；含 3 条带验证指标的改进建议</li>
-      <li><a href="/aigc/index.html">《运营工作笔记 3 篇》</a>——① 三平台数据复盘（口径先行+三个验证结论）② 京东AI购调研笔记（12 张一手截图）③ 我把自家 App 跑了 24 遍（运营怎么验证产品质量）——每篇附 AI 使用声明</li>
-      <li><a href="/reviews/index.html">《评价运营与口碑管理 · 三平台实录》</a>——好评维护 / 差评 SOP / 归因五类法 / 平台申诉治理四模块，含用户运营评估口径与 38 分钟申诉成功实例</li>
-      <li><a href="/evaluation/index.html">《推荐质量验证 · 24 场景实跑》</a>——先定口径，再把线上产品实跑 24 条真实需求：5 项发现全部确认、当晚修复复测闭环（首卡预算内率 2/24 → 抽查 4/4）</li>
-      <li><a href="/prompts/index.html">《Prompt 模板 12 条》</a>——覆盖数据复盘 / 竞品拆解 / 活动策划 / 内容生产 / 用户研究 / 求职复盘六类真实场景，每条可直接复制取用</li>
-      <li>50 秒产品演示视频（真实界面录屏 + 旁白 + 字幕）——可应面试官要求当场播放</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ========== 作品二：数据看板 ========== -->
-<section id="data">
-  <h2>作品二 · 三平台门店经营数据复盘（真实数据）</h2>
-  <p>独立运营家庭外卖店（美团 + 淘宝闪购 + 京东秒送），从后台导出 51 份原始文件自行建模复盘。<b>以下每一个数字都可回溯到具体源文件与字段</b>；口径基准见文末说明。</p>
-
-  <div class="kpis">
-    <div class="kpi"><div class="v" data-count="2031">2,031</div><div class="l">累计有效订单（单）</div></div>
-    <div class="kpi"><div class="v">≈3.67万</div><div class="l">累计结算净额（元）</div></div>
-    <div class="kpi"><div class="v">644→253</div><div class="l">峰值月 8 月 → 9 月订单（−61%）</div></div>
-    <div class="kpi"><div class="v" data-count="39.6" data-suffix="%">39.6%</div><div class="l">美团老客下单占比</div></div>
-    <div class="kpi"><div class="v" data-count="0">0</div><div class="l">缺货次数（自配送全程）</div></div>
-    <div class="kpi"><div class="v">4.37/4.5/4.56</div><div class="l">三平台店铺评分（京东/美团/淘宝；京东为 59 条评价口径）</div></div>
-  </div>
-
-  <div class="ok"><b>口径已用恒等式验证，非估算</b><br>
-  美团「营业收入」字段经逐日恒等式检验：<b>营业收入 = 优惠前总额 − 佣金 − 商家活动支出 − 其它支出 − 公益捐款</b>，
-  在美团门店日汇总覆盖的 <b>154 天</b>（2026-04-29 → 09-29）内逐日误差最大 0.00 元 → 该字段可直接作为<b>平台结算净额（商家实收）</b>使用。</div>
-
-  <h3>逐月订单（分平台，官方「有效订单」口径）</h3>
-  <table>
-    <thead><tr><th>月份</th><th>美团</th><th>淘宝</th><th>京东</th><th>三平台合计</th><th>美团结算净额</th></tr></thead>
-    <tbody>
-      <tr><td>2026-04</td><td>69</td><td>19</td><td>—</td><td>88</td><td>¥1,310</td></tr>
-      <tr><td>2026-05</td><td>368</td><td>98</td><td>—</td><td>466</td><td>¥5,780</td></tr>
-      <tr><td>2026-06</td><td>138</td><td>70</td><td>—</td><td>208</td><td>¥2,762</td></tr>
-      <tr><td>2026-07</td><td>164</td><td>56</td><td>151</td><td>371</td><td>¥3,497</td></tr>
-      <tr><td>2026-08</td><td>354</td><td>71</td><td>219</td><td><b>644</b></td><td>¥6,650</td></tr>
-      <tr><td>2026-09</td><td>152</td><td>29</td><td>72</td><td>253</td><td>¥3,140</td></tr>
-    </tbody>
-    <tfoot><tr><td>合计</td><td>1,245</td><td>344*</td><td>442*</td><td><b>2,031</b></td><td>¥23,139</td></tr></tfoot>
-  </table>
-  <p style="font-size:12.5px">* 京东 5–6 月无官方日汇总（仅订单明细），故京东官方口径只含 7–9 月，5–6 月不计入合计——宁可少算，不混口径。淘宝为整段官方口径（2026-04-09 → 10-09，344 单），月度加总 343 与整段差 1 单为边界日归属。</p>
-
-  <h3>分平台汇总（全期）</h3>
-  <table>
-    <thead><tr><th>平台</th><th>有效订单</th><th>顾客实付（元）</th><th>结算净额（元）</th><th>漏斗（曝光→入店→下单）</th></tr></thead>
-    <tbody>
-      <tr><td>美团（4–9月）</td><td>1,245</td><td>33,778</td><td>23,139</td><td>117,521 → 7,179（6.1%）→ 1,245（17.3%）</td></tr>
-      <tr><td>京东（7–9月官方）</td><td>442</td><td>10,253*</td><td>6,785</td><td>36,229 → 1,497（4.1%）→ 442（29.5%）</td></tr>
-      <tr><td>淘宝（整段）</td><td>344</td><td>7,673</td><td>6,763</td><td>51,405 → 1,911（3.7%）→ 340（18.0%）</td></tr>
-    </tbody>
-    <tfoot><tr><td>三平台合计</td><td><b>2,031</b></td><td><b>≈51,700（约）</b></td><td><b>≈36,687</b></td><td>曝光 ≈205,155 → 入店 ≈10,587 → 下单 2,031</td></tr></tfoot>
-  </table>
-  <p style="font-size:12.5px">* 京东顾客实付为明细唯一订单加总（7–9 月，含少量无效单未剔）。<b>口径说明：三平台窗口不同（美团 4–9 月 / 淘宝整段 / 京东仅 7–9 月有官方汇总），合计顾客实付只作约数；平台「营业额」字段含配送费/打包费，与顾客实付不可比，故不混算 GMV。</b>老客占比：京东 32.3% / 淘宝 33.5% / 美团 39.6%。</p>
-
-  <h3>可读出的运营事实</h3>
-  <div id="mtbars"></div>
-  <ul>
-    <li><b>5 月是投产爆发期</b>：曝光 5.6 万、订单 368 单、净额 5,780 元；但入店转化率被稀释到 5.5%（平月 6.5–7.6%）——买来的是泛流量，单靠活动不可持续。</li>
-    <li><b>8 月是效率最高期</b>：净额 6,650 元为全期峰值；同期三平台老客占比稳定在三成以上，复购是基本盘。</li>
-    <li><b>9 月三平台同步收缩</b>（订单 −61%、京东 −67%/美团 −57%/淘宝 −59%）：非单点故障，是平台整体流量分配收缩；数据截至 2026-09-29（末单日）。</li>
-    <li><b>美团靠曝光承接、京东淘宝靠老客召回</b>：美团曝光量三平台最大（11.8 万）但新客占比高；京东/淘宝曝光小、老客占比稳定（32.3%/33.5%），适合召回。</li>
-    <li><b>淘宝老客转化率碾压新客</b>：老客下单转化 42.7% vs 新客 13.7%、老客进店转化 14.7% vs 新客 3.3%；但淘宝曝光 96.5% 给了新客——「曝光给新客、转化靠老客」的结构性错配，是私域与召回动作的直接依据。</li>
-  </ul>
-
-  <h3>逐日订单曲线（从原始日汇总重建 · 核实版）</h3>
-  <svg id="dchart" viewBox="0 0 1000 220" preserveAspectRatio="none"></svg>
-  <p style="font-size:12.5px">美团 170 天逐日有效订单（2026-04-14 → 09-30，含 27 个零单日，红柱标记；8/31–9/4 连续 5 天零单为休息断档，非计入均值的营业日）。<b>完整逐日数据（美团+京东，含每日曝光/入店/结算净额/口径备注）可下载核对：</b><a href="逐日经营数据_核实版.csv" download>逐日经营数据_核实版.csv</a></p>
-
-  <div class="note"><b>数据边界（主动说明，不是减分项）</b><br>
-  1. 运营期 2026-04-14 至 2026-09-29（末单日），此后无新数据；月均按口径给：6 个运营月摊 ≈338 单/月，三平台都有官方汇总的 7–9 月摊 ≈423 单/月。<br>
-  2. 恒等式验证覆盖美团门店日汇总 154 天；数据集跨度约 170 天（含未开店/休息日）。<br>
-  3. 京东后台不导出佣金与配送费字段，京东净额取官方「收入」字段（7–9 月）；净利润（食材/人工/房租）不在平台数据内，不做估算。</div>
-</section>
-
-<!-- ========== 作品三：方法论 ========== -->
-<section id="method">
-  <h2>作品三 · 可复用的运营方法论</h2>
-  <div class="card"><b>① 数据复盘流程（这份看板就是这么出来的）</b><ul>
-    <li>先确认口径：区分「订单数」与「结算金额」；结算账单 ≠ 订单明细，不能用来数单量</li>
-    <li>用恒等式验证字段含义，不靠猜（美团营业收入 = 优惠前总额 − 各项支出，154 天逐日误差 0）</li>
-    <li>识别断档：区分「真实零单」与「未开店」，避免污染均值</li>
-    <li>推算项单独标注，绝不与实测项混列；对不上的数字先查源，不许「两个都放着」</li>
-  </ul></div>
-  <div class="card"><b>② 增长实验格式（假设 → 实验 → 数据 → 结论）</b><ul>
-    <li>每个运营动作先提假设，再用后台真数验证，证伪的照实写</li>
-    <li>实例：平台活动能把曝光拉爆（5 月 +683%）但稀释入店转化；私域粉丝群 25 人群订单占比 0%（证伪，不写转化成果）；9 月塌方用「订单 = 曝光 × 进店率 × 下单转化率」MECE 拆到曝光下滑而非转化失效</li>
-  </ul></div>
-  <div class="card"><b>③ 用户分层与复购打法</b><ul>
-    <li>后台无客户级明细，所以用平台官方的新老客分层做打法设计，不硬造 RFM 分数——口径诚实优先于框架好看</li>
-    <li>数据依据：老客占比 京东 32.3% / 淘宝 33.5% / 美团 39.6%；淘宝老客下单转化 42.7% vs 新客 13.7%；打法：京东/淘宝做老客召回，美团做曝光承接</li>
-    <li><b>召回与锁客（2026.04–09 运营期内真实做过）：</b>① 对当日下单用户逐单电话回访——问口味分量、收集改进建议、预告「下次送点小菜」，收到过顾客主动好评；② 借平台连续下单返券活动串复购（满 N 单送券）；③ 引导顾客充值京东外卖饭卡（储值仅限本店消费、有顾客实际充值、后台可查），用预付款锁定后续消费</li>
-  </ul></div>
-  <div class="card"><b>④ 语境迁移地图（外卖店 ↔ 互联网产品运营）</b><ul>
-    <li>同一套动作，换一个载体：家庭外卖店是「产品」，三平台后台就是「产品后台」，顾客就是「用户」</li>
-    <li>买量活动 → 渠道投放与 A/B 测试：曝光拉爆但转化被稀释，等价于投放 ROI 与着陆页转化问题</li>
-    <li>新老客分层 → 用户分层精细化运营：按平台官方分层口径设计召回策略，不硬造模型分</li>
-    <li>连续下单返券 + 饭卡储值 → 促活与权益玩法：平台券是活动位，饭卡是预付款锁客（储值仅限本店消费）</li>
-    <li>逐单电话回访 → 用户调研与关系运营：问口味分量、收集改进建议、预告下次赠菜，把口碑做在差评发生之前</li>
-    <li>24 场景实测 → 产品迭代数据验证：先定口径再实跑，5 项发现当晚修复复测</li>
-    <li>竞品调研 → 竞品与行业监控：拆解京东AI购的留存 / 促活 / 裂变设计，产出带验证指标的建议</li>
-    <li>我缺的是 APP 语境的工时，不缺的是同一套动作在另一个载体上的执行</li>
-  </ul></div>
-  <div class="card"><b>⑤ 推广打法对标（我的动作 ↔ 平台官方工具 / 行业通行打法）</b><ul>
-    <li>不是随手做的，每一项都能对标到官方文档或行业验证过的打法：</li>
-    <li><b>满减 / 折扣活动配置</b> ↔ 美团官方《新商家服务手册》三大自营销工具：减配送费（1–3 元提升入店量）、满减三档设计（引流档提高进店转化 / 凑单档提客单价 / 防拆单档）、折扣商品选热销品阶梯展示<span class="grade gA" style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方</span></li>
-    <li><b>连续下单返券</b> ↔ 平台集点返券类频次激励工具——美团新商家 11 项新手任务中即含「设置集点返券」<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方</span></li>
-    <li><b>京东饭卡储值</b> ↔ 行业通行储值锁客：充值赠金、资金沉淀、限定本店消费（具名案例：熊大爷现包饺子会员储值累计破亿）<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 具名案例</span></li>
-    <li><b>新老客分层打法</b> ↔ 用户分层精细化运营；后台无客户级明细，故用平台官方分层口径、不硬造模型分<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#e0e7ff;color:#3730a3;margin-left:4px">B/C 行业通行</span></li>
-    <li><b>电话回访 + 预告赠菜</b> ↔ 关系运营与情感连接，私域打法的一环<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 行业通行</span></li>
-    <li><b>评价运营四模块</b> ↔ 美团新商家任务明列「维护用户评价」，评分是平台流量分配的输入<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方</span></li>
-    <li><b>平台活动 + 小额充值投放</b>（本人动作：参加平台官方活动拉曝光，美团曝光 7,139 → 55,951；充值投放每次 50 元、频次不高、美团为主京东淘宝很少，充值记录后台可查）↔ 官方建议姿势：美团培训《点金推广入门技巧》明言「经常建议新商家先用 50 元预算进行试投」；出价参考系统建议价、小幅慢调<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方培训</span></li>
-    <li><b>投放决策</b>（充完看曝光 / 进店数据决定加不加，数据不支撑不加）↔ 行业通行：新店以测试为主、不盲目放大，成熟期店铺投放约占营业额 8–10%；预算集中曝光主战场（美团曝光三平台最大 11.8 万，京东淘宝曝光小、走老客复购）<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#e0e7ff;color:#3730a3;margin-left:4px">B/C 行业通行</span></li>
-    <li><b>多平台推广工具认知</b>（美团点金推广与京东「京准通门店推广」均为充值制投放工具）↔ 行业通行：按平台特性分配预算、不均匀撒布<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#e0e7ff;color:#3730a3;margin-left:4px">B/C 行业通行</span></li>
-    <li><b>私域粉丝群</b> ↔ 行业重点私域社群玩法<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 行业通行</span>——做了并证伪（25 人群订单占比 0%），照实写</li>
-    <li>共同点：全部有官方工具或行业验证背书；我的工作是配置、执行、看数据、留下可复算的记录</li>
-  </ul></div>
-</section>
-
-<footer style="text-align:center;color:var(--muted);font-size:12.5px;padding:20px">
-  本作品集全部数据来源于三平台官方后台导出（51 份），口径基准 v1（2026-10-12）· 无估算冒充实测 · 无虚构
-</footer>
-</div>
-
-<script src="daily-data.js"></script>
-<script>
-// 美团月度结算净额（官方口径，与口径基准 v1 一致）
-const M=[{m:'4月',v:1310},{m:'5月',v:5780},{m:'6月',v:2762},{m:'7月',v:3497},{m:'8月',v:6650},{m:'9月',v:3140}];
-const mx=Math.max(...M.map(x=>x.v));
-document.getElementById('mtbars').innerHTML=M.map((x,i)=>`
- <div class="bar-row"><span class="lb">${x.m}</span>
- <span class="tr"><span class="fl" data-w="${(x.v/mx*100).toFixed(1)}" style="transition-delay:${i*70}ms"></span></span>
- <span class="vl">¥${x.v.toLocaleString('en-US')}</span></div>`).join('');
-
-document.querySelectorAll('[data-copy]').forEach(el=>{
-  el.onclick=()=>{navigator.clipboard.writeText(el.dataset.copy);
-    const o=el.textContent;el.textContent='✅ 已复制：'+el.dataset.copy;
-    setTimeout(()=>{el.textContent=o;},1800);};
-});
-
-// 逐日订单曲线（重建版：原始日汇总数据 + 面积淡入挂载点）
-(function(){
-  var svg=document.getElementById('dchart'); if(!svg) return;
-  var W=1000,H=220,PL=40,PR=10,PT=12,PB=26;
-  var vals=MT_DAILY.map(function(d){return d[1];});
-  var maxV=Math.max.apply(null,vals)||1, n=MT_DAILY.length;
-  function x(i){return PL+(W-PL-PR)*(n>1?i/(n-1):0);}
-  function y(v){return H-PB-(H-PT-PB)*(v/maxV);}
-  var g='<defs><linearGradient id="apargrad" x1="0" y1="0" x2="0" y2="1">'+
-    '<stop offset="0" stop-color="#0071e3" stop-opacity=".22"/>'+
-    '<stop offset="1" stop-color="#0071e3" stop-opacity="0"/></linearGradient></defs>';
-  for(var i=0;i<=4;i++){var gy=PT+(H-PT-PB)*i/4,gv=Math.round(maxV*(1-i/4));
-    g+='<line x1="'+PL+'" y1="'+gy+'" x2="'+(W-PR)+'" y2="'+gy+'" stroke="rgba(0,0,0,.06)"/>'+
-       '<text x="'+(PL-6)+'" y="'+(gy+4)+'" font-size="10" fill="#86868b" text-anchor="end">'+gv+'</text>';}
-  var areaPts=PL+','+(H-PB)+' '+MT_DAILY.map(function(d,i){return x(i)+','+y(d[1]);}).join(' ')+' '+(W-PR)+','+(H-PB);
-  g+='<polygon class="ap-area" points="'+areaPts+'" fill="url(#apargrad)"/>';
-  MT_DAILY.forEach(function(d,i){if(d[1]===0){var bw=Math.max(1.5,(W-PL-PR)/n*0.7);
-    g+='<rect x="'+(x(i)-bw/2)+'" y="'+(H-PB-4)+'" width="'+bw+'" height="4" fill="#ff3b30" rx="1"/>';}});
-  var pts=MT_DAILY.map(function(d,i){return x(i)+','+y(d[1]);}).join(' ');
-  g+='<polyline points="'+pts+'" fill="none" stroke="#0071e3" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>';
-  var seen={};
-  MT_DAILY.forEach(function(d,i){var k=d[0].slice(0,7);if(!seen[k]){seen[k]=1;
-    g+='<line x1="'+x(i)+'" y1="'+(H-PB)+'" x2="'+x(i)+'" y2="'+(H-PB+4)+'" stroke="rgba(0,0,0,.12)"/>'+
-       '<text x="'+x(i)+'" y="'+(H-PB+16)+'" font-size="10" fill="#86868b" text-anchor="middle">'+k.slice(2)+'</text>';}});
-  g+='<line x1="'+PL+'" y1="'+(H-PB)+'" x2="'+(W-PR)+'" y2="'+(H-PB)+'" stroke="rgba(0,0,0,.12)"/>';
-  svg.innerHTML=g;
-})();
-</script>
-<script src="assets/apple-fx.js" defer></script>
-</body></html>
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>佚名 · 产品运营求职作品集</title>
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+
+  --bg:#f5f7fa; --surface:#ffffff; --surface-2:#fbfcfe;
+
+  --ink:#15202e; --muted:#5d6878; --faint:#8a96a6;
+
+  --line:#e8edf3; --line-2:#eff3f8;
+
+  --primary:#2563eb; --primary-600:#1d4ed8; --primary-soft:#eef4ff;
+
+  --emerald:#0e9d6b; --emerald-soft:#e8f7f0;
+
+  --amber:#d97706; --amber-soft:#fdf3e3;
+
+  --radius:16px; --radius-sm:12px;
+
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
+
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+
+}
+
+body{font-family:var(--font);background:var(--bg);color:var(--ink);
+
+line-height:1.75;-webkit-font-smoothing:antialiased;font-size:15px}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px 90px}
+
+header{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+
+padding:30px 32px;margin-bottom:24px;box-shadow:var(--shadow)}
+
+h1{font-size:26px;font-weight:800;letter-spacing:-.3px;line-height:1.2}
+
+.sub{color:var(--muted);font-size:14px;margin-top:9px;line-height:1.6}
+
+.tag{display:inline-block;background:var(--surface-2);color:var(--muted);font-size:12px;
+
+font-weight:500;padding:5px 12px;border-radius:20px;margin:12px 7px 0 0;border:1px solid var(--line)}
+
+section{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+
+padding:30px 32px;margin-bottom:24px;box-shadow:var(--shadow)}
+
+h2{font-size:19px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:12px;letter-spacing:-.2px}
+
+h2::before{content:"";width:4px;height:18px;background:var(--primary);border-radius:2px}
+
+h3{font-size:15.5px;font-weight:700;margin:24px 0 10px;color:var(--ink)}
+
+p{color:var(--muted);font-size:14.5px;margin:9px 0;line-height:1.8}
+
+ul{margin:10px 0 10px 22px;color:var(--muted);font-size:14.5px}
+
+li{margin:6px 0;line-height:1.8}
+
+b{color:var(--ink)}
+
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0}
+
+.kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px}
+
+.kpi .v{font-size:24px;font-weight:800;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+
+.kpi .l{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+
+table{width:100%;border-collapse:collapse;font-size:13px;margin:16px 0}
+
+th,td{padding:10px 11px;text-align:right;border-bottom:1px solid var(--line-2)}
+
+th:first-child,td:first-child{text-align:left}
+
+th{background:var(--surface-2);font-weight:700;color:var(--muted);font-size:12px}
+
+tbody tr:last-child td{border-bottom:none}
+
+tfoot td{background:var(--surface-2);font-weight:700}
+
+.note{background:var(--amber-soft);border:1px solid #fde3b0;border-left:4px solid var(--amber);
+
+border-radius:10px;padding:14px 18px;font-size:13.5px;color:#8a5a08;margin:16px 0;line-height:1.8}
+
+.ok{background:var(--emerald-soft);border:1px solid #b6ebd2;border-left:4px solid var(--emerald);
+
+border-radius:10px;padding:14px 18px;font-size:13.5px;color:#067a52;margin:16px 0;line-height:1.8}
+
+a{color:var(--primary);text-decoration:none;font-weight:600}
+
+a:hover{text-decoration:underline}
+
+.copy{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:10px 13px;
+
+font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;word-break:break-all;
+
+margin:10px 0;color:#334155;cursor:pointer}
+
+.copy:hover{border-color:#c7d7f5;background:var(--primary-soft)}
+
+.card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px 20px;margin:14px 0;background:var(--surface-2)}
+
+.card b{font-size:15px}
+
+.bar-row{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:12.5px}
+
+.bar-row .lb{width:52px;color:var(--muted);flex-shrink:0}
+
+.bar-row .tr{flex:1;background:var(--line-2);border-radius:6px;height:20px;position:relative;overflow:hidden}
+
+.bar-row .fl{height:100%;border-radius:6px}
+
+.bar-row .vl{width:96px;text-align:right;font-variant-numeric:tabular-nums;flex-shrink:0;color:var(--ink);font-weight:600}
+
+#nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);
+
+border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+
+padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
+
+#nav .brand{font-weight:800;font-size:14.5px;color:var(--ink);margin-right:auto;padding:14px 4px;letter-spacing:-.3px;white-space:nowrap}
+
+#nav a{padding:14px 14px;font-size:13.5px;color:var(--muted);text-decoration:none;font-weight:600;white-space:nowrap}
+
+#nav a:hover{color:var(--primary);text-decoration:none}
+
+#nav a.on{color:var(--primary);border-bottom:2px solid var(--primary)}
+
+@media (max-width:640px){
+
+ .wrap{padding:0 14px 70px} header,section{padding:22px 18px}
+
+ h1{font-size:22px}h2{font-size:17px}
+
+}
+
+</style>
+
+<link rel="stylesheet" href="assets/apple-fx.css">
+
+</head>
+
+<body>
+
+<nav id="nav">
+
+  <span class="brand">佚名 · 作品集</span>
+
+  <a href="/" class="on">首页</a>
+
+  <a href="/mvp/index.html">选一本 MVP</a>
+
+  <a href="/evaluation/index.html">质量验证</a>
+
+  <a href="/analysis/index.html">竞品调研</a>
+
+  <a href="/aigc/index.html">运营笔记</a>
+
+  <a href="/reviews/index.html">评价运营</a>
+
+  <a href="/prompts/index.html">Prompt 模板</a>
+
+</nav>
+
+<div class="wrap">
+
+
+
+<header id="hero">
+
+  <h1>佚名 · 产品运营求职作品集</h1>
+
+  <div class="sub"><b>产品运营的客户就是产品的用户；这个岗位要解决的核心问题是：让用户在产品全生命周期里持续获得价值——从来、到留下、到反复用、到最终转化，从而对用户指标和生意结果负责。我认这个口径，作品集里所有动作都挂在这一个问题上。</b><br>产品运营 = 围绕产品全生命周期做用户侧的经营：拉新、激活、留存、转化、复购、召回，用数据定口径、找问题、推迭代、验结果。本作品集用两条真实主线证明这件事我能干：①「选一本」AI 产品从 0 到 1 的定位、上线与实测迭代；② 家庭外卖店三平台 6 个月经营数据复盘。<b>目标岗位：产品运营（用户运营 / 本地生活运营为其中细分）</b></div>
+
+  <div>
+
+    <span class="tag">数据周期 2026-04-14 – 2026-09-29</span>
+
+    <span class="tag">数据来源：三平台官方后台导出（51 份）</span>
+
+    <span class="tag">全部数字可回溯 · 无估算冒充实测</span>
+
+    <span class="tag">口径基准 v1 · 2026-10-12</span>
+
+    <span class="tag">v2 · 2026-10-14 按产品运营视角修订</span>
+
+    <span class="tag">v3 · 2026-10-15 岗位认知 / 语境迁移 / 召回锁客修订</span>
+
+  </div>
+
+</header>
+
+
+
+<section>
+
+  <h2>这套作品集怎么读（产品运营能力地图）</h2>
+
+  <table>
+
+    <thead><tr><th style="width:26%">模块</th><th style="width:34%">对应的产品运营能力</th><th>一句话证据</th></tr></thead>
+
+    <tbody>
+
+      <tr><td><a href="/mvp/index.html">选一本 MVP</a></td><td>产品定位与迭代运营</td><td>从 0 到 1：定位 → 需求 → 上线 → 按 24 场景实测迭代</td></tr>
+
+      <tr><td><a href="/analysis/index.html">竞品调研 · 京东AI购</a></td><td>竞品运营打法调研</td><td>拆解它的留存/促活/裂变设计，3 条带验证指标的改进建议</td></tr>
+
+      <tr><td><a href="/aigc/index.html">运营工作笔记 3 篇</a></td><td>经营数据复盘</td><td>三平台 6 个月口径先行的复盘；24 遍实测的纪律</td></tr>
+
+      <tr><td><a href="/evaluation/index.html">推荐质量验证</a></td><td>运营侧质量口径与闭环</td><td>先定口径再实跑，5 项发现当晚修复复测</td></tr>
+
+      <tr><td><a href="/prompts/index.html">Prompt 模板 12 条</a></td><td>运营提效工具</td><td>六类真实运营场景，反幻觉设计</td></tr>
+
+      <tr><td><a href="/reviews/index.html">评价运营实录</a></td><td>用户运营（细分方向）</td><td>四模块评价运营体系 + 用户运营评估口径</td></tr>
+
+    </tbody>
+
+  </table>
+
+</section>
+
+
+
+<!-- ========== 作品一：AI 产品 ========== -->
+
+<section>
+
+  <h2>作品一 · AI 产品落地：「选一本」智能笔记本电脑选购助手</h2>
+
+  <p>面向大学新生与数码小白的「选购决策助手」。核心主张：把晦涩参数翻译成生活语言，一次给出【最优解 + 一个备选】；不接厂家 CPS、不做软文。时间线：2026.05 启动定位与调研，6 月曾计划寻找创业合伙人共同上线（未果），随后独立完成开发部署，并用 24 场景实测完成首轮迭代。<b>口径说明（主动声明）：本产品为演示版 MVP，暂无真实注册用户；页面中的数据均为本人 24 场景自测口径，不是线上真实用户数据——真人试用是下一迭代项（实验设计见「推荐质量验证」页）。</b></p>
+
+  <div class="card">
+
+    <b>在线体验（谁点都能开，无需登录）</b>
+
+    <div class="copy" data-copy="mvp/index.html">点击复制：mvp/index.html</div>
+
+    <p style="margin-top:8px;font-size:13px">一个面向大学新生与数码小白的笔记本选购决策助手：把晦涩参数翻译成生活语言，一次给出【最优解 + 一个备选】并说清理由。技术细节（本地加权匹配、纯静态部署、AI 会诊为预留接口）见文末边界说明——这一页讲的是运营判断。</p>
+
+  </div>
+
+  <h3>产品能力（均为已实现功能，非规划）</h3>
+
+  <ul>
+
+    <li><b>大学专业选本引擎</b>：按专业大类（计算机/建筑/环工/美术等）匹配核心软件负载，输出兼容星级</li>
+
+    <li><b>链接避坑会诊</b>：贴入电商链接，生成大白话避坑提示（散热、屏幕、是否买贵）</li>
+
+    <li><b>参数白话化</b>：把 GB/Hz/Wh 转译为「风扇吵不吵」「背一天累不累」「能撑几节课」</li>
+
+    <li><b>对比与收藏</b>：多机参数横向对比、收藏夹、历史诊断记录回溯</li>
+
+    <li><b>本地可解释推荐引擎</b>：加权打分（身份/场景/预算多因子 + 避坑规则），输出首选 + 备选 + 匹配度，全程本地计算、不依赖外部服务</li>
+
+    <li><b>AI 会诊（预留接口）</b>：前端已预留服务端 AI 诊断调用；接入模型部署后启用，输出侧按「禁止编造」约束设计</li>
+
+  </ul>
+
+  <div class="card">
+
+    <b>同站材料</b>
+
+    <ul style="margin-top:8px">
+
+      <li><a href="/analysis/index.html">《竞品调研 · 京东AI购运营打法拆解》</a>——回答运营问题：别人怎么拉新、怎么留人、怎么让用户反复来、怎么把流量变成交易；含 3 条带验证指标的改进建议</li>
+
+      <li><a href="/aigc/index.html">《运营工作笔记 3 篇》</a>——① 三平台数据复盘（口径先行+三个验证结论）② 京东AI购调研笔记（12 张一手截图）③ 我把自家 App 跑了 24 遍（运营怎么验证产品质量）——每篇附 AI 使用声明</li>
+
+      <li><a href="/reviews/index.html">《评价运营与口碑管理 · 三平台实录》</a>——好评维护 / 差评 SOP / 归因五类法 / 平台申诉治理四模块，含用户运营评估口径与 38 分钟申诉成功实例</li>
+
+      <li><a href="/evaluation/index.html">《推荐质量验证 · 24 场景实跑》</a>——先定口径，再把线上产品实跑 24 条真实需求：5 项发现全部确认、当晚修复复测闭环（首卡预算内率 2/24 → 抽查 4/4）</li>
+
+      <li><a href="/prompts/index.html">《Prompt 模板 12 条》</a>——覆盖数据复盘 / 竞品拆解 / 活动策划 / 内容生产 / 用户研究 / 求职复盘六类真实场景，每条可直接复制取用</li>
+
+      <li>50 秒产品演示视频（真实界面录屏 + 旁白 + 字幕）——可应面试官要求当场播放</li>
+
+    </ul>
+
+  </div>
+
+</section>
+
+
+
+<!-- ========== 作品二：数据看板 ========== -->
+
+<section id="data">
+
+  <h2>作品二 · 三平台门店经营数据复盘（真实数据）</h2>
+
+  <p>独立运营家庭外卖店（美团 + 淘宝闪购 + 京东秒送），从后台导出 51 份原始文件自行建模复盘。<b>以下每一个数字都可回溯到具体源文件与字段</b>；口径基准见文末说明。</p>
+
+
+
+  <div class="kpis">
+
+    <div class="kpi"><div class="v" data-count="2031">2,031</div><div class="l">累计有效订单（单）</div></div>
+
+    <div class="kpi"><div class="v">≈3.67万</div><div class="l">累计结算净额（元）</div></div>
+
+    <div class="kpi"><div class="v">644→253</div><div class="l">峰值月 8 月 → 9 月订单（−61%）</div></div>
+
+    <div class="kpi"><div class="v" data-count="39.6" data-suffix="%">39.6%</div><div class="l">美团老客下单占比</div></div>
+
+    <div class="kpi"><div class="v" data-count="0">0</div><div class="l">缺货次数（自配送全程）</div></div>
+
+    <div class="kpi"><div class="v">4.37/4.5/4.56</div><div class="l">三平台店铺评分（京东/美团/淘宝；京东为 59 条评价口径）</div></div>
+
+  </div>
+
+
+
+  <div class="ok"><b>口径已用恒等式验证，非估算</b><br>
+
+  美团「营业收入」字段经逐日恒等式检验：<b>营业收入 = 优惠前总额 − 佣金 − 商家活动支出 − 其它支出 − 公益捐款</b>，
+
+  在美团门店日汇总覆盖的 <b>154 天</b>（2026-04-29 → 09-29）内逐日误差最大 0.00 元 → 该字段可直接作为<b>平台结算净额（商家实收）</b>使用。</div>
+
+
+
+  <h3>逐月订单（分平台，官方「有效订单」口径）</h3>
+
+  <table>
+
+    <thead><tr><th>月份</th><th>美团</th><th>淘宝</th><th>京东</th><th>三平台合计</th><th>美团结算净额</th></tr></thead>
+
+    <tbody>
+
+      <tr><td>2026-04</td><td>69</td><td>19</td><td>—</td><td>88</td><td>¥1,310</td></tr>
+
+      <tr><td>2026-05</td><td>368</td><td>98</td><td>—</td><td>466</td><td>¥5,780</td></tr>
+
+      <tr><td>2026-06</td><td>138</td><td>70</td><td>—</td><td>208</td><td>¥2,762</td></tr>
+
+      <tr><td>2026-07</td><td>164</td><td>56</td><td>151</td><td>371</td><td>¥3,497</td></tr>
+
+      <tr><td>2026-08</td><td>354</td><td>71</td><td>219</td><td><b>644</b></td><td>¥6,650</td></tr>
+
+      <tr><td>2026-09</td><td>152</td><td>29</td><td>72</td><td>253</td><td>¥3,140</td></tr>
+
+    </tbody>
+
+    <tfoot><tr><td>合计</td><td>1,245</td><td>344*</td><td>442*</td><td><b>2,031</b></td><td>¥23,139</td></tr></tfoot>
+
+  </table>
+
+  <p style="font-size:12.5px">* 京东 5–6 月无官方日汇总（仅订单明细），故京东官方口径只含 7–9 月，5–6 月不计入合计——宁可少算，不混口径。淘宝为整段官方口径（2026-04-09 → 10-09，344 单），月度加总 343 与整段差 1 单为边界日归属。</p>
+
+
+
+  <h3>分平台汇总（全期）</h3>
+
+  <table>
+
+    <thead><tr><th>平台</th><th>有效订单</th><th>顾客实付（元）</th><th>结算净额（元）</th><th>漏斗（曝光→入店→下单）</th></tr></thead>
+
+    <tbody>
+
+      <tr><td>美团（4–9月）</td><td>1,245</td><td>33,778</td><td>23,139</td><td>117,521 → 7,179（6.1%）→ 1,245（17.3%）</td></tr>
+
+      <tr><td>京东（7–9月官方）</td><td>442</td><td>10,253*</td><td>6,785</td><td>36,229 → 1,497（4.1%）→ 442（29.5%）</td></tr>
+
+      <tr><td>淘宝（整段）</td><td>344</td><td>7,673</td><td>6,763</td><td>51,405 → 1,911（3.7%）→ 340（18.0%）</td></tr>
+
+    </tbody>
+
+    <tfoot><tr><td>三平台合计</td><td><b>2,031</b></td><td><b>≈51,700（约）</b></td><td><b>≈36,687</b></td><td>曝光 ≈205,155 → 入店 ≈10,587 → 下单 2,031</td></tr></tfoot>
+
+  </table>
+
+  <p style="font-size:12.5px">* 京东顾客实付为明细唯一订单加总（7–9 月，含少量无效单未剔）。<b>口径说明：三平台窗口不同（美团 4–9 月 / 淘宝整段 / 京东仅 7–9 月有官方汇总），合计顾客实付只作约数；平台「营业额」字段含配送费/打包费，与顾客实付不可比，故不混算 GMV。</b>老客占比：京东 32.3% / 淘宝 33.5% / 美团 39.6%。</p>
+
+
+
+  <h3>可读出的运营事实</h3>
+
+  <div id="mtbars"></div>
+
+  <ul>
+
+    <li><b>5 月是投产爆发期</b>：曝光 5.6 万、订单 368 单、净额 5,780 元；但入店转化率被稀释到 5.5%（平月 6.5–7.6%）——买来的是泛流量，单靠活动不可持续。</li>
+
+    <li><b>8 月是效率最高期</b>：净额 6,650 元为全期峰值；同期三平台老客占比稳定在三成以上，复购是基本盘。</li>
+
+    <li><b>9 月三平台同步收缩</b>（订单 −61%、京东 −67%/美团 −57%/淘宝 −59%）：非单点故障，是平台整体流量分配收缩；数据截至 2026-09-29（末单日）。</li>
+
+    <li><b>美团靠曝光承接、京东淘宝靠老客召回</b>：美团曝光量三平台最大（11.8 万）但新客占比高；京东/淘宝曝光小、老客占比稳定（32.3%/33.5%），适合召回。</li>
+
+    <li><b>淘宝老客转化率碾压新客</b>：老客下单转化 42.7% vs 新客 13.7%、老客进店转化 14.7% vs 新客 3.3%；但淘宝曝光 96.5% 给了新客——「曝光给新客、转化靠老客」的结构性错配，是私域与召回动作的直接依据。</li>
+
+  </ul>
+
+
+
+  <h3>逐日订单曲线（从原始日汇总重建 · 核实版）</h3>
+
+  <svg id="dchart" viewBox="0 0 1000 220" preserveAspectRatio="none"></svg>
+
+  <p style="font-size:12.5px">美团 170 天逐日有效订单（2026-04-14 → 09-30，含 27 个零单日，红柱标记；8/31–9/4 连续 5 天零单为休息断档，非计入均值的营业日）。<b>完整逐日数据（美团+京东，含每日曝光/入店/结算净额/口径备注）可下载核对：</b><a href="逐日经营数据_核实版.csv" download>逐日经营数据_核实版.csv</a></p>
+
+
+
+  <div class="note"><b>数据边界（主动说明，不是减分项）</b><br>
+
+  1. 运营期 2026-04-14 至 2026-09-29（末单日），此后无新数据；月均按口径给：6 个运营月摊 ≈338 单/月，三平台都有官方汇总的 7–9 月摊 ≈423 单/月。<br>
+
+  2. 恒等式验证覆盖美团门店日汇总 154 天；数据集跨度约 170 天（含未开店/休息日）。<br>
+
+  3. 京东后台不导出佣金与配送费字段，京东净额取官方「收入」字段（7–9 月）；净利润（食材/人工/房租）不在平台数据内，不做估算。</div>
+
+</section>
+
+
+
+<!-- ========== 作品三：方法论 ========== -->
+
+<section id="method">
+
+  <h2>作品三 · 可复用的运营方法论</h2>
+
+  <div class="card"><b>① 数据复盘流程（这份看板就是这么出来的）</b><ul>
+
+    <li>先确认口径：区分「订单数」与「结算金额」；结算账单 ≠ 订单明细，不能用来数单量</li>
+
+    <li>用恒等式验证字段含义，不靠猜（美团营业收入 = 优惠前总额 − 各项支出，154 天逐日误差 0）</li>
+
+    <li>识别断档：区分「真实零单」与「未开店」，避免污染均值</li>
+
+    <li>推算项单独标注，绝不与实测项混列；对不上的数字先查源，不许「两个都放着」</li>
+
+  </ul></div>
+
+  <div class="card"><b>② 增长实验格式（假设 → 实验 → 数据 → 结论）</b><ul>
+
+    <li>每个运营动作先提假设，再用后台真数验证，证伪的照实写</li>
+
+    <li>实例：平台活动能把曝光拉爆（5 月 +683%）但稀释入店转化；私域粉丝群 25 人群订单占比 0%（证伪，不写转化成果）；9 月塌方用「订单 = 曝光 × 进店率 × 下单转化率」MECE 拆到曝光下滑而非转化失效</li>
+
+  </ul></div>
+
+  <div class="card"><b>③ 用户分层与复购打法</b><ul>
+
+    <li>后台无客户级明细，所以用平台官方的新老客分层做打法设计，不硬造 RFM 分数——口径诚实优先于框架好看</li>
+
+    <li>数据依据：老客占比 京东 32.3% / 淘宝 33.5% / 美团 39.6%；淘宝老客下单转化 42.7% vs 新客 13.7%；打法：京东/淘宝做老客召回，美团做曝光承接</li>
+
+    <li><b>召回与锁客（2026.04–09 运营期内真实做过）：</b>① 对当日下单用户逐单电话回访——问口味分量、收集改进建议、预告「下次送点小菜」，收到过顾客主动好评；② 借平台连续下单返券活动串复购（满 N 单送券）；③ 引导顾客充值京东外卖饭卡（储值仅限本店消费、有顾客实际充值、后台可查），用预付款锁定后续消费</li>
+
+  </ul></div>
+
+  <div class="card"><b>④ 语境迁移地图（外卖店 ↔ 互联网产品运营）</b><ul>
+
+    <li>同一套动作，换一个载体：家庭外卖店是「产品」，三平台后台就是「产品后台」，顾客就是「用户」</li>
+
+    <li>买量活动 → 渠道投放与 A/B 测试：曝光拉爆但转化被稀释，等价于投放 ROI 与着陆页转化问题</li>
+
+    <li>新老客分层 → 用户分层精细化运营：按平台官方分层口径设计召回策略，不硬造模型分</li>
+
+    <li>连续下单返券 + 饭卡储值 → 促活与权益玩法：平台券是活动位，饭卡是预付款锁客（储值仅限本店消费）</li>
+
+    <li>逐单电话回访 → 用户调研与关系运营：问口味分量、收集改进建议、预告下次赠菜，把口碑做在差评发生之前</li>
+
+    <li>24 场景实测 → 产品迭代数据验证：先定口径再实跑，5 项发现当晚修复复测</li>
+
+    <li>竞品调研 → 竞品与行业监控：拆解京东AI购的留存 / 促活 / 裂变设计，产出带验证指标的建议</li>
+
+    <li>我缺的是 APP 语境的工时，不缺的是同一套动作在另一个载体上的执行</li>
+
+  </ul></div>
+
+  <div class="card"><b>⑤ 推广打法对标（我的动作 ↔ 平台官方工具 / 行业通行打法）</b><ul>
+
+    <li>不是随手做的，每一项都能对标到官方文档或行业验证过的打法：</li>
+
+    <li><b>满减 / 折扣活动配置</b> ↔ 美团官方《新商家服务手册》三大自营销工具：减配送费（1–3 元提升入店量）、满减三档设计（引流档提高进店转化 / 凑单档提客单价 / 防拆单档）、折扣商品选热销品阶梯展示<span class="grade gA" style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方</span></li>
+
+    <li><b>连续下单返券</b> ↔ 平台集点返券类频次激励工具——美团新商家 11 项新手任务中即含「设置集点返券」<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方</span></li>
+
+    <li><b>京东饭卡储值</b> ↔ 行业通行储值锁客：充值赠金、资金沉淀、限定本店消费（具名案例：熊大爷现包饺子会员储值累计破亿）<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 具名案例</span></li>
+
+    <li><b>新老客分层打法</b> ↔ 用户分层精细化运营；后台无客户级明细，故用平台官方分层口径、不硬造模型分<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#e0e7ff;color:#3730a3;margin-left:4px">B/C 行业通行</span></li>
+
+    <li><b>电话回访 + 预告赠菜</b> ↔ 关系运营与情感连接，私域打法的一环<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 行业通行</span></li>
+
+    <li><b>评价运营四模块</b> ↔ 美团新商家任务明列「维护用户评价」，评分是平台流量分配的输入<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方</span></li>
+
+    <li><b>平台活动 + 小额充值投放</b>（本人动作：参加平台官方活动拉曝光，美团曝光 7,139 → 55,951；充值投放每次 50 元、频次不高、美团为主京东淘宝很少，充值记录后台可查）↔ 官方建议姿势：美团培训《点金推广入门技巧》明言「经常建议新商家先用 50 元预算进行试投」；出价参考系统建议价、小幅慢调<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#dcfce7;color:#14532d;margin-left:4px">A 美团官方培训</span></li>
+
+    <li><b>投放决策</b>（充完看曝光 / 进店数据决定加不加，数据不支撑不加）↔ 行业通行：新店以测试为主、不盲目放大，成熟期店铺投放约占营业额 8–10%；预算集中曝光主战场（美团曝光三平台最大 11.8 万，京东淘宝曝光小、走老客复购）<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#e0e7ff;color:#3730a3;margin-left:4px">B/C 行业通行</span></li>
+
+    <li><b>多平台推广工具认知</b>（美团点金推广与京东「京准通门店推广」均为充值制投放工具）↔ 行业通行：按平台特性分配预算、不均匀撒布<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#e0e7ff;color:#3730a3;margin-left:4px">B/C 行业通行</span></li>
+
+    <li><b>私域粉丝群</b> ↔ 行业重点私域社群玩法<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 行业通行</span>——做了并证伪（25 人群订单占比 0%），照实写</li>
+
+    <li>共同点：全部有官方工具或行业验证背书；我的工作是配置、执行、看数据、留下可复算的记录</li>
+
+  </ul></div>
+
+</section>
+
+
+
+<footer style="text-align:center;color:var(--muted);font-size:12.5px;padding:20px">
+
+  本作品集全部数据来源于三平台官方后台导出（51 份），口径基准 v1（2026-10-12）· 无估算冒充实测 · 无虚构
+
+</footer>
+
+</div>
+
+
+
+<script src="daily-data.js"></script>
+
+<script>
+
+// 美团月度结算净额（官方口径，与口径基准 v1 一致）
+
+const M=[{m:'4月',v:1310},{m:'5月',v:5780},{m:'6月',v:2762},{m:'7月',v:3497},{m:'8月',v:6650},{m:'9月',v:3140}];
+
+const mx=Math.max(...M.map(x=>x.v));
+
+document.getElementById('mtbars').innerHTML=M.map((x,i)=>`
+
+ <div class="bar-row"><span class="lb">${x.m}</span>
+
+ <span class="tr"><span class="fl" data-w="${(x.v/mx*100).toFixed(1)}" style="transition-delay:${i*70}ms"></span></span>
+
+ <span class="vl">¥${x.v.toLocaleString('en-US')}</span></div>`).join('');
+
+
+
+document.querySelectorAll('[data-copy]').forEach(el=>{
+
+  el.onclick=()=>{navigator.clipboard.writeText(el.dataset.copy);
+
+    const o=el.textContent;el.textContent='✅ 已复制：'+el.dataset.copy;
+
+    setTimeout(()=>{el.textContent=o;},1800);};
+
+});
+
+
+
+// 逐日订单曲线（重建版：原始日汇总数据 + 面积淡入挂载点）
+
+(function(){
+
+  var svg=document.getElementById('dchart'); if(!svg) return;
+
+  var W=1000,H=220,PL=40,PR=10,PT=12,PB=26;
+
+  var vals=MT_DAILY.map(function(d){return d[1];});
+
+  var maxV=Math.max.apply(null,vals)||1, n=MT_DAILY.length;
+
+  function x(i){return PL+(W-PL-PR)*(n>1?i/(n-1):0);}
+
+  function y(v){return H-PB-(H-PT-PB)*(v/maxV);}
+
+  var g='<defs><linearGradient id="apargrad" x1="0" y1="0" x2="0" y2="1">'+
+
+    '<stop offset="0" stop-color="#0071e3" stop-opacity=".22"/>'+
+
+    '<stop offset="1" stop-color="#0071e3" stop-opacity="0"/></linearGradient></defs>';
+
+  for(var i=0;i<=4;i++){var gy=PT+(H-PT-PB)*i/4,gv=Math.round(maxV*(1-i/4));
+
+    g+='<line x1="'+PL+'" y1="'+gy+'" x2="'+(W-PR)+'" y2="'+gy+'" stroke="rgba(0,0,0,.06)"/>'+
+
+       '<text x="'+(PL-6)+'" y="'+(gy+4)+'" font-size="10" fill="#86868b" text-anchor="end">'+gv+'</text>';}
+
+  var areaPts=PL+','+(H-PB)+' '+MT_DAILY.map(function(d,i){return x(i)+','+y(d[1]);}).join(' ')+' '+(W-PR)+','+(H-PB);
+
+  g+='<polygon class="ap-area" points="'+areaPts+'" fill="url(#apargrad)"/>';
+
+  MT_DAILY.forEach(function(d,i){if(d[1]===0){var bw=Math.max(1.5,(W-PL-PR)/n*0.7);
+
+    g+='<rect x="'+(x(i)-bw/2)+'" y="'+(H-PB-4)+'" width="'+bw+'" height="4" fill="#ff3b30" rx="1"/>';}});
+
+  var pts=MT_DAILY.map(function(d,i){return x(i)+','+y(d[1]);}).join(' ');
+
+  g+='<polyline points="'+pts+'" fill="none" stroke="#0071e3" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>';
+
+  var seen={};
+
+  MT_DAILY.forEach(function(d,i){var k=d[0].slice(0,7);if(!seen[k]){seen[k]=1;
+
+    g+='<line x1="'+x(i)+'" y1="'+(H-PB)+'" x2="'+x(i)+'" y2="'+(H-PB+4)+'" stroke="rgba(0,0,0,.12)"/>'+
+
+       '<text x="'+x(i)+'" y="'+(H-PB+16)+'" font-size="10" fill="#86868b" text-anchor="middle">'+k.slice(2)+'</text>';}});
+
+  g+='<line x1="'+PL+'" y1="'+(H-PB)+'" x2="'+(W-PR)+'" y2="'+(H-PB)+'" stroke="rgba(0,0,0,.12)"/>';
+
+  svg.innerHTML=g;
+
+})();
+
+</script>
+
+<script src="assets/apple-fx.js" defer></script>
+
+</body></html>
+
