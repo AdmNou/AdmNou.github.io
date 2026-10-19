@@ -1,0 +1,235 @@
+/* ============================================================
+   apple-fx.css — Apple 官网级效果层（作品集全站共享）
+   依赖：无。置于各页 <style> 之后链接，靠级联覆盖页面原样式。
+   配套：apple-fx.js（加 .fx-on、跑滚动编排）；无 JS 时全站退回原样式。
+   来源：apple-design（物理/哲学）+ apple-web-fx skill（代码/数值）
+   ============================================================ */
+
+:root{
+  --ap-bg:#f5f5f7; --ap-ink:#1d1d1f; --ap-text:#1d1d1f;
+  --ap-muted:#6e6e73; --ap-faint:#86868b;
+  --ap-blue:#0071e3; --ap-blue-hover:#0077ed; --ap-blue-soft:rgba(0,113,227,.08);
+  --ap-green:#248a3d; --ap-green-soft:rgba(52,199,89,.12);
+  --ap-amber:#b25000; --ap-amber-soft:rgba(255,149,0,.12);
+  --ap-red:#d70015;   --ap-red-soft:rgba(255,59,48,.10);
+  --ap-card:rgba(255,255,255,.72);
+  --ap-line:rgba(0,0,0,.08);
+  --ap-radius:18px; --ap-radius-sm:14px; --ap-pill:980px;
+  --ap-shadow:0 1px 2px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.07);
+  --ap-ease:cubic-bezier(.28,.11,.32,1);
+  --ap-font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue","PingFang SC","Microsoft YaHei",sans-serif;
+}
+
+/* ---------- 基底：苹果灰底 + 系统字 ---------- */
+.fx-on body{background:var(--ap-bg);color:var(--ap-text);
+  font-family:var(--ap-font);font-size:15px;line-height:1.75}
+.fx-on .wrap{position:relative;z-index:1}
+
+/* ---------- 玻璃卡：header / section / .card / .kpi ---------- */
+.fx-on header,.fx-on section,.fx-on .card,.fx-on .kpi{
+  position:relative;isolation:isolate;
+  background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.70));
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.70);
+  border-radius:var(--ap-radius);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.90),0 1px 2px rgba(0,0,0,.03),0 16px 40px rgba(0,0,0,.07);
+}
+.fx-on header::after,.fx-on section::after,.fx-on .card::after,.fx-on .kpi::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:linear-gradient(135deg,rgba(255,255,255,.40),rgba(255,255,255,.06) 30%,transparent 60%);
+  mix-blend-mode:screen}
+.fx-on header{padding:34px 36px}
+.fx-on section{padding:30px 34px}
+.fx-on .card{border-radius:var(--ap-radius-sm);padding:18px 22px}
+.fx-on .kpi{border-radius:var(--ap-radius-sm);padding:16px 18px}
+
+/* ---------- 字阶：tracking 随字号收紧 ---------- */
+.fx-on h1{font-size:clamp(26px,4vw,40px);font-weight:700;letter-spacing:-.022em;line-height:1.1;color:var(--ap-ink)}
+.fx-on h2{font-size:clamp(19px,2.4vw,24px);font-weight:700;letter-spacing:-.012em;line-height:1.2;color:var(--ap-ink)}
+.fx-on h3{font-size:16.5px;font-weight:600;letter-spacing:-.005em;line-height:1.4;color:var(--ap-ink);margin:22px 0 8px}
+.fx-on p{color:var(--ap-text);font-size:15px;margin:9px 0}
+.fx-on li{font-size:14.5px}
+.fx-on .sub,.fx-on .meta,.fx-on .small,.fx-on footer{color:var(--ap-muted)}
+.fx-on .small{font-size:13px}
+.fx-on b,.fx-on strong{color:var(--ap-ink);font-weight:600}
+.fx-on h2::before{background:var(--ap-blue)!important;width:4px;border-radius:2px}
+
+/* ---------- 链接：苹果蓝 ---------- */
+.fx-on a{color:var(--ap-blue);text-decoration:none;font-weight:500}
+.fx-on a:hover{text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- 导航基座（不依赖 .fx-on：无 JS 也有完整形态；全站统一） ---------- */
+#nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:4px;flex-wrap:wrap;
+  padding:0 20px;background:rgba(245,245,247,.85);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid rgba(0,0,0,.06);
+  font-family:var(--ap-font)}
+#nav .brand{font-weight:700;font-size:14.5px;color:var(--ap-ink);margin-right:auto;
+  padding:14px 4px;letter-spacing:-.01em;white-space:nowrap}
+#nav a{padding:8px 12px;font-size:13px;color:var(--ap-ink);text-decoration:none;
+  font-weight:500;white-space:nowrap;border-radius:9px;border-bottom:none;
+  transition:color .2s var(--ap-ease),background .2s var(--ap-ease)}
+#nav a:hover{color:var(--ap-blue);background:rgba(0,113,227,.06);text-decoration:none}
+#nav a.on{color:var(--ap-blue);font-weight:600;background:var(--ap-blue-soft)}
+#nav.scrolled{border-bottom-color:var(--ap-line);box-shadow:0 1px 12px rgba(0,0,0,.05)}
+
+/* ---------- 玻璃导航（仅 index 有 #nav） ---------- */
+.fx-on #nav{background:rgba(245,245,247,.72);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s var(--ap-ease),box-shadow .3s var(--ap-ease)}
+.fx-on #nav.scrolled{border-bottom-color:var(--ap-line);box-shadow:0 1px 12px rgba(0,0,0,.05)}
+.fx-on #nav .brand{font-weight:700;letter-spacing:-.01em}
+.fx-on #nav a{font-size:13px;font-weight:500;color:var(--ap-ink);
+  padding:8px 12px;border-radius:9px;border-bottom:none!important;
+  transition:color .2s var(--ap-ease),background .2s var(--ap-ease)}
+.fx-on #nav a:hover{color:var(--ap-blue);background:rgba(0,113,227,.06)}
+.fx-on #nav a.on{color:var(--ap-blue);font-weight:600;background:var(--ap-blue-soft)}
+
+/* ---------- chip / tag：全圆灰 pill ---------- */
+.fx-on .tag{background:rgba(0,0,0,.05);color:#424245;border:none;
+  border-radius:var(--ap-pill);padding:5px 13px;font-size:12px;font-weight:500}
+
+/* ---------- 表格：发丝线 + 行 hover ---------- */
+.fx-on th{background:transparent;color:var(--ap-faint);font-size:12px;font-weight:600;
+  border:none;border-bottom:1px solid var(--ap-line);padding:10px 12px}
+.fx-on td{border:none;border-bottom:1px solid var(--ap-line);padding:11px 12px;
+  font-size:13.5px;font-variant-numeric:tabular-nums}
+.fx-on tbody tr:hover td{background:rgba(0,113,227,.045)}
+.fx-on tfoot td{background:rgba(0,0,0,.025);font-weight:700}
+
+/* ---------- 提示块：柔化（.note/.ok/.first） ---------- */
+.fx-on .note,.fx-on .ok,.fx-on .first{
+  border-radius:12px;padding:14px 18px;font-size:13.5px;line-height:1.75;
+  border:1px solid transparent;border-left-width:3px;border-left-style:solid}
+.fx-on .note{background:var(--ap-amber-soft);border-color:rgba(255,149,0,.25);border-left-color:#ff9500;color:#93350c}
+.fx-on .ok{background:var(--ap-green-soft);border-color:rgba(52,199,89,.25);border-left-color:#34c759;color:#1c6b3a}
+.fx-on .first{background:var(--ap-blue-soft);border-color:rgba(0,113,227,.20);border-left-color:var(--ap-blue);color:#0b4a8f}
+
+/* ---------- 按钮化：.copy → Apple ghost pill + 按压反馈 ---------- */
+.fx-on .copy{display:inline-flex;align-items:center;gap:6px;
+  background:var(--ap-blue-soft);color:var(--ap-blue);
+  border:1px solid rgba(0,113,227,.18);border-radius:var(--ap-pill);
+  padding:10px 18px;font:600 13.5px/1.2 var(--ap-font);cursor:pointer;
+  transition:background .2s var(--ap-ease),transform .12s ease-out,border-color .2s;
+  touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none}
+.fx-on .copy:hover{background:rgba(0,113,227,.14);border-color:rgba(0,113,227,.30)}
+.fx-on .copy:active{transform:scale(.96)}
+.fx-on .copy.copied{background:var(--ap-green-soft);color:var(--ap-green);border-color:rgba(52,199,89,.35)}
+
+/* ---------- KPI 数值 ---------- */
+.fx-on .kpi .v{font-size:30px;font-weight:800;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;color:var(--ap-ink);line-height:1.15}
+.fx-on .kpi .l{font-size:12px;color:var(--ap-muted);margin-top:5px;line-height:1.45}
+
+/* ---------- 柱状图轨道 ---------- */
+.fx-on .bar-row .tr{background:rgba(0,0,0,.05)}
+.fx-on .bar-row .fl{width:0;transition:width .9s var(--ap-ease);border-radius:6px}
+.fx-on .bar-row .lb,.fx-on .bar-row .vl{font-variant-numeric:tabular-nums}
+.fx-on .bar-row .vl{color:var(--ap-ink)}
+
+/* ---------- 截图卡（analysis/reviews） ---------- */
+.fx-on .shot img{border-radius:12px;border:1px solid var(--ap-line);
+  box-shadow:0 1px 2px rgba(0,0,0,.04),0 10px 28px rgba(0,0,0,.08);
+  transition:transform .35s var(--ap-ease),box-shadow .35s var(--ap-ease)}
+.fx-on .shot img:hover{transform:translateY(-3px);
+  box-shadow:0 2px 4px rgba(0,0,0,.05),0 18px 44px rgba(0,0,0,.12)}
+.fx-on .shot .cap{color:var(--ap-muted);font-size:12.5px}
+
+/* ---------- 滚动揭示（仅 .fx-on 下生效；JS 失效则全可见） ---------- */
+.fx-on .rv{opacity:0;transform:translateY(26px);filter:blur(6px);
+  transition:opacity .7s var(--ap-ease),transform .7s var(--ap-ease),filter .7s var(--ap-ease)}
+.fx-on .rv.in{opacity:1;transform:none;filter:none}
+
+/* ---------- Hero 入场（index） ---------- */
+@keyframes apRise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.fx-on #hero>*{animation:apRise .65s var(--ap-ease) both}
+.fx-on #hero>*:nth-child(2){animation-delay:.08s}
+.fx-on #hero>*:nth-child(3){animation-delay:.16s}
+.fx-on #hero{transition:transform .1s linear,opacity .1s linear}
+
+/* ---------- 环境光晕（给玻璃可采样的背景，JS 注入 #ap-wash） ---------- */
+#ap-wash{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(0,113,227,.07), transparent 60%),
+    radial-gradient(900px 500px at -10% 30%, rgba(94,92,230,.05), transparent 60%),
+    radial-gradient(1000px 700px at 50% 110%, rgba(52,199,89,.04), transparent 60%)}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:640px){
+  .fx-on header{padding:24px 20px}
+  .fx-on section{padding:22px 18px}
+  .fx-on .kpi .v{font-size:24px}
+}
+
+/* ---------- 降级：reduced-motion / reduced-transparency / contrast ---------- */
+@media (prefers-reduced-motion:reduce){
+  .fx-on .rv{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
+  .fx-on .reveal{opacity:1!important;transform:none!important}
+  .fx-on #hero>*{animation:none!important}
+  .fx-on #hero{transition:none!important;transform:none!important;opacity:1!important}
+  .fx-on .bar-row .fl{transition:none!important}
+  .fx-on .shot img{transition:none!important}
+  .fx-on .shot img:hover{transform:none!important}
+  .fx-on .p,.fx-on .p .cp{transition:none!important}
+  html{scroll-behavior:auto!important}
+}
+@media (prefers-reduced-transparency:reduce){
+  .fx-on header,.fx-on section,.fx-on .card,.fx-on .kpi,.fx-on #nav,.fx-on .p{
+    background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}
+}
+@media (prefers-contrast:more){
+  .fx-on header,.fx-on section,.fx-on .card,.fx-on .kpi,.fx-on .p{border-color:rgba(0,0,0,.35)}
+}
+
+/* ============================================================
+   AIGC / Prompt 系列页词汇（kicker/byline/finding/disclosure/.p 折叠卡）
+   ============================================================ */
+.fx-on .kicker{color:var(--ap-blue);font-size:13px;font-weight:700;letter-spacing:.04em}
+.fx-on .byline{color:var(--ap-muted);font-size:13.5px;border-bottom:1px solid var(--ap-line);padding-bottom:16px;margin-bottom:24px}
+.fx-on .series{color:var(--ap-muted);font-size:12.5px;border-bottom:1px solid var(--ap-line);padding-bottom:12px;margin-bottom:22px}
+.fx-on .series b{color:var(--ap-ink)}
+.fx-on .lead{color:var(--ap-muted);font-size:14px}
+.fx-on .b{display:inline-block;background:rgba(0,0,0,.05);color:#424245;border:1px solid transparent;
+  border-radius:var(--ap-pill);padding:5px 13px;font-size:12px;font-weight:500;margin:0 7px 7px 0}
+.fx-on .hl{background:var(--ap-amber-soft);border:1px solid rgba(255,149,0,.25);border-radius:12px;
+  padding:14px 18px;font-size:14px;color:#93350c;margin:16px 0;line-height:1.75}
+.fx-on .finding{background:var(--ap-blue-soft);border:1px solid rgba(0,113,227,.20);border-left:3px solid var(--ap-blue);
+  border-radius:12px;padding:14px 18px;margin:12px 0}
+.fx-on .finding .d{color:#0b4a8f;font-size:13.5px;margin-top:4px}
+.fx-on .finding.warn{background:var(--ap-amber-soft);border-color:rgba(255,149,0,.25);border-left-color:#ff9500}
+.fx-on .finding.warn .d{color:#93350c}
+.fx-on .finding.bad{background:var(--ap-red-soft);border-color:rgba(255,59,48,.22);border-left-color:#ff3b30}
+.fx-on .finding.bad .d{color:#700f1e}
+.fx-on .disclosure{background:rgba(0,0,0,.03);border:1px solid var(--ap-line);border-radius:12px;
+  padding:14px 18px;font-size:13.5px;color:var(--ap-muted);margin:28px 0}
+.fx-on .back{color:var(--ap-blue);font-weight:600}
+
+/* 折叠卡（prompts 页 details/summary）→ Apple 玻璃卡 */
+.fx-on .p{position:relative;
+  background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.70));
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  backdrop-filter:blur(24px) saturate(180%);
+  border:1px solid rgba(255,255,255,.70);border-radius:var(--ap-radius-sm);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.90),0 1px 2px rgba(0,0,0,.03),0 10px 28px rgba(0,0,0,.06);
+  transition:border-color .25s var(--ap-ease),box-shadow .25s var(--ap-ease)}
+.fx-on .p[open]{border-color:rgba(0,113,227,.35)}
+.fx-on .p summary:hover{background:rgba(0,113,227,.04)}
+.fx-on .p .n{background:var(--ap-blue);color:#fff;border-radius:9px;box-shadow:0 4px 10px rgba(0,113,227,.25)}
+.fx-on .p .cp{color:var(--ap-blue);background:var(--ap-blue-soft);border:1px solid rgba(0,113,227,.18);
+  border-radius:var(--ap-pill);padding:6px 14px;font-weight:700;font-size:12px;cursor:pointer;
+  transition:background .2s var(--ap-ease),transform .12s ease-out;touch-action:manipulation}
+.fx-on .p .cp:hover{background:rgba(0,113,227,.14)}
+.fx-on .p .cp:active{transform:scale(.96)}
+.fx-on .p pre{background:rgba(0,0,0,.03)}
+.fx-on .tip{color:var(--ap-muted);border-top:1px dashed var(--ap-line)}
+.fx-on .tip code{background:rgba(0,0,0,.05)}
+
+/* prompts 页阅读进度条 → Apple 蓝 */
+.fx-on #progress{background:linear-gradient(90deg,var(--ap-blue),#5ac8fa)}
+
+/* prompts 页自带 reveal 系统 → 统一 Apple 缓动 */
+.fx-on .reveal{transition:opacity .7s var(--ap-ease),transform .7s var(--ap-ease)}

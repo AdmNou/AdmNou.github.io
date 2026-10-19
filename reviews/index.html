@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial=1">
+<title>评价运营与口碑管理 · 三平台实录 · 钟京松</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+background:#f5f7fa;color:#15202e;line-height:1.78;font-size:14.5px}
+.wrap{max-width:980px;margin:0 auto;padding:30px 20px 70px}
+header{background:#fff;border:1px solid #e8edf3;border-radius:16px;padding:28px 30px;margin-bottom:20px}
+h1{font-size:23px;font-weight:800;letter-spacing:-.3px}
+.meta{color:#5d6878;font-size:13.5px;margin-top:8px}
+.tag{display:inline-block;background:#fbfcfe;color:#5d6878;font-size:12px;padding:4px 11px;border-radius:20px;margin:10px 6px 0 0;border:1px solid #e8edf3}
+section{background:#fff;border:1px solid #e8edf3;border-radius:16px;padding:24px 30px;margin-bottom:20px}
+h2{font-size:18px;font-weight:800;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:4px;height:18px;background:#2563eb;border-radius:2px}
+h3{font-size:15px;font-weight:700;margin:18px 0 8px}
+p{color:#374151;margin:8px 0}
+ul{margin:8px 0 10px 20px;color:#374151}
+li{margin:5px 0}
+b{color:#111}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0}
+th{background:#f0f3f6;font-weight:700;color:#5d6878;font-size:12.5px;text-align:left}
+th,td{padding:8px 10px;border:1px solid #eef1f5;vertical-align:top}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
+.kpi{background:#fbfcfe;border:1px solid #e8edf3;border-radius:12px;padding:14px 16px}
+.kpi .v{font-size:21px;font-weight:800}
+.kpi .l{font-size:12px;color:#5d6878;margin-top:3px}
+.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-left:4px solid #059669;border-radius:8px;
+padding:12px 16px;font-size:13.3px;color:#065f46;margin:12px 0}
+.mod{border:1px solid #e8edf3;border-radius:12px;padding:14px 18px;margin:10px 0;background:#fbfcfe}
+.mod b{font-size:14.5px}
+.shot{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+.shot img{width:min(420px,92%);border:1px solid #e2e8f0;border-radius:10px}
+.shot .cap{font-size:12px;color:#8b95a1;margin-top:4px}
+.tl{border-left:2px solid #dbeafe;margin:12px 0 12px 8px;padding-left:18px}
+.tl .i{position:relative;margin-bottom:12px}
+.tl .i::before{content:"";position:absolute;left:-24px;top:8px;width:9px;height:9px;border-radius:50%;background:#2563eb;border:2px solid #fff;box-shadow:0 0 0 2px #dbeafe}
+a{color:#2563eb;text-decoration:none;font-weight:600}
+footer{text-align:center;color:#8b95a1;font-size:12.5px;padding:10px}
+</style>
+<link rel="stylesheet" href="../assets/apple-fx.css"></head><body>
+<nav id="nav">
+  <span class="brand">钟京松 · 作品集</span>
+  <a href="/">首页</a>
+  <a href="/mvp/index.html">选一本 MVP</a>
+  <a href="/evaluation/index.html">质量验证</a>
+  <a href="/analysis/index.html">竞品调研</a>
+  <a href="/aigc/index.html">运营笔记</a>
+  <a href="/reviews/index.html" class="on">评价运营</a>
+  <a href="/prompts/index.html">Prompt 模板</a>
+</nav>
+<div class="wrap">
+
+<header>
+  <h1>评价运营与口碑管理 · 三平台实录</h1>
+  <div class="meta">钟京松 ｜ 2026-10-14（v2：按 Eva 批注补充「用户运营评估口径」一节）｜ 数据与截图来源：美团/淘宝/京东商家后台（本人操作与导出）｜ 对应岗位：产品运营（用户运营方向）</div>
+  <div>
+    <span class="tag">评价响应 SOP</span><span class="tag">差评归因五类法</span><span class="tag">平台申诉治理</span>
+    <span class="tag">三平台 84+59+ 条评价维护</span><span class="tag">全部截图可核验</span>
+  </div>
+</header>
+
+<section>
+  <h2>先答一个问题：用户运营的评估口径是什么</h2>
+  <div class="ok"><b>一句话口径：用户运营做得好不好，不看做了多少动作，看「用户有没有被持续经营好」。</b>我把它拆成三层可核验的口子——动作（建群、发券、搞活动）是手段，可以摆样子；响应率、评分、老客占比是结果，摆不了。评估用户运营，我认结果口径。</div>
+  <table>
+    <tr><th style="width:22%">口径层</th><th style="width:28%">指标</th><th style="width:32%">本期实测值</th><th>来源</th></tr>
+    <tr><td><b>关系层</b>（用户有没有被回应）</td><td>差评当天响应率 / 好评当天回复率</td><td>差评当天响应（全部可查差评）；好评当天逐条回复</td><td>本人操作记录</td></tr>
+    <tr><td><b>口碑层</b>（用户用评分投票的结果）</td><td>三平台店铺评分 / 京东好评率</td><td>京东 4.37 / 美团 4.5 / 淘宝 4.56；好评率 83.1%（59 条）</td><td>三平台后台</td></tr>
+    <tr><td><b>结构层</b>（用户是不是留下来了）</td><td>老客下单占比（顾客分层）</td><td>京东 32.3% / 淘宝 33.5% / 美团 39.6%</td><td>后台顾客分层字段</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>我做的评价运营体系：四个模块</h2>
+  <div class="mod"><b>① 好评维护</b>——每一条好评当天回复（个性化措辞，不用统一模板），维持互动与老客关系。<br><span class="small" style="color:#8b95a1">依据：评价回复窗口 14 天（美团平台规则）；回复内容 3 次内可修改。</span></div>
+  <div class="mod"><b>② 差评响应（SOP）</b>——差评逐条回复、时效为当天：先致歉 + 对具体问题给解释 + 给改进承诺；不能让差评在无人回应状态下挂着。</div>
+  <div class="mod"><b>③ 差评归因与改进闭环</b>——按「食安 / 缺料分量 / 口味 / 价格 / 配送」五类逐条归类，跨平台汇总，同一类问题连续出现即触发改动作（食材存储、出餐检查、配菜标准化）。</div>
+  <div class="mod"><b>④ 平台治理与申诉</b>——善用平台规则：无理差评申诉（美团申诉不限次；淘宝「内容无意义评价」类申诉），以及平台主动「差评免责」机制的使用。</div>
+</section>
+
+<section>
+  <h2>数据结果</h2>
+  <div class="kpis">
+    <div class="kpi"><div class="v">4.37 / 4.5 / 4.56</div><div class="l">三平台评分（京东 / 美团 / 淘宝）</div></div>
+    <div class="kpi"><div class="v">83.1%</div><div class="l">京东好评率（59 条评价）</div></div>
+    <div class="kpi"><div class="v">当天</div><div class="l">差评回复时效（全部可查差评）</div></div>
+    <div class="kpi"><div class="v">4 条</div><div class="l">平台 AI 主动免责差评（美团）</div></div>
+    <div class="kpi"><div class="v">18 分钟</div><div class="l">淘宝差评申诉 → 平台评审通过</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">食品安全负反馈率（美团后台）</div></div>
+  </div>
+  <p style="font-size:12.5px;color:#5d6878">口径说明：美团为本期「商家综合体验分」4.5（商品质量分 4.5 × 80% + 服务体验分 × 20%，2026-10 后台数据）；京东为 59 条评价综合分与好评率；淘宝为计入总分评价的均分。三平台口径不同，分开列示不混算。</p>
+</section>
+
+<section>
+  <h2>方法论沉淀：差评响应 SOP 与归因法</h2>
+  <h3>差评响应时间轴（对齐行业通行做法）</h3>
+  <div class="tl">
+    <div class="i"><b>第一时间</b>——发现差评即公开回复（表态 + 具体化，不用模板话术；平台政策：回复窗口 14 天、可修改 3 次）</div>
+    <div class="i"><b>当天</b>——完成归因归类，判断平台责任 / 商家责任 / 顾客误解，分别走：申诉 / 改动作 / 补充解释</div>
+    <div class="i"><b>同类 ≥ 2-3 条</b>——触发系统性改进（食材存储、出餐检查、包装密封），而不是一条一条救火</div>
+  </div>
+  <h3>差评归因五类法（跨平台统一口径）</h3>
+  <table>
+    <tr><th style="width:16%">类别</th><th style="width:44%">实际案例（京东 1 星）</th><th>对应改进动作</th></tr>
+    <tr><td>食安</td><td>异物（头发×2）、莲藕变质</td><td>出餐检查清单 + 夏季食材存储与效期加密（零容忍项）</td></tr>
+    <tr><td>缺料 / 分量</td><td>「山药呢？分量怎么这么少」</td><td>配菜标准化复核</td></tr>
+    <tr><td>口味</td><td>「排骨味道怪怪的」「还需再提升」</td><td>口味反馈记录、出餐口味抽查</td></tr>
+    <tr><td>价格感知</td><td>「餐品略贵，不值这个价格」</td><td>活动结构复核（与平台活动联动的性价比呈现）</td></tr>
+    <tr><td>配送</td><td>「超时 10 分钟以上」</td><td>与平台时效机制联动（该单经平台判责后免责）</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>治理案例：一条 2 星差评的完整处理（淘宝）</h2>
+  <div class="tl">
+    <div class="i"><b>发现</b>——差评「浓浓的鸡精味」（2 星，味道 2 星/包装 4 星）。判断：本方汤品为现炖无鸡精，属「内容与事实不符、对他人无参考意义」类。</div>
+    <div class="i"><b>17:40 提交申诉</b>——申诉类型选「内容无意义评价」，附理由说明「我们都没用鸡精，哪里来的鸡精」。</div>
+    <div class="i"><b>18:18 平台评审通过</b>——差评评分删除、评价不展示于评分体系。<b>从提交到出结果 38 分钟。</b></div>
+  </div>
+  <div class="ok"><b>学习点：</b>差评治理不是「求顾客删」——用足平台规则（申诉类型选择、证据表述）是更高杠杆的动作；同时把「求解申诉」和「改进真实问题」分开处理：前者治理规则，后者治理生意。</div>
+</section>
+
+<section>
+  <h2>截图证据（全部可核验）</h2>
+  <div class="shot">
+    <div><img src="shots/shot_06.png" alt="淘宝申诉成功"><div class="cap">淘宝：2 星差评申诉成功（17:40 提交 → 18:18 评审通过）</div></div>
+    <div><img src="shots/shot_03.png" alt="美团差评当天回复"><div class="cap">美团：差评当天回复 + 平台 AI 免责记录</div></div>
+  </div>
+</section>
+
+<footer>数据来源：美团/淘宝/京东商家后台（本人操作截图与导出，2026-10-12）｜ 平台规则引用：《美团外卖平台评价管理规范》（评价回复 14 天窗口、申诉不限次）｜ 口径基准：数据口径基准 v1 · 2026-10-12 ｜ <a href="../index.html">← 返回作品集首页</a></footer>
+</div><script src="../assets/apple-fx.js" defer></script>
+</body></html>

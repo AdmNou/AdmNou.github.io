@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prompt 作品集 · 12 条可复用模板</title><style>
+:root{
+  --bg:#f5f7fa; --surface:#ffffff; --surface-2:#fbfcfe;
+  --ink:#15202e; --muted:#5d6878; --faint:#8a96a6;
+  --line:#e8edf3; --line-2:#eff3f8;
+  --primary:#2563eb; --primary-600:#1d4ed8; --primary-soft:#eef4ff;
+  --emerald:#0e9d6b; --emerald-soft:#e8f7f0;
+  --amber:#d97706; --amber-soft:#fdf3e3;
+  --radius:18px; --radius-sm:12px;
+  --shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06);
+  --shadow-lg:0 14px 50px rgba(16,24,40,.12);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);
+line-height:1.75;-webkit-font-smoothing:antialiased;font-size:15px}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px 80px}
+h1{font-size:26px;font-weight:800;letter-spacing:-.3px}
+.lead{color:var(--muted);font-size:14px;margin:10px 0 6px;line-height:1.7}
+.badges{margin:14px 0 22px}
+.b{display:inline-block;background:var(--surface-2);color:var(--muted);font-size:12px;font-weight:500;
+padding:5px 12px;border-radius:20px;margin:0 7px 7px 0;border:1px solid var(--line)}
+.how{background:var(--amber-soft);border:1px solid #fde3b0;border-left:4px solid var(--amber);border-radius:12px;
+padding:15px 18px;font-size:13.5px;color:#8a5a08;margin-bottom:22px;line-height:1.8}
+.how b{display:block;margin-bottom:5px;color:#92400e}
+.p{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:12px;overflow:hidden;
+box-shadow:var(--shadow);transition:border-color .2s,box-shadow .2s}
+.p[open]{border-color:#cdddf7}
+.p summary{display:flex;align-items:center;gap:13px;padding:16px 18px;cursor:pointer;list-style:none}
+.p summary::-webkit-details-marker{display:none}
+.p summary:hover{background:var(--surface-2)}
+.p .n{background:var(--primary);color:#fff;font-size:12px;font-weight:800;width:28px;height:28px;
+border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+box-shadow:0 4px 10px rgba(37,99,235,.25)}
+.p summary div{flex:1;min-width:0}
+.p summary b{display:block;font-size:15px;color:var(--ink)}
+.p summary em{font-style:normal;font-size:12px;color:var(--faint)}
+.p .cp{font-size:12px;color:var(--primary-600);background:var(--primary-soft);border:1px solid #d6e4ff;
+padding:5px 12px;border-radius:7px;font-weight:700;flex-shrink:0;transition:.15s}
+.p .cp:hover{background:#dce8ff}
+.p pre{background:var(--surface-2);border-top:1px solid var(--line);padding:18px 20px;font-size:12.5px;
+white-space:pre-wrap;word-break:break-word;color:#334155;
+font-family:ui-monospace,Menlo,Consolas,monospace;line-height:1.8}
+.tip{padding:10px 20px;font-size:12px;color:var(--faint);border-top:1px dashed var(--line);background:var(--surface-2)}
+.tip code{background:#eef2f8;padding:1px 5px;border-radius:3px;font-size:11.5px}
+/* nav */
+#nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);
+backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);
+border-bottom:1px solid var(--line);
+display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
+#nav .brand{font-weight:800;font-size:14.5px;color:var(--ink);margin-right:auto;padding:14px 4px;letter-spacing:-.3px;white-space:nowrap}
+#nav a{padding:14px 14px;font-size:13.5px;color:var(--muted);text-decoration:none;font-weight:600;border-bottom:2px solid transparent;white-space:nowrap}
+#nav a:hover{color:var(--primary);text-decoration:none}
+#nav a.on{color:var(--primary);border-bottom-color:var(--primary)}
+/* progress */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary),#38bdf8);z-index:200;transition:width .1s linear}
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (max-width:640px){.wrap{padding:0 14px 64px} h1{font-size:22px}}
+</style>
+<link rel="stylesheet" href="../assets/apple-fx.css"></head><body>
+<div id="progress"></div>
+<nav id="nav">
+  <span class="brand">钟京松 · 作品集</span>
+  <a href="/">首页</a>
+  <a href="/mvp/index.html">选一本 MVP</a>
+  <a href="/evaluation/index.html">质量验证</a>
+  <a href="/analysis/index.html">竞品调研</a>
+  <a href="/aigc/index.html">运营笔记</a>
+  <a href="/reviews/index.html">评价运营</a>
+  <a href="/prompts/index.html" class="on">Prompt 模板</a>
+</nav>
+<div class="wrap">
+<h1>Prompt 作品集 · 12 条可复用模板</h1>
+<p class="lead">面向产品运营 / 用户运营 / 本地生活运营岗位，覆盖数据分析、竞品拆解、活动策划、内容生产、用户研究、求职复盘六类场景。每条均可直接替换变量使用，全部来自真实工作流（门店运营 / 选一本 MVP / 求职准备），不是示例文案。</p>
+<div class="badges"><span class="b">数据口径校验</span><span class="b">禁止编造</span>
+<span class="b">输出可验证</span><span class="b">反幻觉设计</span></div>
+<div class="how"><b>⚠ 使用说明</b>
+这些模板的内核是<b>「先定口径，再下结论；缺数据就说不判断」</b>。替换变量时把真实数据粘进去，不要只给概述——模型对模糊输入只能编造。模板是骨架，真实数据是肉；凡是模板要求「标注口径/待验证」的地方，是真的要标。
+点击右侧「复制」按钮即可取走全文。</div>
+
+<table style="width:100%;border-collapse:collapse;font-size:13px;margin:6pt 0 18pt">
+<tr><th style="text-align:left;background:#f0f3f6;border:1px solid #e8edf3;padding:8px 10px">模板编号</th><th style="text-align:left;background:#f0f3f6;border:1px solid #e8edf3;padding:8px 10px">运营场景</th><th style="text-align:left;background:#f0f3f6;border:1px solid #e8edf3;padding:8px 10px">解决的重复劳动</th></tr>
+<tr><td style="border:1px solid #eef1f5;padding:8px 10px">01 / 10 / 11</td><td style="border:1px solid #eef1f5;padding:8px 10px">求职与复盘</td><td style="border:1px solid #eef1f5;padding:8px 10px">JD 拆解与匹配度打分、周复盘与卡点定位、访谈排练</td></tr>
+<tr><td style="border:1px solid #eef1f5;padding:8px 10px">02 / 03 / 08</td><td style="border:1px solid #eef1f5;padding:8px 10px">本地生活经营</td><td style="border:1px solid #eef1f5;padding:8px 10px">差评归因与改进、竞品活动拆解、活动方案与 ROI 预估</td></tr>
+<tr><td style="border:1px solid #eef1f5;padding:8px 10px">04</td><td style="border:1px solid #eef1f5;padding:8px 10px">数据复盘</td><td style="border:1px solid #eef1f5;padding:8px 10px">三平台口径校验、漏斗分析、异常断档识别</td></tr>
+<tr><td style="border:1px solid #eef1f5;padding:8px 10px">05</td><td style="border:1px solid #eef1f5;padding:8px 10px">私域与用户运营</td><td style="border:1px solid #eef1f5;padding:8px 10px">社群冷启动 SOP（拉新/留存/转化三段设计）</td></tr>
+<tr><td style="border:1px solid #eef1f5;padding:8px 10px">06 / 07</td><td style="border:1px solid #eef1f5;padding:8px 10px">内容运营</td><td style="border:1px solid #eef1f5;padding:8px 10px">短视频选题与脚本、AIGC 图文批量生产</td></tr>
+<tr><td style="border:1px solid #eef1f5;padding:8px 10px">09</td><td style="border:1px solid #eef1f5;padding:8px 10px">用户研究</td><td style="border:1px solid #eef1f5;padding:8px 10px">访谈提纲设计与洞察提炼</td></tr>
+<tr><td style="border:1px solid #eef1f5;padding:8px 10px">12</td><td style="border:1px solid #eef1f5;padding:8px 10px">竞品调研</td><td style="border:1px solid #eef1f5;padding:8px 10px">一手实测 → 结构化笔记（「一手 vs 公开」三级标注）</td></tr>
+</table>
+
+<h2 style="font-size:17px;font-weight:800;margin:18pt 0 8px">真实使用记录（不是示例文案）</h2>
+<ul style="margin:6pt 0 14pt 20px;font-size:13.5px;color:#5d6878;line-height:1.8">
+<li>模板 04（三平台数据复盘）用于<a href="/aigc/index.html">运营笔记第一篇</a>——恒等式验证、断档识别、去重三个口径动作，就是按这个骨架跑出来的；</li>
+<li>模板 02（差评归因）用于<a href="/reviews/index.html">评价运营实录</a>——五类归因法与改进闭环的底稿；</li>
+<li>模板 12（竞品一手实测 → 结构化笔记）用于<a href="/analysis/index.html">竞品调研</a>——「一手 vs 公开」三级标注从这条来。</li>
+</ul>
+
+<details class="p">
+ <summary><span class="n">01</span><div><b>运营岗 JD 拆解与匹配度打分</b><em>求职 · 岗位分析</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是资深运营岗招聘官。读取以下 JD 与我的简历，逐条输出：
+【硬性门槛】哪些是必须满足的（不满足=直接淘汰）
+【软性偏好】哪些是加分项
+【我的匹配项】对应简历中的哪句原文（必须引用原文，不得改写）
+【我的缺口】明确列出，并按"可补/难补"分类
+【投递建议】是否值得投；若投，简历应如何调整（只说调整方向，不许编造经历）
+【面试预判】面试官最可能追问的 3 个问题
+
+JD：{{粘贴}}
+简历片段：{{粘贴}}
+严禁输出任何简历中不存在的内容。</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">02</span><div><b>外卖差评归因与改进方案</b><em>本地生活 · 售后运营</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是本地生活运营专家。以下是外卖平台真实差评数据。
+请按"问题类型"归类（口味/分量/包装/配送/服务/价格），统计各类占比与典型原文特征。
+然后针对占比最高的前 3 类，各给出：
+① 根因假设（区分商家可控 / 平台可控 / 不可控）
+② 改进动作（具体到"改什么、谁执行、何时检查"）
+③ 验证指标（用什么数据判断改进是否生效）
+④ 反弹风险（可能带来的负面影响）
+
+差评数据：{{粘贴}}</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">03</span><div><b>竞品店铺活动拆解</b><em>本地生活 · 竞品分析</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是本地生活营销分析师。分析以下竞品店铺的营销动作：
+【活动机制】满减/折扣/加价购的具体规则与门槛
+【引流设计】如何拉动新客下单（如0元首单、爆单红包）
+【利润影响】用"客单价-补贴成本=单均净额"估算其真实让利幅度
+【可复制点】我方能低成本复制的 3 个动作
+【不可复制点】依赖其规模/资金/供应链、我做不到的部分
+【风险】照搬可能踩的坑
+
+竞品信息：{{粘贴}}</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">04</span><div><b>三平台运营数据复盘</b><em>数据分析 · 复盘报告</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是数据分析负责人。以下是门店三平台(美团/淘宝/京东)后台导出数据。
+请严格按以下顺序输出，且不得假设未给出的数据：
+1. 口径说明：每个数字的计算公式，以及哪些是实测、哪些是推算
+2. 趋势：逐月订单量与结算净额的变化，指出拐点及其可能原因
+3. 结构：各平台订单占比、单均净额差异、流量漏斗（曝光→入店→下单）转化率
+4. 异常：找出数据断档日，并判断是"真实零单"还是"未开店"，说明判断依据
+5. 结论：3 条可执行结论，每条必须附带支撑数据
+6. 待验证：数据无法回答但需要补充的信息
+
+铁律：如果某结论依赖的数据未提供，写"数据不足，无法判断"，不要编造。
+数据：{{粘贴}}</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">05</span><div><b>私域社群冷启动 SOP</b><em>私域 · 用户运营</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是私域运营专家。为一家外卖店设计从 0 到 1 的顾客社群冷启动方案。
+必须包含：
+① 首批 100 人怎么来（3 个低成本渠道，标明各自成本与周期）
+② 首周内容排期（7 天，每天做什么、目的是留人还是转化）
+③ 群内 SOP：欢迎语/接龙/发单节奏/沉默用户唤醒
+④ 转化设计：什么动作能把群成员转成复购客，预期转化率区间
+⑤ 关键指标：只看 3 个指标，分别是___，理由是___
+⑥ 常见失败原因与规避
+
+约束：不接 CPS、不做硬广、不刷单、不骚扰。</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">06</span><div><b>短视频选题与脚本（信息类）</b><em>内容 · 短视频</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是短视频内容策划。围绕{{主题}}生成 5 个选题，每个包含：
+① 钩子（前 3 秒原话，必须制造信息缺口）
+② 冲突点（大多数人以为 vs 实际情况）
+③ 干货 3 点（可验证，不许是常识废话）
+④ 标题（3 个备选，含 1 个反常识型）
+⑤ 结尾互动引导（具体到一个动作）
+规则：不得出现"震惊""必看""99% 的人不知道"等滥用词；数据类表述必须能溯源，
+无法溯源就改成定性表述。
+
+目标平台：{{抖音/小红书/B站}} 目标时长：{{时长}}</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">07</span><div><b>AIGC 图文批量生产 Prompt</b><em>内容 · AIGC</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是内容生产流水线的一环。接收【产品信息】+【平台调性】，输出结构化文案。
+【结构】钩子标题 → 痛点场景 → 解决方案 → 具体证据 → 行动指令
+【硬约束】
+· 不得出现无法溯源的数据
+· 不得承诺效果（不说"一定""保证""最"）
+· 价格/优惠必须与输入信息完全一致，不得自行发挥
+· 输出后自检：把不符合上述任一条的句子改写，不要只标注
+
+产品信息：{{粘贴}}
+平台调性：{{粘贴}}</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">08</span><div><b>活动方案与 ROI 预估</b><em>本地生活 · 活动策划</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是本地生活活动策划。为门店设计一个为期 14 天的活动。
+必须输出：
+① 活动机制（规则写到能直接配置的程度，含门槛/库存/时间/叠加规则）
+② 分 3 个阶段（预热/爆发/返场）的节奏与目标
+③ 成本明细：补贴、平台扣点、配送，每一项给出金额与计算过程
+④ ROI 预估：投入 ___ 元，预计带来 ___ 元增量净额，盈亏平衡点是多少单
+   （必须写出假设条件，并标注"假设值，需实际数据验证"）
+⑤ 风险与止损：什么情况下立即停
+
+历史数据：单均净额、单日订单基线、当前毛利率：{{粘贴}}</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">09</span><div><b>用户访谈提纲与洞察提炼</b><em>用户研究 · 洞察</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是用户研究员。针对{{目标用户}}设计一份 8 问访谈提纲。
+要求：
+① 问题必须开放，禁用"你觉得好不好"这类诱导性问法
+② 追问规则：每个主问题后标注 2 个探针
+③ 提纲末尾附 3 个"证伪性问题"，用于挑战用户的美化表述
+访谈完成后，请把原话按"痛点 / 方案 / 替代品 / 支付意愿"四类归档，
+并指出哪句话是最有价值的证据（说明理由），不要做无依据的推断。</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">10</span><div><b>自我复盘与迭代清单</b><em>个人管理 · 复盘</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是我的求职复盘助手。基于以下记录，找出真实问题：
+【记录】{{粘贴这一周做了什么、投递量、面试数、结果}}
+请回答：
+① 本周实际投递数 vs 计划数，差在哪一步
+② 卡点定位：是简历没过、投递量不足、还是面试表达问题？给判据，不要含糊
+③ 下周三件必做的事（按优先级排序，每件给出可验证的完成标准）
+④ 一个需要停止做的事
+
+原则：不要用"继续保持"这类空话；每条建议必须能落到具体动作。</pre>
+ <div class="tip">用法：把 <code>{{...}}</code> 替换为你的真实内容。方括号内为填写说明，勿保留。</div>
+</details>
+<details class="p">
+ <summary><span class="n">11</span><div><b>用户访谈 AI 角色扮演陪练</b><em>用户研究 · 访谈排练</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你扮演一位大二学生，上个月刚买了一台 6000 元的笔记本，说话要符合真实学生的口吻。规则：
+1）只回答我提问的内容，用「过去时」讲你实际做了什么；
+2）当我说到「AI 选购工具」这类假设性问题时，你就打哈哈（「呃应该会试试吧」），不给出真实态度；
+3）你会偶尔给出空话（「我一般都会看看测评」），直到我追问「最近一次具体是什么时候」才给出细节；
+4）练习结束后跳出角色，指出我刚才哪些问题违反了 Mom Test 原则（问未来意愿 / 引导性提问 / 说太多）。
+
+{{告诉我你要练习的角色与场景}}</pre>
+ <div class="tip">用法：访谈前用它排练提问与追问。<b>红线：AI 的模拟回答只能用于排练，不能当真实访谈证据使用。</b></div>
+</details>
+<details class="p">
+ <summary><span class="n">12</span><div><b>竞品一手实测 → 结构化笔记</b><em>竞品分析 · 产品实测</em></div>
+ <span class="cp">复制</span></summary>
+ <pre>你是产品分析助手。以下是我对 {{产品名}} 的一手实测记录（操作步骤 / 截图文字 / 原话笔记）。
+请整理为结构化笔记：
+【功能模块】每个模块 2–3 句事实描述
+【我的发现】每条发现必须标注等级：公开事实 / 媒体实测 / 我的一手实测
+【原始证据】对应截图或记录编号
+【潜在改进】针对发现给出产品改进建议，只写建议、不写吹捧
+
+硬约束：不得添加我未提供的内容；禁止使用「颠覆 / 开创 / 革命性」类评价词；
+我的一手发现与公开信息冲突时，标出冲突、不合并。
+
+实测记录：{{粘贴}}</pre>
+ <div class="tip">用法：把一手实测变成可核查的竞品笔记——「一手 vs 公开」三级标注是防幻觉的关键。</div>
+</details>
+</div>
+<script>
+document.querySelectorAll('.p').forEach(function(d){
+ var btn=d.querySelector('.cp');
+ d.querySelector('summary').addEventListener('click',function(){
+  if(d.open) setTimeout(function(){btn.textContent='复制'},200);
+  else setTimeout(function(){btn.textContent='复制'},200);
+ });
+ btn.addEventListener('click',function(e){
+  e.preventDefault();e.stopPropagation();
+  navigator.clipboard.writeText(d.querySelector('pre').textContent);
+  var o=btn.textContent;btn.textContent='✅ 已复制';
+  setTimeout(function(){btn.textContent=o},1600);
+ });
+});
+</script>
+<script>
+var pg=document.getElementById('progress');
+addEventListener('scroll',function(){var h=document.documentElement;
+var p=h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100;
+if(pg)pg.style.width=Math.max(0,Math.min(100,p))+'%';},{passive:true});
+var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!rm){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.08});
+  document.querySelectorAll('.p').forEach(function(el){el.classList.add('reveal');io.observe(el);});
+}else{document.querySelectorAll('.p').forEach(function(el){el.classList.add('in');});}
+</script>
+<script src="../assets/apple-fx.js" defer></script>
+</body></html>

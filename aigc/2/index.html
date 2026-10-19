@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial=1">
+<title>AIGC 作品 ② · 京东AI购实测笔记 · 钟京松</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#fff;color:#1f2933;line-height:1.85;font-size:15.5px}
+.wrap{max-width:780px;margin:0 auto;padding:42px 22px 80px}
+.series{font-size:12.5px;color:#6b7280;border-bottom:1px solid #e5e7eb;padding-bottom:12px;margin-bottom:22px}
+.series a{color:#2563eb;text-decoration:none;font-weight:600}
+.series b{color:#1f2933}
+.kicker{font-size:13px;font-weight:700;color:#2563eb;letter-spacing:.5px}
+h1{font-size:25px;font-weight:800;letter-spacing:-.4px;line-height:1.35;margin:10px 0 14px}
+.byline{color:#6b7280;font-size:13.5px;border-bottom:1px solid #e5e7eb;padding-bottom:16px;margin-bottom:24px}
+h2{font-size:19px;font-weight:700;margin:34px 0 10px;color:#111}
+p{color:#374151;margin:12px 0}
+.finding{border:1px solid #e5e7eb;border-left:4px solid #2563eb;border-radius:10px;padding:13px 17px;margin:12px 0;background:#f8fafc}
+.finding b{font-size:15px}
+.finding .d{font-size:13.5px;color:#475569;margin-top:4px}
+.warn{border-left-color:#d97706;background:#fffbeb}
+.warn .d{color:#78350f}
+.ok{background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:14px 18px;font-size:14px;color:#065f46;margin:16px 0}
+.disclosure{border:1px dashed #cbd5e1;border-radius:10px;padding:14px 18px;font-size:13.5px;color:#475569;margin:28px 0;background:#f8fafc}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0}
+th,td{padding:8px 10px;border:1px solid #e5e7eb;text-align:left}
+th{background:#f3f4f6;font-weight:600;color:#4b5563;font-size:12.5px}
+.back{display:inline-block;margin-top:26px;font-size:13.5px;color:#2563eb;text-decoration:none;font-weight:600}
+</style>
+<link rel="stylesheet" href="../../assets/apple-fx.css"></head><body>
+<nav id="nav">
+  <span class="brand">钟京松 · 作品集</span>
+  <a href="/">首页</a>
+  <a href="/mvp/index.html">选一本 MVP</a>
+  <a href="/evaluation/index.html">质量验证</a>
+  <a href="/analysis/index.html">竞品调研</a>
+  <a href="/aigc/index.html" class="on">运营笔记</a>
+  <a href="/reviews/index.html">评价运营</a>
+  <a href="/prompts/index.html">Prompt 模板</a>
+</nav>
+<div class="wrap">
+<div class="series">运营工作笔记系列 ｜ ① 三平台数据复盘 ｜ <b>② 京东AI购调研笔记</b> ｜ ③ 我把自家 App 跑了 24 遍</div>
+<div class="kicker">运营工作笔记 ② · 竞品调研</div>
+<h1>把京东AI购当普通用户用了两周：一个运营的竞品调研笔记</h1>
+<div class="byline">钟京松 ｜ 2026-10-12 ｜ 素材：本人 12 张实测截图 + 公开实测（澎湃新闻/智东西，已标注）+ 京东自报数据（已标注）</div>
+
+<p>做「选一本」的过程中，我要回答的不是「它的产品架构怎么样」，而是运营问题：<strong>一个工具型 AI 产品，怎么让用户天天回来、反复用、最后下单？</strong>光看新闻不够，我把自己当普通用户，下载京东AI购完整用了两周，截图存档，写下这份笔记。完整拆解见<a href="/analysis/index.html">《竞品调研 · 京东AI购运营打法拆解》</a>。</p>
+
+<h2>我实测到的 8 个事实</h2>
+<div class="finding"><b>① 双 Tab 结构：陪伴 + 爱购</b><div class="d">「陪伴」是 9 个生活场景管家（带娃/养宠/爱车…），「爱购」才是购物入口。把「非购物场景」做成留存层，这个设计比公开报道里描述的更有野心。</div></div>
+<div class="finding"><b>② AI 省钱助手支持「上传任意平台截图」比价</b><div class="d">从购物车选品或传截图，AI 持续盯价——跨平台比价是有入口的，不只是站内比价。</div></div>
+<div class="finding warn"><b>③ 外卖推荐「不理解附近」：给我推荐了 5.1 公里外的店</b><div class="d">约 37 分钟送达。这个结果复现了澎湃新闻 2026-05 实测的同类问题——不是偶发。</div></div>
+<div class="finding"><b>④ 任务中心：定期复购 / 价格监控 / 优惠搜寻 / 日常提醒</b><div class="d">用「任务」形态让用户把重复决策托管给 AI，产品结构完整。</div></div>
+<div class="finding"><b>⑤ 京豆体系是完整的积分货币化</b><div class="d">签到（7 天递进）、邀请（新客 +50/老客 +2）、任务导流、京豆抵现（560 京豆 = 5.6 元）——留存设计做到了教科书级别，这点公开报道很少提。</div></div>
+<div class="finding warn"><b>⑥ AI 试穿只能「逛」，不能「搜」</b><div class="d">男女分栏 + 6 类风格场景 + 商品瀑布流，但没有搜索框——你没法试穿真正想买的那件。这与公开实测的「只能试推荐范围内的款」一致。</div></div>
+<div class="finding warn"><b>⑦ 4000 元预算跑 PS 的笔记本，它推了 3 款 5,799 元</b><div class="d">预算超 43%。我给定的硬约束被完全无视——这是我自己踩出来的，公开报道没测过笔记本场景。</div></div>
+<div class="finding warn"><b>⑧ 追问里出现了推荐列表之外的商品名</b><div class="d">推荐列表里是荣耀 MagicBook X16 Pro，底部追问却出现「VisionBook 16Pro」——疑似商品名幻觉。AI 导购的可信度问题比我预期的大。</div></div>
+
+<h2>如果我来运营京东AI购，改三件事</h2>
+<table>
+<tr><th style="width:30%">改进</th><th>为什么（对应实测）</th><th>指标</th></tr>
+<tr><td>外卖推荐接入 LBS 置信度</td><td>5.1 公里推荐直接击穿使用场景</td><td>推荐门店点击率</td></tr>
+<tr><td>推荐链路加「预算硬过滤」</td><td>4000 预算被推 5799 的机器，信任一次就没了</td><td>推荐采纳率</td></tr>
+<tr><td>试穿放开「搜索在售商品」</td><td>只能试推荐款 = 试穿功能对真实购买决策失效</td><td>试穿→加购转化率</td></tr>
+</table>
+
+<div class="ok"><b>结论（运营视角）：</b>京东AI购把 AI 导购的运营玩法做得很全——「陪伴」层占住非购物心智、京豆货币化做留存、邀请双向奖励做裂变、任务系统做促活；但执行层同样漏得明显：<strong>「预算约束失效」「不理解附近」「商品名幻觉」——设计到位、执行没跟上，信任就建不起来</strong>。对「选一本」的运营启发：工具型产品的留存抓手是「机型更新/价格波动提醒」，促活靠「比价任务」不靠推送，复购自动化要先过「确认关」，转化的底线是别推用户买不起的。</div>
+
+<div class="disclosure"><strong>AI 使用声明：</strong>本文由 AI 协助整理与撰写；<strong>所有实测事实来自本人 2026-10 的 12 张截图与操作记录，公开引用均已标注来源</strong>（澎湃新闻/智东西实测、京东自报数据）。文中的判断与建议由本人独立做出，任何一个数据点都可以指向原始截图。</div>
+
+<a class="back" href="../index.html">← 返回 AIGC 作品页</a>
+</div><script src="../../assets/apple-fx.js" defer></script>
+</body></html>
