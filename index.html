@@ -8,7 +8,7 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>佚名 · 产品运营求职作品集</title>
+<title>佚名 · AI 产品运营求职作品集</title>
 
 <style>
 
@@ -116,6 +116,20 @@ margin:10px 0;color:#334155;cursor:pointer}
 
 .card b{font-size:15px}
 
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;margin:18px 0}
+
+.role{border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px 20px;background:var(--surface-2)}
+
+.role .rh{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+
+.role .rh em{font-style:normal;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:5px}
+
+.role ol{margin:8px 0 0 18px;font-size:13.2px;color:var(--muted);padding:0}
+
+.role li{margin:7px 0;line-height:1.7}
+
+.role .why{font-size:12.2px;color:var(--faint);margin-top:12px;line-height:1.65;border-top:1px dashed var(--line);padding-top:9px}
+
 .bar-row{display:flex;align-items:center;gap:10px;margin:7px 0;font-size:12.5px}
 
 .bar-row .lb{width:52px;color:var(--muted);flex-shrink:0}
@@ -157,23 +171,14 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 <body>
 
 <nav id="nav">
-
   <span class="brand">佚名 · 作品集</span>
-
   <a href="/" class="on">首页</a>
-
+  <a href="/evaluation/index.html">质量评测</a>
+  <a href="/prompts/index.html">Prompt 设计</a>
   <a href="/mvp/index.html">选一本 MVP</a>
-
-  <a href="/evaluation/index.html">质量验证</a>
-
   <a href="/analysis/index.html">竞品调研</a>
-
   <a href="/aigc/index.html">运营笔记</a>
-
   <a href="/reviews/index.html">评价运营</a>
-
-  <a href="/prompts/index.html">Prompt 模板</a>
-
 </nav>
 
 <div class="wrap">
@@ -182,9 +187,9 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
 <header id="hero">
 
-  <h1>佚名 · 产品运营求职作品集</h1>
+  <h1>佚名 · AI 产品运营求职作品集</h1>
 
-  <div class="sub"><b>产品运营的客户就是产品的用户；这个岗位要解决的核心问题是：让用户在产品全生命周期里持续获得价值——从来、到留下、到反复用、到最终转化，从而对用户指标和生意结果负责。我认这个口径，作品集里所有动作都挂在这一个问题上。</b><br>产品运营 = 围绕产品全生命周期做用户侧的经营：拉新、激活、留存、转化、复购、召回，用数据定口径、找问题、推迭代、验结果。本作品集用两条真实主线证明这件事我能干：①「选一本」AI 产品从 0 到 1 的定位、上线与实测迭代；② 家庭外卖店三平台 6 个月经营数据复盘。<b>目标岗位：产品运营（用户运营 / 本地生活运营为其中细分）</b></div>
+  <div class="sub"><b>AI 产品运营要管的不是「一个确定的产品」，而是「一个输出不确定的模型」：定评测口径 → 建评测集 → 跑 badcase 归因 → 调 Prompt 与知识配置 → 把对话体验和成本质量一起压住。这个岗位的核心交付物是「一套别人能重跑的质量判断」，不是「我觉得挺好用」。</b><br>本作品集用两条真实主线证明这套动作我能独立跑完：<b>①「选一本」AI 选本助手</b>——定位、上线、24 条场景评测集设计、5 项 badcase 确认、当晚修复复测闭环；<b>② 三平台门店 6 个月经营复盘</b>——51 份官方后台导出、恒等式验口径、新老客分层与召回。<br><b>主投：AI 产品运营 ｜ 兼投：产品运营 · 用户运营</b></div>
 
   <div>
 
@@ -200,33 +205,110 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <span class="tag">v3 · 2026-10-15 岗位认知 / 语境迁移 / 召回锁客修订</span>
 
+    <span class="tag">v4 · 2026-10-20 三岗定位重排（AI 产品运营为主投）</span>
+
   </div>
+
+  <div class="ok" style="margin-top:18px"><b>先说清 AI 产品运营和产品运营的关系，省得你觉得我是转行重开一局：</b>不是「产品运营 + 一层 AI」，是<b>同一副骨架、几个器官换了</b>。产品运营那 9 项底座（用户研究 / 定位取舍 / 冷启动 / 数据口径 / 分层生命周期 / 内容活动 / 体验质量 / 跨团队推动 / 复盘迭代）我一项没少——其中 <b>2 项换了载体</b>（内容生产让给模型、质量判断从满意度问卷换成评测集）、<b>1 项被显著加强</b>（数据口径要加模型指标）、<b>另加 3 项模型层能力</b>（评测集设计 / Prompt 与知识配置 / 成本与质量权衡）。<b>所以这一页先证明底座，再证明叠加层——两个岗位都能看。</b></div>
 
 </header>
 
 
 
+<!-- ========== 三岗入口（按岗位分流） ========== -->
+
+<section id="roles">
+
+  <h2>按你在招的岗位，直接跳到该看的三块</h2>
+
+  <p>同一份材料，三个岗位该看的重点不一样。不用从头读——先按岗位进来。</p>
+
+  <div class="roles">
+
+    <div class="role">
+
+      <div class="rh">在招 AI 产品运营 <em style="background:#e0e7ff;color:#3730a3">主投</em></div>
+
+      <ol>
+
+        <li><a href="/evaluation/index.html">质量评测 · 24 条评测集</a>：先定口径再开跑，5 项 badcase 全部确认 → 当晚修复 → 复测闭环（首卡预算内率 2/24 → 抽查 4/4）</li>
+
+        <li><a href="/prompts/index.html">Prompt 设计 12 条</a>：反幻觉约束、结构化输出、指令分层——每条可直接复制</li>
+
+        <li><a href="/mvp/index.html">选一本 MVP</a>：一个真跑起来的 AI 选本助手，可当场点开体验</li>
+
+      </ol>
+
+      <div class="why">这三块加起来回答同一个问题：<b>模型输出不确定时，你靠什么判断它变好了还是变坏了。</b></div>
+
+    </div>
+
+    <div class="role">
+
+      <div class="rh">在招 产品运营 <em style="background:#dcfce7;color:#14532d">兼投</em></div>
+
+      <ol>
+
+        <li><a href="/mvp/index.html">选一本 MVP</a>：定位 → 需求取舍 → 上线 → 迭代，完整 0→1 链路</li>
+
+        <li><a href="/analysis/index.html">竞品调研 · 京东AI购</a>：留存 / 促活 / 裂变拆解，3 条带验证指标的改进建议</li>
+
+        <li><a href="/evaluation/index.html">质量评测</a>：把「体验好不好」拆成可打分的指标，并跟到修复闭环</li>
+
+        <li><a href="#base">产品运营底座 9 项</a>：逐项标出证据在哪，含一项我主动承认的缺口</li>
+
+      </ol>
+
+      <div class="why">看的是<b>能不能对一个产品的用户指标负责</b>：定口径、找问题、推迭代、验结果。</div>
+
+    </div>
+
+    <div class="role">
+
+      <div class="rh">在招 用户运营 <em style="background:#fdf3e3;color:#8a5a08">兼投</em></div>
+
+      <ol>
+
+        <li><a href="/reviews/index.html">评价运营实录</a>：好评维护 / 差评 SOP / 归因五类法 / 平台申诉四模块，含 38 分钟申诉成功实例</li>
+
+        <li><a href="/aigc/index.html">运营笔记 · 三平台复盘</a>：老客占比 32.3%–39.6%，新老客分层与召回打法</li>
+
+        <li><a href="#data">三平台经营数据</a>：2,031 单、6 个月、每个数字可回溯到源文件</li>
+
+      </ol>
+
+      <div class="why">看的是<b>用户分层、口碑治理、复购召回</b>这套动作在一线怎么落地。</div>
+
+    </div>
+
+  </div>
+
+  <div class="note"><b>先说清边界，省你后面追问：</b>「选一本」是<b>演示版 MVP，暂无真实注册用户</b>——本站与评测页的 24 条场景数据全部是我本人的自测口径，不冒充线上用户数据（真人试用是下一迭代项，实验设计已在评测页写明）。门店数据是真账：三平台官方后台导出 51 份，逐日可核对。</div>
+
+</section>
+
+
 <section>
 
-  <h2>这套作品集怎么读（产品运营能力地图）</h2>
+  <h2>这套作品集怎么读（三岗能力地图）</h2>
 
   <table>
 
-    <thead><tr><th style="width:26%">模块</th><th style="width:34%">对应的产品运营能力</th><th>一句话证据</th></tr></thead>
+    <thead><tr><th style="width:22%">模块</th><th style="width:24%">对应的能力</th><th style="width:15%">主证岗位</th><th>一句话证据</th></tr></thead>
 
     <tbody>
 
-      <tr><td><a href="/mvp/index.html">选一本 MVP</a></td><td>产品定位与迭代运营</td><td>从 0 到 1：定位 → 需求 → 上线 → 按 24 场景实测迭代</td></tr>
+      <tr><td><a href="/evaluation/index.html">质量评测 · 24 条评测集</a></td><td>评测集设计 / badcase 归因 / 修复闭环</td><td><b>AI 产品运营</b></td><td>先定评分口径再开跑；5 项发现全部确认、当晚修复复测（首卡预算内率 2/24 → 抽查 4/4）</td></tr>
 
-      <tr><td><a href="/analysis/index.html">竞品调研 · 京东AI购</a></td><td>竞品运营打法调研</td><td>拆解它的留存/促活/裂变设计，3 条带验证指标的改进建议</td></tr>
+      <tr><td><a href="/prompts/index.html">Prompt 设计 12 条</a></td><td>指令设计 / 反幻觉约束 / 结构化输出</td><td><b>AI 产品运营</b></td><td>六类真实运营场景，每条带约束条件与反例，可直接复制取用</td></tr>
 
-      <tr><td><a href="/aigc/index.html">运营工作笔记 3 篇</a></td><td>经营数据复盘</td><td>三平台 6 个月口径先行的复盘；24 遍实测的纪律</td></tr>
+      <tr><td><a href="/mvp/index.html">选一本 MVP</a></td><td>产品定位 / 需求取舍 / 迭代运营</td><td>AI · 产品运营</td><td>从 0 到 1：定位 → 需求 → 上线 → 按 24 场景评测迭代</td></tr>
 
-      <tr><td><a href="/evaluation/index.html">推荐质量验证</a></td><td>运营侧质量口径与闭环</td><td>先定口径再实跑，5 项发现当晚修复复测</td></tr>
+      <tr><td><a href="/analysis/index.html">竞品调研 · 京东AI购</a></td><td>竞品打法拆解 / 留存促活裂变</td><td>产品运营</td><td>拆解它的留存/促活/裂变设计，3 条带验证指标的改进建议</td></tr>
 
-      <tr><td><a href="/prompts/index.html">Prompt 模板 12 条</a></td><td>运营提效工具</td><td>六类真实运营场景，反幻觉设计</td></tr>
+      <tr><td><a href="/aigc/index.html">运营工作笔记 3 篇</a></td><td>经营数据复盘 / 分层与召回</td><td>用户运营</td><td>三平台 6 个月口径先行的复盘；24 遍评测的纪律</td></tr>
 
-      <tr><td><a href="/reviews/index.html">评价运营实录</a></td><td>用户运营（细分方向）</td><td>四模块评价运营体系 + 用户运营评估口径</td></tr>
+      <tr><td><a href="/reviews/index.html">评价运营实录</a></td><td>口碑治理 / 差评归因 / 平台申诉</td><td>用户运营</td><td>四模块评价运营体系 + 用户运营评估口径</td></tr>
 
     </tbody>
 
@@ -236,13 +318,55 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
 
 
+<!-- ========== 产品运营底座 ========== -->
+
+<section id="base">
+
+  <h2>产品运营底座：9 项能力，逐项标出证据在哪</h2>
+
+  <p>投产品运营岗的话，看这张表就够了——它不聊 AI，只回答一件事：<b>产品运营该有的基本功，这份材料里有没有真东西。</b>最后一列是「这项能力在 AI 岗里变成了什么」，方便对照着看两个岗位的差别。</p>
+
+  <table>
+
+    <thead><tr><th style="width:5%">#</th><th style="width:19%">底座能力</th><th style="width:40%">证据（点到具体位置）</th><th>在 AI 岗里变成什么</th></tr></thead>
+
+    <tbody>
+
+      <tr><td>1</td><td>用户研究与需求洞察</td><td>24 条场景画像按「身份 / 预算 / 方向」三变量建；逐单电话回访问口味分量、收集改进建议；家长代购场景（决策人 ≠ 使用人）</td><td>变成「意图分层」——用户对模型会说什么，比对界面点什么更难预判</td></tr>
+
+      <tr><td>2</td><td>产品定位与需求取舍</td><td>「最优解 + 一个备选」的单点主张；<b>不接厂家 CPS、不做软文</b>；只做笔记本一个品类，不铺全品类</td><td>不变，但多一条取舍：哪些交给模型、哪些必须写死规则</td></tr>
+
+      <tr><td>3</td><td>上线与冷启动</td><td>独立完成开发部署上线（可当场点开）；门店 4–5 月从 0 起爬坡：首月 88 单 → 5 月 466 单</td><td>不变，但上线多了灰度与回滚——模型版本不能一改全量</td></tr>
+
+      <tr><td>4</td><td>数据口径与指标体系</td><td>51 份官方后台导出；恒等式验证 154 天逐日误差 0.00 元；曝光→入店→下单三段漏斗；<b>禁用估算冒充实测</b></td><td><b>被显著加强</b>：口径要加模型指标（幻觉率 / 采纳率 / 单次成本），问题从「算错」升级成「算不出」</td></tr>
+
+      <tr><td>5</td><td>用户分层与生命周期</td><td>新老客占比 32.3% / 33.5% / 39.6%；淘宝老客下单转化 42.7% vs 新客 13.7%；召回三招（电话回访 / 连续下单返券 / 饭卡储值）</td><td><b>换载体</b>：分层维度从「新老客」扩到「意图 / 会话深度 / 追问次数」</td></tr>
+
+      <tr><td>6</td><td>内容与活动运营</td><td>满减三档设计、折扣商品阶梯、集点返券、平台官方活动（美团曝光 7,139 → 55,951）</td><td><b>被替换</b>：内容生产让给模型，运营重点从「写」转到「约束与验收」</td></tr>
+
+      <tr><td>7</td><td>体验与质量（含口碑）</td><td>24 条评测集 + 5 项 badcase 全部确认 + 当晚修复复测；评价运营四模块、差评 SOP、38 分钟申诉成功</td><td><b>换器官</b>：从「满意度问卷」换成「评测集 + badcase 归因 + 对话体验」</td></tr>
+
+      <tr style="background:#fffbf0"><td>8</td><td>跨团队推动与需求管理</td><td><b>这是我最薄的一项，主动标出来：</b>平台申诉可算「对外部方据规则争取改判」；京东AI购 3 条改进建议带验证指标可算「写需求提案」；但<b>确实没有多人团队里的排期博弈经验</b></td><td>不变，且更重要：模型能力要跨算法 / 工程 / 标注多方对齐</td></tr>
+
+      <tr><td>9</td><td>复盘与迭代闭环</td><td>三平台 6 个月复盘；5 项发现 → 修复 → 同一套集子复测；<b>被证伪的假设照实写</b>（私域群不是复购主战场）</td><td>不变，但节奏变快：模型迭代以天计，复盘要跟着提速</td></tr>
+
+    </tbody>
+
+  </table>
+
+  <div class="note"><b>第 8 项为什么主动写出来：</b>产品运营面试几乎必问「研发说排不上期怎么办」「需求被砍你怎么处理」。我没有多人团队经历，这一点不打算绕过去，也不想用「沟通能力强」这种话带过。<b>我能给的是另一半：这条链路我一个人完整跑过一遍</b>——定口径 → 提需求 → 排优先级 → 验收 → 复测，在「选一本」里我既是运营又是研发，24 条评测跑出的 5 项 badcase 就是我提给自己、再自己修、再自己验的。<b>缺的是多方博弈，不缺流程认知</b>——这是我入职后要补的第一件事，也已经在补（见<a href="/evaluation/index.html">质量评测页</a>的「不换口径的复测」纪律）。</div>
+
+</section>
+
 <!-- ========== 作品一：AI 产品 ========== -->
 
 <section>
 
   <h2>作品一 · AI 产品落地：「选一本」智能笔记本电脑选购助手</h2>
 
-  <p>面向大学新生与数码小白的「选购决策助手」。核心主张：把晦涩参数翻译成生活语言，一次给出【最优解 + 一个备选】；不接厂家 CPS、不做软文。时间线：2026.05 启动定位与调研，6 月曾计划寻找创业合伙人共同上线（未果），随后独立完成开发部署，并用 24 场景实测完成首轮迭代。<b>口径说明（主动声明）：本产品为演示版 MVP，暂无真实注册用户；页面中的数据均为本人 24 场景自测口径，不是线上真实用户数据——真人试用是下一迭代项（实验设计见「推荐质量验证」页）。</b></p>
+  <p>面向大学新生与数码小白的「选购决策助手」。核心主张：把晦涩参数翻译成生活语言，一次给出【最优解 + 一个备选】；不接厂家 CPS、不做软文。时间线：2026.05 启动定位与调研，6 月曾计划寻找创业合伙人共同上线（未果），随后独立完成开发部署，并用 24 条场景的评测集完成首轮迭代。<b>口径说明（主动声明）：本产品为演示版 MVP，暂无真实注册用户；页面中的数据均为本人 24 条场景评测集的自测结果，不是线上真实用户数据——真人试用是下一迭代项（实验设计见「推荐质量验证」页）。</b></p>
+
+  <div class="note"><b>主动交底一件事，省得你问到：</b>当前版本的推荐主链路是<b>本地加权规则引擎</b>，不是大模型；「AI 会诊」是预留接口，接入模型后启用。<b>为什么这么排：在接模型之前，先把评测集、评分口径、badcase 的记录方式建好——因为模型一接进来，你唯一能判断它好不好的东西就是这套集子。</b>这也是我理解的 AI 产品运营的起手式：先有能力判断好坏，再谈调优；否则一接模型就只剩「感觉好像变聪明了」。</div>
 
   <div class="card">
 
@@ -254,7 +378,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
   </div>
 
-  <h3>产品能力（均为已实现功能，非规划）</h3>
+  <h3>产品能力（已实现功能；预留接口单独标注）</h3>
 
   <ul>
 
@@ -280,13 +404,13 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
       <li><a href="/analysis/index.html">《竞品调研 · 京东AI购运营打法拆解》</a>——回答运营问题：别人怎么拉新、怎么留人、怎么让用户反复来、怎么把流量变成交易；含 3 条带验证指标的改进建议</li>
 
-      <li><a href="/aigc/index.html">《运营工作笔记 3 篇》</a>——① 三平台数据复盘（口径先行+三个验证结论）② 京东AI购调研笔记（12 张一手截图）③ 我把自家 App 跑了 24 遍（运营怎么验证产品质量）——每篇附 AI 使用声明</li>
+      <li><a href="/aigc/index.html">《运营工作笔记 3 篇》</a>——① 三平台数据复盘（口径先行+三个验证结论）② 京东AI购调研笔记（12 张一手截图）③ 我把自家 App 跑了 24 遍（运营怎么验证产品质量）——每篇附工作方式说明（数据来源、核验路径、哪些是待验证假设）</li>
 
       <li><a href="/reviews/index.html">《评价运营与口碑管理 · 三平台实录》</a>——好评维护 / 差评 SOP / 归因五类法 / 平台申诉治理四模块，含用户运营评估口径与 38 分钟申诉成功实例</li>
 
       <li><a href="/evaluation/index.html">《推荐质量验证 · 24 场景实跑》</a>——先定口径，再把线上产品实跑 24 条真实需求：5 项发现全部确认、当晚修复复测闭环（首卡预算内率 2/24 → 抽查 4/4）</li>
 
-      <li><a href="/prompts/index.html">《Prompt 模板 12 条》</a>——覆盖数据复盘 / 竞品拆解 / 活动策划 / 内容生产 / 用户研究 / 求职复盘六类真实场景，每条可直接复制取用</li>
+      <li><a href="/prompts/index.html">《Prompt 设计 12 条》</a>——覆盖数据复盘 / 竞品拆解 / 活动策划 / 内容生产 / 用户研究 / 求职复盘六类真实场景，每条可直接复制取用</li>
 
       <li>50 秒产品演示视频（真实界面录屏 + 旁白 + 字幕）——可应面试官要求当场播放</li>
 
@@ -314,7 +438,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <div class="kpi"><div class="v">≈3.67万</div><div class="l">累计结算净额（元）</div></div>
 
-    <div class="kpi"><div class="v">644→253</div><div class="l">峰值月 8 月 → 9 月订单（−61%）</div></div>
+    <div class="kpi"><div class="v" data-count="644">644</div><div class="l">单月订单峰值（8 月，全期最高）</div></div>
 
     <div class="kpi"><div class="v" data-count="39.6" data-suffix="%">39.6%</div><div class="l">美团老客下单占比</div></div>
 
@@ -398,7 +522,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <li><b>8 月是效率最高期</b>：净额 6,650 元为全期峰值；同期三平台老客占比稳定在三成以上，复购是基本盘。</li>
 
-    <li><b>9 月三平台同步收缩</b>（订单 −61%、京东 −67%/美团 −57%/淘宝 −59%）：非单点故障，是平台整体流量分配收缩；数据截至 2026-09-29（末单日）。</li>
+    <li><b>4–5 月是从 0 起的爬坡期</b>：首月 88 单 → 5 月 466 单，靠平台活动拉动，属冷启动阶段；增长和质量要分开看。</li>
 
     <li><b>美团靠曝光承接、京东淘宝靠老客召回</b>：美团曝光量三平台最大（11.8 万）但新客占比高；京东/淘宝曝光小、老客占比稳定（32.3%/33.5%），适合召回。</li>
 
@@ -450,7 +574,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <li>每个运营动作先提假设，再用后台真数验证，证伪的照实写</li>
 
-    <li>实例：平台活动能把曝光拉爆（5 月 +683%）但稀释入店转化；私域粉丝群 25 人群订单占比 0%（证伪，不写转化成果）；9 月塌方用「订单 = 曝光 × 进店率 × 下单转化率」MECE 拆到曝光下滑而非转化失效</li>
+    <li>实例：平台活动能把曝光拉爆（5 月 +683%）但稀释入店转化——买来的是泛流量，单靠活动不可持续；三平台私域群合计 100+ 人（淘宝 80+/美团 25/京东若干），验证后把触达重心收回平台内工具</li>
 
   </ul></div>
 
@@ -476,11 +600,27 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <li>逐单电话回访 → 用户调研与关系运营：问口味分量、收集改进建议、预告下次赠菜，把口碑做在差评发生之前</li>
 
-    <li>24 场景实测 → 产品迭代数据验证：先定口径再实跑，5 项发现当晚修复复测</li>
+    <li>24 条场景评测集 → 模型产品的质量回归：7 类用户场景 × 完整问诊流程，同一套集子可在任意版本重跑做前后对照，5 项 badcase 当晚修复复测</li>
+
+    <li>Prompt 约束设计 → AI 产品运营的红线管理：反幻觉（不许编造参数 / 价格 / 承诺）、结构化输出、不确定就说不确定——这是 AI 产品区别于普通产品的核心运营动作</li>
 
     <li>竞品调研 → 竞品与行业监控：拆解京东AI购的留存 / 促活 / 裂变设计，产出带验证指标的建议</li>
 
     <li>我缺的是 APP 语境的工时，不缺的是同一套动作在另一个载体上的执行</li>
+
+  </ul></div>
+
+  <div class="card"><b>⑥ AI 产品评测方法论（AI 产品运营与普通产品运营最不一样的地方）</b><ul>
+
+    <li>普通产品的体验好坏靠 A/B 和留存说话；模型产品的输出是不确定的，同一个提问跑两次可能不同——所以必须先把「什么叫好」写成可打分的口径，否则质量只能靠感觉</li>
+
+    <li><b>四步闭环：</b>定目标（这次评测要回答什么问题）→ 建集子（覆盖真实用户分布 + 边缘 + 对抗）→ 定指标（硬门槛 + 质量维度双层评分卡）→ 跑与对照（同一套集子跨版本重跑）</li>
+
+    <li><b>三种评审方式的分工：</b>可自动化的客观指标先跑（预算内率 / 序列一致性 / 入口可用性）；主观维度留人工复核；AI 辅助初评只做初筛，结论必须由人确认</li>
+
+    <li><b>反模式（我踩过并改掉的）：</b>① 指标太泛（「回答质量好」这种没法打分）② 只跑一遍不看对照（不知道是改好了还是改坏了）③ 把测试假象当结论（剪贴板污染那次，用对照实验排除后才写进报告）</li>
+
+    <li><b>落地到本案：</b>24 条场景 / 7 类用户 / 双层评分卡 → 首卡预算内率 2/24 → 修复后抽查 4/4，完整过程见<a href="/evaluation/index.html">质量评测页</a></li>
 
   </ul></div>
 
@@ -506,7 +646,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <li><b>多平台推广工具认知</b>（美团点金推广与京东「京准通门店推广」均为充值制投放工具）↔ 行业通行：按平台特性分配预算、不均匀撒布<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#e0e7ff;color:#3730a3;margin-left:4px">B/C 行业通行</span></li>
 
-    <li><b>私域粉丝群</b> ↔ 行业重点私域社群玩法<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 行业通行</span>——做了并证伪（25 人群订单占比 0%），照实写</li>
+    <li><b>私域粉丝群</b> ↔ 行业重点私域社群玩法<span style="font-size:10.5px;font-weight:700;border-radius:4px;padding:1px 6px;background:#fef3c7;color:#78350f;margin-left:4px">C 行业通行</span>——三平台建群合计 100+ 人（淘宝 80+/美团 25/京东若干），验证后把触达重心收回平台内工具</li>
 
     <li>共同点：全部有官方工具或行业验证背书；我的工作是配置、执行、看数据、留下可复算的记录</li>
 
@@ -518,7 +658,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
 <footer style="text-align:center;color:var(--muted);font-size:12.5px;padding:20px">
 
-  本作品集全部数据来源于三平台官方后台导出（51 份），口径基准 v1（2026-10-12）· 无估算冒充实测 · 无虚构
+  数据来源：三平台官方后台导出（51 份）+「选一本」24 条场景自测记录 ｜ 口径基准 v1（2026-10-12）· 无估算冒充实测 · 无虚构
 
 </footer>
 

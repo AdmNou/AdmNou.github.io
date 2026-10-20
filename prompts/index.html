@@ -2,7 +2,7 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>Prompt 作品集 · 12 条可复用模板</title><style>
+<title>Prompt 设计 · 12 条可复用模板 · 佚名 AI 产品运营作品集</title><style>
 
 :root{
 
@@ -93,6 +93,12 @@ font-family:ui-monospace,Menlo,Consolas,monospace;line-height:1.8}
 .tip{padding:10px 20px;font-size:12px;color:var(--faint);border-top:1px dashed var(--line);background:var(--surface-2)}
 
 .tip code{background:#eef2f8;padding:1px 5px;border-radius:3px;font-size:11.5px}
+.principles{background:var(--primary-soft);border:1px solid #cdddf7;border-left:4px solid var(--primary);border-radius:12px;padding:16px 20px;margin-bottom:22px}
+.principles>b{display:block;color:#1e3a5f;font-size:14px;margin-bottom:10px}
+.principles .pr{margin:11px 0;font-size:13.4px;color:#1e3a5f;line-height:1.75}
+.principles .pr i{font-style:normal;font-weight:800;color:var(--primary-600);margin-right:6px}
+.principles .pr em{display:block;font-style:normal;color:#5d6878;font-size:12.5px;margin-top:3px;padding-left:2px}
+.principles .pr code{background:#fff;border:1px solid #d6e4ff;padding:1px 5px;border-radius:3px;font-size:12px}
 
 /* nav */
 
@@ -133,30 +139,21 @@ display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:0 20px;box-shadow
 <div id="progress"></div>
 
 <nav id="nav">
-
   <span class="brand">佚名 · 作品集</span>
-
   <a href="/">首页</a>
-
+  <a href="/evaluation/index.html">质量评测</a>
+  <a href="/prompts/index.html" class="on">Prompt 设计</a>
   <a href="/mvp/index.html">选一本 MVP</a>
-
-  <a href="/evaluation/index.html">质量验证</a>
-
   <a href="/analysis/index.html">竞品调研</a>
-
   <a href="/aigc/index.html">运营笔记</a>
-
   <a href="/reviews/index.html">评价运营</a>
-
-  <a href="/prompts/index.html" class="on">Prompt 模板</a>
-
 </nav>
 
 <div class="wrap">
 
-<h1>Prompt 作品集 · 12 条可复用模板</h1>
+<h1>Prompt 设计 · 12 条可复用模板</h1>
 
-<p class="lead">面向产品运营 / 用户运营 / 本地生活运营岗位，覆盖数据分析、竞品拆解、活动策划、内容生产、用户研究、求职复盘六类场景。每条均可直接替换变量使用，全部来自真实工作流（门店运营 / 选一本 MVP / 求职准备），不是示例文案。</p>
+<p class="lead"><b>Prompt 是 AI 产品运营的「配置层」</b>——同一句需求，指令写法不同，模型给出的东西差一个量级。这一页收的 12 条不是网上抄来的模板，是我在真实工作流（门店数据复盘 / 选一本 MVP 评测 / 竞品拆解 / 求职准备）里反复改出来的版本，覆盖数据分析、竞品拆解、活动策划、内容生产、用户研究、求职复盘六类场景。<br>每条都写清三件事：<b>输入要什么、输出长什么样、什么情况下必须说「不知道」</b>。</p>
 
 <div class="badges"><span class="b">数据口径校验</span><span class="b">禁止编造</span>
 
@@ -167,6 +164,20 @@ display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:0 20px;box-shadow
 这些模板的内核是<b>「先定口径，再下结论；缺数据就说不判断」</b>。替换变量时把真实数据粘进去，不要只给概述——模型对模糊输入只能编造。模板是骨架，真实数据是肉；凡是模板要求「标注口径/待验证」的地方，是真的要标。
 
 点击右侧「复制」按钮即可取走全文。</div>
+
+<div class="principles">
+
+<b>这 12 条不是攒出来的，是四条设计原则反复用出来的</b>
+
+<div class="pr"><i>①</i>先锁输出结构，再谈内容质量。每条都先规定「输出哪几段、每段多长、用什么格式」，模型才有稳定落点。<em>反例：只说「帮我分析一下」——输出每次都不一样，既没法复用，也没法跨版本比较。</em></div>
+
+<div class="pr"><i>②</i>数据缺口必须显式化。凡是 <code>{{粘贴}}</code> 的位置，都配一句「未给出的数据不得假设」。<em>模型不会因为你不说就老实，它只会补一个看起来合理的数字——这是幻觉最常见的入口。</em></div>
+
+<div class="pr"><i>③</i>强制标注证据等级。一手实测 / 媒体实测 / 公开事实三级分开写，冲突时标出冲突、不合并。<em>这一条直接决定输出能不能拿给老板看，还是只能自己参考。</em></div>
+
+<div class="pr"><i>④</i>禁词清单比正向要求更有效。「颠覆 / 开创 / 革命性」一律禁；「较好 / 明显提升」这类模糊词要求换成具体数字或删掉。<em>正向要求模型会努力迎合，禁词它会绕——所以两条要一起写。</em></div>
+
+</div>
 
 
 
