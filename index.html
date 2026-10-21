@@ -162,6 +162,31 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
 }
 
+/* ===== 作品墙 / 岗位标签（v5 新增） ===== */
+.jt{display:inline-block;font-size:10.5px;font-weight:800;border-radius:5px;padding:2px 8px;margin-left:8px;vertical-align:middle;white-space:nowrap;letter-spacing:0}
+.jt-ai{background:#e0e7ff;color:#3730a3}
+.jt-po{background:#dcfce7;color:#14532d}
+.jt-uo{background:#fdf3e3;color:#8a5a08}
+.jt-all{background:#eef2f7;color:#475467}
+.wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:16px 0 6px}
+.wcard{border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;background:var(--surface-2);display:flex;flex-direction:column}
+.wcard .wt{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.5;margin-bottom:3px}
+.wcard .wm{font-size:11.5px;color:var(--faint);margin-bottom:9px;letter-spacing:.2px}
+.wcard .wd{font-size:13px;color:var(--muted);line-height:1.78;flex:1}
+.wcard .wl{margin-top:11px;font-size:12.5px;font-weight:700}
+.wgrp{margin:30px 0 0}
+.wgrp-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-left:4px solid var(--primary);padding:1px 0 1px 12px;margin-bottom:6px}
+.wgrp-h .gt{font-size:15.5px;font-weight:800;color:var(--ink)}
+.wgrp-h .gd{font-size:12.5px;color:var(--faint);line-height:1.6}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:10px;margin:16px 0 4px}
+.step{border:1px solid var(--line);border-left:3px solid var(--primary);border-radius:8px;padding:11px 14px;background:var(--surface-2)}
+.step .sn{font-size:10.5px;font-weight:800;color:var(--primary);letter-spacing:.7px}
+.step .st{font-size:13.5px;font-weight:800;color:var(--ink);margin:3px 0 5px;line-height:1.45}
+.step .sd{font-size:12.5px;color:var(--muted);line-height:1.72}
+.step .sd b{color:var(--ink)}
+@media (max-width:640px){.wall{grid-template-columns:1fr}.jt{margin-left:0;margin-top:6px}}
+@media print{.wcard,.step{break-inside:avoid}}
+
 </style>
 
 <link rel="stylesheet" href="assets/apple-fx.css">
@@ -179,6 +204,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
   <a href="/analysis/index.html">竞品调研</a>
   <a href="/aigc/index.html">运营笔记</a>
   <a href="/reviews/index.html">评价运营</a>
+  <a href="#works">全部作品</a>
 </nav>
 
 <div class="wrap">
@@ -271,9 +297,9 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
         <li><a href="/reviews/index.html">评价运营实录</a>：好评维护 / 差评 SOP / 归因五类法 / 平台申诉四模块，含 38 分钟申诉成功实例</li>
 
-        <li><a href="/aigc/index.html">运营笔记 · 三平台复盘</a>：老客占比 32.3%–39.6%，新老客分层与召回打法</li>
+        <li><a href="/aigc/index.html">运营笔记 · 三平台复盘</a>：老客占比 34.3%–40.7%，新老客分层与召回打法</li>
 
-        <li><a href="#data">三平台经营数据</a>：2,031 单、6 个月、每个数字可回溯到源文件</li>
+        <li><a href="#data">三平台经营数据</a>：2,392 单、6 个月、每个数字可回溯到源文件</li>
 
       </ol>
 
@@ -336,11 +362,11 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
       <tr><td>2</td><td>产品定位与需求取舍</td><td>「最优解 + 一个备选」的单点主张；<b>不接厂家 CPS、不做软文</b>；只做笔记本一个品类，不铺全品类</td><td>不变，但多一条取舍：哪些交给模型、哪些必须写死规则</td></tr>
 
-      <tr><td>3</td><td>上线与冷启动</td><td>独立完成开发部署上线（可当场点开）；门店 4–5 月从 0 起爬坡：首月 88 单 → 5 月 466 单</td><td>不变，但上线多了灰度与回滚——模型版本不能一改全量</td></tr>
+      <tr><td>3</td><td>上线与冷启动</td><td>独立完成开发部署上线（可当场点开）；门店 4–5 月从 0 起爬坡：首月 88 单 → 5 月 671 单</td><td>不变，但上线多了灰度与回滚——模型版本不能一改全量</td></tr>
 
       <tr><td>4</td><td>数据口径与指标体系</td><td>51 份官方后台导出；恒等式验证 154 天逐日误差 0.00 元；曝光→入店→下单三段漏斗；<b>禁用估算冒充实测</b></td><td><b>被显著加强</b>：口径要加模型指标（幻觉率 / 采纳率 / 单次成本），问题从「算错」升级成「算不出」</td></tr>
 
-      <tr><td>5</td><td>用户分层与生命周期</td><td>新老客占比 32.3% / 33.5% / 39.6%；淘宝老客下单转化 42.7% vs 新客 13.7%；召回三招（电话回访 / 连续下单返券 / 饭卡储值）</td><td><b>换载体</b>：分层维度从「新老客」扩到「意图 / 会话深度 / 追问次数」</td></tr>
+      <tr><td>5</td><td>用户分层与生命周期</td><td>新老客占比 京东 40.7% / 美团 39.6% / 淘宝 34.3%；召回三招（电话回访 / 连续下单返券 / 饭卡储值）</td><td><b>换载体</b>：分层维度从「新老客」扩到「意图 / 会话深度 / 追问次数」</td></tr>
 
       <tr><td>6</td><td>内容与活动运营</td><td>满减三档设计、折扣商品阶梯、集点返券、平台官方活动（美团曝光 7,139 → 55,951）</td><td><b>被替换</b>：内容生产让给模型，运营重点从「写」转到「约束与验收」</td></tr>
 
@@ -362,9 +388,18 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
 <section>
 
-  <h2>作品一 · AI 产品落地：「选一本」智能笔记本电脑选购助手</h2>
+  <h2>作品一 · AI 产品运营：给一个 AI 选本助手建评测集，并迭代到可用<span class="jt jt-ai">主证 · AI 产品运营</span><span class="jt jt-po">兼证 · 产品运营</span></h2>
 
   <p>面向大学新生与数码小白的「选购决策助手」。核心主张：把晦涩参数翻译成生活语言，一次给出【最优解 + 一个备选】；不接厂家 CPS、不做软文。时间线：2026.05 启动定位与调研，6 月曾计划寻找创业合伙人共同上线（未果），随后独立完成开发部署，并用 24 条场景的评测集完成首轮迭代。<b>口径说明（主动声明）：本产品为演示版 MVP，暂无真实注册用户；页面中的数据均为本人 24 条场景评测集的自测结果，不是线上真实用户数据——真人试用是下一迭代项（实验设计见「推荐质量验证」页）。</b></p>
+
+  <div class="ok" style="margin-top:16px"><b>这一件作品，我是以「运营」的身份做的，不是以「产品经理」的身份做的。</b>产品经理的交付物是「功能上线了」；运营的交付物是「我能说清它好在哪、差在哪、下一版改什么，而且换个人能重跑一遍得出同样结论」。下面四步是我在这件事里实际动手的部分——产品功能只是被评测的对象。</div>
+
+  <div class="steps">
+    <div class="step"><div class="sn">STEP 1 · 定口径</div><div class="st">先写清「什么叫好」</div><div class="sd">把「推荐准不准」拆成可打分的两层：<b>硬门槛</b>（首卡是否落在预算内、机型是否真实存在、参数是否与官方一致）+ <b>质量维度</b>（理由是否说人话、是否给备选、不确定时是否承认不确定）。<b>没有口径就不开跑</b>——否则跑完只剩「感觉还行」。</div></div>
+    <div class="step"><div class="sn">STEP 2 · 建集子</div><div class="st">24 条场景覆盖 7 类用户</div><div class="sd">按真实用户分布设计：专业负载型（计算机 / 建筑 / 环工 / 美术）、预算敏感型、小白问句型、以及<b>边缘与对抗样本</b>（预算 3000 以下、要求「能打游戏又要轻薄」、贴链接问避坑）。集子固定下来，才能在任意版本重跑做前后对照。</div></div>
+    <div class="step"><div class="sn">STEP 3 · 跑与归因</div><div class="st">5 项 badcase 全部确认到根因</div><div class="sd">逐条跑、逐条记。<b>关键动作是排除测试假象</b>：有一次首卡超预算，追下去发现是剪贴板污染导致输入串了，做了对照实验才排除，没把它当产品缺陷写进报告。<b>确认的 5 项按根因归类</b>，不是按「第几条错了」罗列。</div></div>
+    <div class="step"><div class="sn">STEP 4 · 修与复测</div><div class="st">当晚改完，同一套集子再跑一遍</div><div class="sd">改的是规则权重与约束条件，<b>不改口径</b>——改口径凑通过率是最容易犯的错。<b>首卡预算内率 2/24 → 修复后抽查 4/4</b>。完整过程与原始记录在<a href="/evaluation/index.html">质量评测页</a>。</div></div>
+  </div>
 
   <div class="note"><b>主动交底一件事，省得你问到：</b>当前版本的推荐主链路是<b>本地加权规则引擎</b>，不是大模型；「AI 会诊」是预留接口，接入模型后启用。<b>为什么这么排：在接模型之前，先把评测集、评分口径、badcase 的记录方式建好——因为模型一接进来，你唯一能判断它好不好的东西就是这套集子。</b>这也是我理解的 AI 产品运营的起手式：先有能力判断好坏，再谈调优；否则一接模型就只剩「感觉好像变聪明了」。</div>
 
@@ -378,7 +413,9 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
   </div>
 
-  <h3>产品能力（已实现功能；预留接口单独标注）</h3>
+  <h3>评测对象长什么样（产品功能 · 背景信息，不是我在这件作品里的交付物）</h3>
+
+  <p class="small" style="color:var(--faint);font-size:12.8px">下面这份清单是<b>被评测的对象</b>，列出来只为让你知道集子跑在什么东西上。面试时如果有人问「这些功能是你做的吗」——<b>是，但我讲的重点不是功能，是我怎么判断它好不好用。</b></p>
 
   <ul>
 
@@ -426,7 +463,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
 <section id="data">
 
-  <h2>作品二 · 三平台门店经营数据复盘（真实数据）</h2>
+  <h2>作品二 · 三平台门店经营数据复盘（真实数据）<span class="jt jt-uo">主证 · 用户运营</span><span class="jt jt-po">兼证 · 产品运营</span></h2>
 
   <p>独立运营家庭外卖店（美团 + 淘宝闪购 + 京东秒送），从后台导出 51 份原始文件自行建模复盘。<b>以下每一个数字都可回溯到具体源文件与字段</b>；口径基准见文末说明。</p>
 
@@ -434,11 +471,13 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
   <div class="kpis">
 
-    <div class="kpi"><div class="v" data-count="2031">2,031</div><div class="l">累计有效订单（单）</div></div>
+    <div class="kpi"><div class="v" data-count="2392">2,392</div><div class="l">累计有效订单（单，6 个运营月）</div></div>
 
-    <div class="kpi"><div class="v">≈3.67万</div><div class="l">累计结算净额（元）</div></div>
+    <div class="kpi"><div class="v">≈3.43万</div><div class="l">累计结算净额（元，到手）</div></div>
 
-    <div class="kpi"><div class="v" data-count="644">644</div><div class="l">单月订单峰值（8 月，全期最高）</div></div>
+    <div class="kpi"><div class="v" data-count="671">671</div><div class="l">单月订单峰值（5 月 · 活动冲量）</div></div>
+
+    <div class="kpi"><div class="v">6,650</div><div class="l">单月净额峰值（8 月 · 全期最高）</div></div>
 
     <div class="kpi"><div class="v" data-count="39.6" data-suffix="%">39.6%</div><div class="l">美团老客下单占比</div></div>
 
@@ -468,23 +507,23 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
       <tr><td>2026-04</td><td>69</td><td>19</td><td>—</td><td>88</td><td>¥1,310</td></tr>
 
-      <tr><td>2026-05</td><td>368</td><td>98</td><td>—</td><td>466</td><td>¥5,780</td></tr>
+      <tr><td>2026-05</td><td>368</td><td>98</td><td>205</td><td><b>671</b></td><td>¥5,780</td></tr>
 
-      <tr><td>2026-06</td><td>138</td><td>70</td><td>—</td><td>208</td><td>¥2,762</td></tr>
+      <tr><td>2026-06</td><td>138</td><td>70</td><td>156</td><td><b>364</b></td><td>¥2,762</td></tr>
 
       <tr><td>2026-07</td><td>164</td><td>56</td><td>151</td><td>371</td><td>¥3,497</td></tr>
 
-      <tr><td>2026-08</td><td>354</td><td>71</td><td>219</td><td><b>644</b></td><td>¥6,650</td></tr>
+      <tr><td>2026-08</td><td>354</td><td>72</td><td>219</td><td><b>645</b></td><td>¥6,650</td></tr>
 
       <tr><td>2026-09</td><td>152</td><td>29</td><td>72</td><td>253</td><td>¥3,140</td></tr>
 
     </tbody>
 
-    <tfoot><tr><td>合计</td><td>1,245</td><td>344*</td><td>442*</td><td><b>2,031</b></td><td>¥23,139</td></tr></tfoot>
+    <tfoot><tr><td>合计</td><td>1,245</td><td>344</td><td>803</td><td><b>2,392</b></td><td>¥23,139</td></tr></tfoot>
 
   </table>
 
-  <p style="font-size:12.5px">* 京东 5–6 月无官方日汇总（仅订单明细），故京东官方口径只含 7–9 月，5–6 月不计入合计——宁可少算，不混口径。淘宝为整段官方口径（2026-04-09 → 10-09，344 单），月度加总 343 与整段差 1 单为边界日归属。</p>
+  <p style="font-size:12.5px">* 京东 5–6 月无官方日汇总，故 5–6 月订单取自订单明细（同一「已完成」判定规则），7–9 月取官方日汇总——两段相加为全期 803 单。淘宝为整段官方口径（2026-04-09 → 10-09，344 单），月度加总 343 与整段差 1 单为边界日归属。</p>
 
 
 
@@ -498,17 +537,17 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
       <tr><td>美团（4–9月）</td><td>1,245</td><td>33,778</td><td>23,139</td><td>117,521 → 7,179（6.1%）→ 1,245（17.3%）</td></tr>
 
-      <tr><td>京东（7–9月官方）</td><td>442</td><td>10,253*</td><td>6,785</td><td>36,229 → 1,497（4.1%）→ 442（29.5%）</td></tr>
+      <tr><td>京东（5–9月）</td><td>803</td><td>17,544</td><td>6,785<span class="small">（仅 7–9 月有「收入」字段）</span></td><td>36,229 → 1,497（4.1%）→ 442（29.5%）<span class="small">（仅 7–9 月）</span></td></tr>
 
-      <tr><td>淘宝（整段）</td><td>344</td><td>7,673</td><td>6,763</td><td>51,405 → 1,911（3.7%）→ 340（18.0%）</td></tr>
+      <tr><td>淘宝（整段）</td><td>344</td><td>7,673</td><td>4,356</td><td>51,405 → 1,911（3.7%）→ 344（18.0%）</td></tr>
 
     </tbody>
 
-    <tfoot><tr><td>三平台合计</td><td><b>2,031</b></td><td><b>≈51,700（约）</b></td><td><b>≈36,687</b></td><td>曝光 ≈205,155 → 入店 ≈10,587 → 下单 2,031</td></tr></tfoot>
+    <tfoot><tr><td>三平台合计</td><td><b>2,392</b></td><td><b>≈59,000（约）</b></td><td><b>≈34,280</b></td><td>曝光 ≈205,155 → 入店 ≈10,587 → 下单 <b>2,031</b><span class="small">（漏斗口径，京东仅 7–9 月）</span></td></tr></tfoot>
 
   </table>
 
-  <p style="font-size:12.5px">* 京东顾客实付为明细唯一订单加总（7–9 月，含少量无效单未剔）。<b>口径说明：三平台窗口不同（美团 4–9 月 / 淘宝整段 / 京东仅 7–9 月有官方汇总），合计顾客实付只作约数；平台「营业额」字段含配送费/打包费，与顾客实付不可比，故不混算 GMV。</b>老客占比：京东 32.3% / 淘宝 33.5% / 美团 39.6%。</p>
+  <p style="font-size:12.5px">* 京东顾客实付为明细唯一订单加总（7–9 月，含少量无效单未剔）。<b>口径说明：三平台窗口不同（美团 4–9 月 / 淘宝整段 / 京东 5–6 月取明细、7–9 月取官方汇总），合计顾客实付只作约数；平台「营业额」字段含配送费/打包费，与顾客实付不可比，故不混算 GMV。</b>老客占比：京东 40.7% / 美团 39.6% / 淘宝 34.3%。</p>
 
 
 
@@ -522,11 +561,11 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <li><b>8 月是效率最高期</b>：净额 6,650 元为全期峰值；同期三平台老客占比稳定在三成以上，复购是基本盘。</li>
 
-    <li><b>4–5 月是从 0 起的爬坡期</b>：首月 88 单 → 5 月 466 单，靠平台活动拉动，属冷启动阶段；增长和质量要分开看。</li>
+    <li><b>4–5 月是从 0 起的爬坡期</b>：首月 88 单 → 5 月 671 单，靠平台活动拉动，属冷启动阶段；增长和质量要分开看。</li>
 
-    <li><b>美团靠曝光承接、京东淘宝靠老客召回</b>：美团曝光量三平台最大（11.8 万）但新客占比高；京东/淘宝曝光小、老客占比稳定（32.3%/33.5%），适合召回。</li>
+    <li><b>美团靠曝光承接、京东淘宝靠老客召回</b>：美团曝光量三平台最大（11.8 万）但新客占比高；京东/淘宝曝光小、老客占比稳定（京东 40.7%、淘宝 34.3%），适合召回。</li>
 
-    <li><b>淘宝老客转化率碾压新客</b>：老客下单转化 42.7% vs 新客 13.7%、老客进店转化 14.7% vs 新客 3.3%；但淘宝曝光 96.5% 给了新客——「曝光给新客、转化靠老客」的结构性错配，是私域与召回动作的直接依据。</li>
+    
 
   </ul>
 
@@ -556,7 +595,9 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
 <section id="method">
 
-  <h2>作品三 · 可复用的运营方法论</h2>
+  <h2>作品三 · 可复用的运营方法论<span class="jt jt-all">通用 · 三岗共用</span></h2>
+
+  <p>这一节不绑定具体岗位：<b>它是我从上面两件作品里抽出来的可复用动作</b>。AI 产品运营看第 ⑥ 条（评测方法论），产品运营看 ①②⑤（数据复盘 / 增长实验 / 推广对标），用户运营看 ③④（分层召回 / 语境迁移）。</p>
 
   <div class="card"><b>① 数据复盘流程（这份看板就是这么出来的）</b><ul>
 
@@ -582,7 +623,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
     <li>后台无客户级明细，所以用平台官方的新老客分层做打法设计，不硬造 RFM 分数——口径诚实优先于框架好看</li>
 
-    <li>数据依据：老客占比 京东 32.3% / 淘宝 33.5% / 美团 39.6%；淘宝老客下单转化 42.7% vs 新客 13.7%；打法：京东/淘宝做老客召回，美团做曝光承接</li>
+    <li>数据依据：老客占比 京东 40.7% / 美团 39.6% / 淘宝 34.3%；打法：京东/淘宝做老客召回，美团做曝光承接</li>
 
     <li><b>召回与锁客（2026.04–09 运营期内真实做过）：</b>① 对当日下单用户逐单电话回访——问口味分量、收集改进建议、预告「下次送点小菜」，收到过顾客主动好评；② 借平台连续下单返券活动串复购（满 N 单送券）；③ 引导顾客充值京东外卖饭卡（储值仅限本店消费、有顾客实际充值、后台可查），用预付款锁定后续消费</li>
 
@@ -655,6 +696,123 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 </section>
 
 
+
+<!-- ========== 全部作品 · 按主证岗位分组 ========== -->
+
+<section id="works">
+
+  <h2>全部作品 · 按主证岗位分组<span class="jt jt-all">6 个页面 + 本页 3 节</span></h2>
+
+  <p>这一节回答一个很具体的问题：<b>你在招哪个岗，我该拿哪几件给你看。</b>排法只有一条规则——<b>同一个岗位主证的放一组，不同岗位的分开排</b>；一件作品如果能同时证明两个岗位，就两边都放，并在卡片上写明「两边各证什么」，不做重复计数。所以下面 6 个页面一共出现 7 次，多出来的那 1 次是<a href="/mvp/index.html">选一本 MVP</a>——它对 AI 产品运营证「评测对象」，对产品运营证「0→1 链路」。</p>
+
+  <div class="note"><b>为什么不拆成三套独立作品集：</b>三套会让同一个项目出现三种说法，面试官交叉一问就露。这套做法是<b>一套内容、三个入口、三种开场</b>——材料是同一批真东西，入口和第一句话按岗位换。同一批数据讲两个岗位的故事，是运营的基本功；同一批数据讲出三个互相打架的故事，是硬伤。</div>
+
+  <div class="wgrp">
+
+    <div class="wgrp-h"><span class="gt">A · AI 产品运营 主证</span><span class="gd">在招 AI 产品运营（质量 / 评测型）→ 只看这两页就够判断</span></div>
+
+    <div class="wall">
+
+      <div class="wcard">
+        <div class="wt">① 质量评测 · 24 条场景实跑</div>
+        <div class="wm">/evaluation/index.html ｜ 主证 AI 产品运营</div>
+        <div class="wd">先定评分口径（硬门槛 + 质量维度双层评分卡），再按 7 类真实用户设计 24 条场景集，逐条跑、逐条归因。<b>5 项 badcase 全部确认到根因，当晚修复，同一套集子复测</b>：首卡预算内率 2/24 → 抽查 4/4。含一次「剪贴板污染」测试假象的排除过程——没把测试问题当产品缺陷写进报告。</div>
+        <div class="wl"><a href="/evaluation/index.html">→ 打开这一页</a></div>
+      </div>
+
+      <div class="wcard">
+        <div class="wt">② Prompt 设计 12 条</div>
+        <div class="wm">/prompts/index.html ｜ 主证 AI 产品运营</div>
+        <div class="wd">六类真实运营场景（数据复盘 / 竞品拆解 / 活动策划 / 内容生产 / 用户研究 / 求职复盘）各 2 条，<b>每条都带约束条件 + 反例 + 可直接复制的正文</b>。核心是三条红线：反幻觉（不许编参数 / 价格 / 承诺）、结构化输出、不确定就说不确定。</div>
+        <div class="wl"><a href="/prompts/index.html">→ 打开这一页</a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="wgrp">
+
+    <div class="wgrp-h"><span class="gt">B · 产品运营 兼证</span><span class="gd">在招产品运营 → 看「能不能对一个产品的指标负责」：定口径、找问题、推迭代、验结果</span></div>
+
+    <div class="wall">
+
+      <div class="wcard">
+        <div class="wt">③ 选一本 MVP（0→1 全链路）</div>
+        <div class="wm">/mvp/index.html ｜ 双证：AI 产品运营（评测对象）+ 产品运营（0→1）</div>
+        <div class="wd"><b>对产品运营证的是：</b>定位 → 需求取舍 → 上线 → 按 24 场景评测迭代，一条完整的 0→1 链路一个人跑完。<b>对 AI 产品运营证的是：</b>它是被评测的那个对象，集子跑在它上面。谁点都能开、无需登录，可当场体验。</div>
+        <div class="wl"><a href="/mvp/index.html">→ 打开这一页</a></div>
+      </div>
+
+      <div class="wcard">
+        <div class="wt">④ 竞品调研 · 京东AI购运营打法拆解</div>
+        <div class="wm">/analysis/index.html ｜ 主证 产品运营</div>
+        <div class="wd">拆它的<b>留存 / 促活 / 裂变</b>三段设计，12 张一手截图，最后落到 <b>3 条带验证指标的改进建议</b>——不是「它做得挺好」的读后感。这一页证明的是：我能把别人的产品拆成可执行的运营动作。</div>
+        <div class="wl"><a href="/analysis/index.html">→ 打开这一页</a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="wgrp">
+
+    <div class="wgrp-h"><span class="gt">C · 用户运营 兼证</span><span class="gd">在招用户运营 → 看「用户分层、口碑治理、复购召回」在一线怎么落地</span></div>
+
+    <div class="wall">
+
+      <div class="wcard">
+        <div class="wt">⑤ 运营工作笔记 3 篇</div>
+        <div class="wm">/aigc/index.html ｜ 主证 用户运营</div>
+        <div class="wd">① 三平台 6 个月数据复盘（口径先行 + 三个验证结论）② 京东AI购调研笔记（12 张一手截图）③ 我把自家 App 跑了 24 遍（运营怎么验证产品质量）。每篇附工作方式说明：数据来源、核验路径、哪些还是待验证假设。<b>老客占比 京东 40.7% / 美团 39.6% / 淘宝 34.3%</b> 就在第 ① 篇。</div>
+        <div class="wl"><a href="/aigc/index.html">→ 打开这一页</a></div>
+      </div>
+
+      <div class="wcard">
+        <div class="wt">⑥ 评价运营与口碑管理 · 三平台实录</div>
+        <div class="wm">/reviews/index.html ｜ 主证 用户运营</div>
+        <div class="wd">好评维护 / 差评 SOP / 归因五类法 / 平台申诉治理四模块，<b>含一个 38 分钟申诉成功的完整实例</b>（从发现差评到平台改判的全过程），末尾附用户运营评估口径。三平台店铺评分 4.37 / 4.5 / 4.56 是这套动作的结果。</div>
+        <div class="wl"><a href="/reviews/index.html">→ 打开这一页</a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="wgrp">
+
+    <div class="wgrp-h"><span class="gt">D · 三岗通用 · 本页三节</span><span class="gd">三个岗位都要看，只是看的位置不一样</span></div>
+
+    <div class="wall">
+
+      <div class="wcard">
+        <div class="wt">⑦ 产品运营底座 9 项</div>
+        <div class="wm">本页 · 锚点 #base ｜ 三岗通用</div>
+        <div class="wd">用户研究 / 定位取舍 / 冷启动 / 数据口径 / 分层生命周期 / 内容活动 / 体验质量 / 跨团队推动 / 复盘迭代，<b>逐项标出证据在哪一页、哪一条</b>，其中第 8 项（跨团队推动）我主动写出缺口和补法——不拿「沟通能力强」糊过去。</div>
+        <div class="wl"><a href="#base">→ 跳到这一节</a></div>
+      </div>
+
+      <div class="wcard">
+        <div class="wt">⑧ 三平台经营数据（作品二）</div>
+        <div class="wm">本页 · 锚点 #data ｜ 主证 用户运营 · 兼证 产品运营</div>
+        <div class="wd"><b>2,392 单、≈34,280 元结算净额、6 个运营月、51 份官方后台导出</b>，每个数字可回溯到源文件与字段。口径用恒等式验过（美团营业收入逐日误差 0.00 元，154 天），不是估算。</div>
+        <div class="wl"><a href="#data">→ 跳到这一节</a></div>
+      </div>
+
+      <div class="wcard">
+        <div class="wt">⑨ 可复用运营方法论（作品三）</div>
+        <div class="wm">本页 · 锚点 #method ｜ 三岗通用</div>
+        <div class="wd">数据复盘流程 / 增长实验格式 / 分层召回打法 / 语境迁移地图 / 推广对标 / <b>AI 评测方法论</b>。AI 岗看第 ⑥ 条，产品岗看 ①②⑤，用户岗看 ③④。</div>
+        <div class="wl"><a href="#method">→ 跳到这一节</a></div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="ok" style="margin-top:26px"><b>给面试官的一句话版本：</b>「<b>AI 产品运营</b>请看 A 组两页 + 本页作品一；<b>产品运营</b>请看 B 组两页 + 作品二；<b>用户运营</b>请看 C 组两页 + 作品二、三。<b>只有 3 分钟</b>就只看 <a href="/evaluation/index.html">质量评测</a>那一页——它是这套材料里唯一别人无法凭想象写出来的东西。」</div>
+
+</section>
 
 <footer style="text-align:center;color:var(--muted);font-size:12.5px;padding:20px">
 
