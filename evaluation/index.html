@@ -229,11 +229,13 @@ footer{text-align:center;color:var(--faint);font-size:12.5px;padding:10px 0 30px
 
   <h3>2.3 指标是怎么算的（可被任何人复算）</h3>
 
+  <p class="small" style="color:#6b7280">本节三张表是<b>第一轮（旧版流程）</b>的结果。当前版本的全量复测结果在 §4.2，两轮口径完全相同，可直接对比。</p>
+
   <table>
 
     <tr><th style="width:26%">指标</th><th style="width:40%">计算口径</th><th>本轮结果</th></tr>
 
-    <tr><td>首卡预算内率</td><td>首位推荐机型价格 ≤ 该场景预算的条数 ÷ 24</td><td><b>2/24 = 8.3%</b>（仅 10、11 两条命中）</td></tr>
+    <tr><td>首卡预算内率<br><span style="font-size:12px;color:#6b7280">第一轮 · 旧版流程</span></td><td>首位推荐机型价格 ≤ 该场景预算的条数 ÷ 24</td><td><b>2/24 = 8.3%</b>（仅 10、11 两条命中）</td></tr>
 
     <tr><td>序列一致性</td><td>24 条场景的首位推荐是否完全相同</td><td><b>24/24 完全一致</b>（恒为 ¥8,999 MacBook Air M3）→ 说明画像与预算未进入推荐链路</td></tr>
 
@@ -267,9 +269,11 @@ footer{text-align:center;color:var(--faint);font-size:12.5px;padding:10px 0 30px
 
 <section>
 
-  <h2>4 · 修复与复测记录（同日闭环）</h2>
+  <h2>4 · 修复与复测记录</h2>
 
-  <p>发现当天完成修复、重新构建部署，并用同一脚本复测：</p>
+  <h3>4.1 第一轮修复（2026-10-19 · 旧版引导流程）</h3>
+
+  <p>发现当天完成修复、重新构建部署，用同一口径<b>抽查 4 档预算</b>复测：</p>
 
   <table>
 
@@ -283,9 +287,48 @@ footer{text-align:center;color:var(--faint);font-size:12.5px;padding:10px 0 30px
 
   </table>
 
-  <div class="ok"><b>复测结论：</b>首卡"预算内率"2/24 → 抽查 4/4。修复后的版本已重新部署上线（即本站「选一本 MVP」页面当前体验到的版本）。</div>
+  <div class="note"><b>这里必须说清一件事：</b>上面「抽查 4 档全中」是<b>旧版引导流程</b>上的结果。产品随后改版成新的三步引导（身份 → 用途 → 子类 → 购机偏好），<b>预算这一步被去掉了</b>。所以「4/4」不能当作当前版本的成绩——这正是我要做全量复测的原因：<b>抽查能验证方向，但验证不了改版有没有把它绕过去。</b></div>
 
-  <div class="note"><b>边界：</b>身份 / 方向维度的推荐个性化（发现 3）为下一迭代项——本轮修复的是预算维度、崩溃与入口可用性；修复留痕在源代码注释中可查。</div>
+  <h3>4.2 全量复测（2026-10-22 · 当前线上版本 · 脚本跑满 24 条）</h3>
+
+  <p>口径与第一轮完全一致（<b>首卡价格 ≤ 该场景预算</b>即命中），不换标准、不跳场景、不美化，用脚本把 24 条全部跑一遍：</p>
+
+  <table>
+
+    <tr><th style="width:24%">指标</th><th style="width:32%">第一轮（旧版）</th><th>全量复测（当前版本）</th></tr>
+
+    <tr><td>流程走通</td><td>24/24</td><td><b>24/24</b>（无异常、无白屏）</td></tr>
+
+    <tr><td>首卡预算内率</td><td>2/24（8.3%）</td><td><b>12/24（50.0%）</b></td></tr>
+
+    <tr><td>首卡机型种类</td><td>1 种（24 条全是 ¥8,999 Air M3）</td><td><b>3 种</b>（¥5,999 / ¥6,499 / ¥13,999）</td></tr>
+
+  </table>
+
+  <div class="ok"><b>结论：</b>首卡预算内率 <b>2/24 → 12/24</b>；首卡不再全部相同。<b>但预算仍然没有真正参与排序</b>——见 4.3。</div>
+
+  <h3>4.3 12 条没过的归因（本轮最有用的部分）</h3>
+
+  <p>把 12 条失败逐条拆开，分成三类。<b>三类的解法完全不同，混在一起谈就等于没归因</b>：</p>
+
+  <table>
+
+    <tr><th style="width:16%">类型</th><th style="width:9%">条数</th><th style="width:24%">场景编号</th><th>根因</th></tr>
+
+    <tr><td><b>A 逻辑问题</b></td><td>7 条</td><td>01 / 02 / 03 / 16 / 18 / 19 / 20</td><td>预算 ¥3,500–5,000，机型库里<b>有 ¥3,199 / 4,399 / 4,799 的机器可选</b>，首卡却给了 ¥5,999 → 排序层没把更便宜的候选排上来</td></tr>
+
+    <tr><td><b>B 身份锁死</b></td><td>4 条</td><td>13 / 14 / 15 / 24</td><td>身份＝电竞玩家 → 首卡固定 ¥13,999 幻16 Air；预算 ¥4,000–7,000 <b>完全不改变结果</b></td></tr>
+
+    <tr><td><b>C 供给真空</b></td><td>1 条</td><td>17（预算 ¥3,000）</td><td>机型库最低价 ¥3,199，<b>这个价位没有货可选</b> —— 不是推荐错，是供给覆盖不到</td></tr>
+
+  </table>
+
+  <div class="bad"><b>根因（可当场复算）：</b>把 24 条的输入和输出对起来看——<b>预算从 ¥3,000 变到 ¥10,000，首卡只有 3 台在变，而唯一相关变量是身份</b>。也就是说预算没有进入排序。再去看打包后的评分函数，它的输入是身份 / 用途 / 子类 / 购机偏好 / 品牌倾向，<b>确实没有预算这一项</b>。这和第一轮「画像数据没进链路」是同一个病根，只是这次定位到了<b>排序层</b>，不是提示词层。</div>
+
+  <div class="note"><b>下一步（已排进计划，不是口头承诺）：</b><br>
+  ① <b>预算做硬过滤</b>，接在排序层而不是只写在提示词里——先按预算截断候选集，再谈匹配；<br>
+  ② <b>把 24 条固化成回归脚本</b>，任何改版上线前必须跑一遍。这次就是靠它发现「改版把预算绕过去了」；<br>
+  ③ B 类要单独设规则：预算明显低于该身份常见价位时，<b>先提示「这个预算买不到这个用途，要不要降配或加预算」</b>，而不是硬推一台超预算的。</div>
 
 </section>
 
@@ -361,6 +404,72 @@ footer{text-align:center;color:var(--faint);font-size:12.5px;padding:10px 0 30px
 
   </details>
 
+  <details>
+
+    <summary>展开查看全部 24 条场景与结果（<b>2026-10-22 全量复测 · 当前版本</b>）</summary>
+
+    <div class="inner">
+
+    <table>
+
+    <tr><th>#</th><th>场景预算</th><th>首卡机型</th><th>首卡价格</th><th>预算内?</th></tr>
+
+    <tr><td>01</td><td>¥4,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>02</td><td>¥5,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>03</td><td>¥4,500</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>04</td><td>¥6,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>05</td><td>¥7,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>06</td><td>¥8,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>07</td><td>¥7,500</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>08</td><td>¥6,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>09</td><td>¥8,000</td><td>小新 Pro 14 2026 AI超能本</td><td>¥6,499</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>10</td><td>¥9,000</td><td>小新 Pro 14 2026 AI超能本</td><td>¥6,499</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>11</td><td>¥10,000</td><td>小新 Pro 14 2026 AI超能本</td><td>¥6,499</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>12</td><td>¥7,000</td><td>小新 Pro 14 2026 AI超能本</td><td>¥6,499</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>13</td><td>¥6,500</td><td>幻16 Air 2025</td><td>¥13,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>14</td><td>¥5,500</td><td>幻16 Air 2025</td><td>¥13,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>15</td><td>¥7,000</td><td>幻16 Air 2025</td><td>¥13,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>16</td><td>¥3,500</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>17</td><td>¥3,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>18</td><td>¥5,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>19</td><td>¥4,500</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>20</td><td>¥4,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    <tr><td>21</td><td>¥8,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>22</td><td>¥7,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>23</td><td>¥6,000</td><td>小新 Pro 14 2025 极客版</td><td>¥5,999</td><td style="color:#0e9d6b;font-weight:700">✓</td></tr>
+
+    <tr><td>24</td><td>¥4,000</td><td>幻16 Air 2025</td><td>¥13,999</td><td style="color:#dc2626;font-weight:700">✗</td></tr>
+
+    </table>
+
+    <p class="small">脚本自动跑满 24 条，24/24 流程走通。<b>12 条命中（✓）、12 条未中（✗）</b>；首卡只出现 3 台机型，与预算无关，与身份强相关。判定口径与第一轮完全相同。</p>
+
+    </div>
+
+  </details>
+
 </section>
 
 
@@ -377,7 +486,7 @@ footer{text-align:center;color:var(--faint);font-size:12.5px;padding:10px 0 30px
 
     <li><b>badcase 归因</b>：从「白屏现象」追到空值调用根因、从「推荐无感」追到画像数据未进推荐链路——现象是给用户看的，根因才是给研发的；</li>
 
-    <li><b>修复验收</b>：同一套集子复测（首卡预算内率 2/24 → 抽查 4/4），不换口径、不换标准——<b>换口径的复测等于没复测</b>，这是评测最容易糊弄自己的地方；</li>
+    <li><b>修复验收</b>：同一套集子、同一口径复测（首卡预算内率 <b>2/24 → 12/24</b>），不换标准、不跳场景——<b>换口径的复测等于没复测</b>；而且抽查通过不等于回归通过，<b>改版会把你修好的东西绕过去</b>，所以我把 24 条固化成了回归脚本；</li>
 
     <li><b>边界纪律</b>：疑似不进结论——测试假象（剪贴板污染 / 脚本误触）用对照实验排除后才写进报告。评测报告里最贵的不是结论，是「哪些我没测」也一并说清。</li>
 
