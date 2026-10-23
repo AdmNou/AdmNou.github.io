@@ -187,6 +187,16 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 @media (max-width:640px){.wall{grid-template-columns:1fr}.jt{margin-left:0;margin-top:6px}}
 @media print{.wcard,.step{break-inside:avoid}}
 
+/* ---- 视频卡 ---- */
+
+.vidwrap{margin:16px 0;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;background:var(--surface)}
+
+.vidwrap video{display:block;width:100%;height:auto;background:#0b1220}
+
+.vidcap{padding:12px 16px;font-size:12.5px;color:var(--muted);line-height:1.7;border-top:1px solid var(--line-2);background:var(--surface-2)}
+
+.vidcap b{color:var(--ink)}
+
 </style>
 
 <link rel="stylesheet" href="assets/apple-fx.css">
@@ -198,6 +208,7 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 <nav id="nav">
   <span class="brand">佚名 · 作品集</span>
   <a href="/" class="on">首页</a>
+  <a href="#film">宣传片</a>
   <a href="/evaluation/index.html">质量评测</a>
   <a href="/prompts/index.html">Prompt 设计</a>
   <a href="/mvp/index.html">选一本 MVP</a>
@@ -321,6 +332,32 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
   <div class="note"><b>先说清边界，省你后面追问：</b>「选一本」是<b>演示版 MVP，暂无真实注册用户</b>——本站与评测页的 24 条场景数据全部是我本人的自测口径，不冒充线上用户数据（真人试用是下一迭代项，实验设计已在评测页写明）。门店数据是真账：三平台官方后台导出 51 份，逐日可核对。</div>
 
 </section>
+
+
+<!-- ========== 宣传片：65 秒总览 ========== -->
+
+<section id="film">
+
+  <h2>先看这个：65 秒看完两条主线</h2>
+
+  <p>没时间从头读，先看这支片子——三平台门店 6 个月真实经营复盘 + 「选一本」产品闭环，一支讲完；片中每个数字都取自本站，可回溯。看完再按上面的岗位入口细看。</p>
+
+  <div class="vidwrap">
+
+    <video controls preload="none" poster="/videos/portfolio-film-cover.jpg" playsinline>
+
+      <source src="/videos/portfolio-film-65s.mp4" type="video/mp4">
+
+      您的浏览器不支持内嵌视频播放，可<a href="/videos/portfolio-film-65s.mp4">点此下载 MP4（65.5 秒）</a>。
+
+    </video>
+
+    <div class="vidcap"><b>作品集综合宣传片</b>（65.5 秒 · 配乐 + 字幕）：从门店 6 个月真实经营数据讲到「选一本」24 条场景评测闭环（首卡预算内率 2/24 → 全量复测 12/24），结尾附六件作品速览。片中「选一本」段为演示版 MVP 口径，与本站边界声明一致。</div>
+
+  </div>
+
+</section>
+
 
 
 <section>
@@ -460,9 +497,25 @@ padding:0 20px;box-shadow:0 1px 6px rgba(16,24,40,.05)}
 
       <li><a href="/prompts/index.html">《Prompt 设计 12 条》</a>——覆盖数据复盘 / 竞品拆解 / 活动策划 / 内容生产 / 用户研究 / 求职复盘六类真实场景，每条可直接复制取用</li>
 
-      <li>50 秒产品演示视频（真实界面录屏 + 旁白 + 字幕）——可应面试官要求当场播放</li>
+      <li><b>80 秒产品演示视频</b>（真实界面录屏 + 旁白 + 字幕）——下方直接播放，也可应面试官要求当场放</li>
 
     </ul>
+
+  </div>
+
+  <h3>产品演示视频（80 秒，下方直接播放）</h3>
+
+  <div class="vidwrap">
+
+    <video controls preload="none" poster="/videos/mvp-demo-cover.jpg" playsinline>
+
+      <source src="/videos/mvp-demo-50s.mp4" type="video/mp4">
+
+      您的浏览器不支持内嵌视频播放，可<a href="/videos/mvp-demo-50s.mp4">点此下载 MP4（80 秒）</a>。
+
+    </video>
+
+    <div class="vidcap"><b>「选一本」产品演示</b>（79.6 秒 · 真实界面 + 旁白 + 字幕）：从「避坑实验室」到推荐输出卡完整走一遍。演示数据，功能均为真实能力——边界声明同上（演示版 MVP，暂无真实注册用户）。</div>
 
   </div>
 
